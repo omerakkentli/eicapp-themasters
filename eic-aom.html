@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic Operational Mimicry (AOM) Proposal</title>
+    <style>
+        /* --- Base Styles --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.65;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        /* --- Typography & Flow --- */
+        h1, h2, h3 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #0d47a1;
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            border-bottom: 3px solid #0d47a1;
+            padding-bottom: 20px;
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            text-align: center;
+            color: #546e7a;
+            font-weight: 500;
+            margin-top: 0;
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+
+        h2 {
+            font-size: 1.875rem;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 12px;
+            margin-top: 50px;
+            margin-bottom: 24px;
+        }
+
+        h3 {
+            font-size: 1.375rem;
+            color: #1565c0;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+            color: #424242;
+            line-height: 1.7;
+        }
+
+        strong, b {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        /* --- Explanatory & Textbook Boxes --- */
+        .story-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-left: 4px solid #0d47a1;
+            padding: 28px;
+            margin: 32px 0;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .story-box h3 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            color: #0d47a1;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .story-box p {
+            color: #424242;
+        }
+
+        .story-box ol, .story-box ul {
+            color: #424242;
+            line-height: 1.7;
+        }
+
+        /* --- Comparison Table --- */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            font-size: 0.938rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #e0e0e0;
+            padding: 14px 16px;
+            text-align: left;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        .comparison-table th {
+            background-color: #0d47a1;
+            color: #ffffff;
+            font-size: 0.938rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+
+        .comparison-table td {
+            color: #424242;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        .comparison-table .highlight {
+            background-color: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+        }
+
+        .comparison-table .highlight strong {
+            color: #1b5e20;
+        }
+
+        .fail {
+            color: #c62828;
+            font-weight: 500;
+        }
+
+        /* --- Related Work Box --- */
+        .related-work {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 28px;
+            margin: 32px 0;
+        }
+
+        .related-work p {
+            margin-bottom: 16px;
+            color: #424242;
+        }
+
+        .related-work ul {
+            padding-left: 24px;
+            margin: 0;
+        }
+
+        .related-work li {
+            margin-bottom: 14px;
+            color: #424242;
+            line-height: 1.7;
+        }
+
+        .related-work strong {
+            color: #0d47a1;
+            font-weight: 600;
+        }
+
+        /* --- Additional Elements --- */
+        code {
+            background: #f1f3f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
+            font-size: 0.875em;
+            color: #1a1a1a;
+        }
+
+        ol, ul {
+            padding-left: 24px;
+            margin-bottom: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>The "AI Tax" You're Paying</h1>
+    <p class="subtitle">Why 95% of AI Pilots Fail... and a New Path Forward.</p>
+
+    <p>We are in the midst of an AI revolution, yet for most businesses, it feels stuck. Despite 71% of organizations diving into generative AI, a staggering <strong>95% of those projects fail to deliver any real-world value</strong>. This isn't just a pilot program failing. It's a systemic failure.</p>
+
+    <p>This disconnect creates a massive, hidden cost: a "Digital Friction" that stops progress cold. It's an <strong>"AI Tax"</strong> paid in failed projects, wasted resources, and reliance on expensive, specialized coders just to bridge the gap.</p>
+
+    <p>But why is this happening? It's not because the AI is "dumb." It's because we're trying to plug a futuristic engine into the messy, complex, "swivel-chair" reality of how work actually gets done.</p>
+
+    <h2>The "Swivel-Chair" Nightmare: Meet Sarah</h2>
+
+    <div class="story-box">
+        <h3>A Day in the Life of an Expert</h3>
+        <p>To understand the problem, let's meet Sarah. She's a star compliance officer at a mid-sized financial services firm, and her workflow is a nightmare.</p>
+        <p>To approve one international transaction, she has to:</p>
+        <ol>
+            <li>Open the customer's request in a <strong>modern web portal</strong>.</li>
+            <li>Log into a 20-year-old, green-screen <strong>mainframe system</strong> to check their "legacy" account status.</li>
+            <li>Cross-reference the transaction details in a locally-installed <strong>Excel spreadsheet</strong>.</li>
+            <li>Listen to a 30-second <strong>audio note</strong> the customer left for "gut-check" context.</li>
+            <li>Finally, click "Approve" back in the web portal and type a justification.</li>
+        </ol>
+    </div>
+
+    <p>Her company, eager to modernize, has tried automation. They've hit three different walls.</p>
+
+    <h3>Wall #1: The Macro (The "Dumb Recorder")</h3>
+    <p>The first attempt was a simple <strong>macro recorder</strong> or data scraper. A macro is a "dumb" recorder. It records: <code>Click at pixel coordinate (X, Y)</code>. The moment the company updated its web portal and the "Approve" button moved 50 pixels, the macro broke. It has <strong>zero intelligence</strong>. It can't adapt, and it has no understanding of the task. It's just a blind recording.</p>
+
+    <h3>Wall #2: The RPA Bot (The "Manual Script")</h3>
+    <p>The next attempt was a major <strong>Robotic Process Automation (RPA)</strong> implementation. This is the "enterprise" version of a macro. An expensive team of RPA developers spent six weeks interviewing Sarah. They translated her logic into a <strong>manually scripted workflow</strong> in a complex low-code studio. This is <strong>not a learning system</strong>. It is a rigid, manually-programmed piece of software. It still breaks on UI changes, and it <strong>misses the "tacit knowledge."</strong> The developers can't script Sarah's "gut check" (the expert intuition that tells her a "rushed" tone in the audio note is a red flag).</p>
+
+    <h3>Wall #3: The Modern "Doer" AI (The "New Intern")</h3>
+    <p>The latest attempt was a powerful, new "Computer-Using Agent" from a major AI lab (like OpenAI, Anthropic, etc.). The team gave it a command: "Approve this transaction." These agents are powerful <strong>"Doers,"</strong> or <strong>command-executors</strong>. But you can't command a "new intern" to run the compliance department. The AI is a "new hire" every time. It doesn't know Sarah's complex, multi-system process. And in many cases (like Perplexity Comet), it's "blind" to anything outside the web browser, making it completely useless for her mainframe and Excel work.</p>
+
+
+    <h2>The Solution: From a "Doer" to an "Apprentice"</h2>
+
+    <p>The problem isn't the AI's intelligence; it's the <strong>learning method</strong>.</p>
+
+    <p>Our project, <strong>Agentic Operational Mimicry (AOM)</strong>, flips the model. Instead of commanding the AI or scripting it, you simply <strong>apprentice</strong> it. The AOM agent "watches" Sarah. It passively observes her entire workflow across the web portal, the mainframe, and the Excel sheet. It sees the UI, tracks her clicks, and listens to the audio note.</p>
+
+    <p>It learns to become a <strong>"Digital Twin" of her expertise</strong>. It's not a one-time "doer." It's an intelligent agent that learns, understands, and can then independently perform her entire, complex process.</p>
+
+
+    <h2>The Core Techniques: How AOM *Implicitly* Learns</h2>
+    <p>This is our core innovation. AOM is not a recorder; it's a cognitive apprentice. This is achieved through two key techniques.</p>
+
+    <h3>1. The "Eyes, Ears, and Hands" (Multimodal Capture)</h3>
+    <p>AOM perceives the desktop just like Sarah does, by fusing three data streams:</p>
+    <ul>
+        <li><strong>Visual (Eyes):</strong> Using <strong>Vision-Language Models (VLMs)</strong>, the agent understands the screen. It doesn't see <code>click(250, 400)</code>. It sees <code>click(the "Approve" button, which is green and next to the "Deny" button)</code>. This makes it resilient to UI changes.</li>
+        <li><strong>Interaction (Hands):</strong> It logs the sequence of actions (clicks, typing, application switching) to build a map of the process.</li>
+        <li><strong>Voice/Context (Ears):</strong> This is the key. It captures the audio data, like the customer's note. This allows it to learn the "tacit," unwritten rules that Sarah uses for her "gut check" decisions.</li>
+    </ul>
+
+    <h3>2. The "Brain" (Autonomous Business Logic Deduction)</h3>
+    <p>This is our primary innovation and the direct opposite of manual RPA scripting. AOM takes the raw, multimodal data and "plays it back" to itself, acting as an inference engine to find the unwritten rules.</p>
+
+    <p><strong>Autonomous Business Logic Deduction (ABL-D)</strong> is the process of moving from observation to understanding. Instead of just copying clicks, the ABL-D model asks "Why?" It analyzes patterns in the captured data to infer the unwritten rules that govern an expert's behavior.</p>
+
+    <p>For example, after watching Sarah process dozens of transactions, AOM might observe that she always opens Excel when the transaction value exceeds €10,000. It doesn't need anyone to script this rule. It discovers it automatically by finding the pattern. Similarly, it might notice that whenever the customer's audio note has an "agitated" or "rushed" tone, Sarah denies the transaction or escalates it to a supervisor. This is the "tacit knowledge" that RPA can't capture because no developer would think to ask Sarah about vocal tone patterns.</p>
+
+    <p>The result is a system that doesn't just replay Sarah's clicks. It understands the logic behind her decisions and can apply that same reasoning to new situations.</p>
+
+
+    <h2>The AOM "Moat": How We Win</h2>
+    <p>Our "moat" isn't just a better bot; it's an entirely new way to create the bot's intelligence. This table summarizes the key differentiators.</p>
+    
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Capability</th>
+                <th>1. Macro / Scraper</th>
+                <th>2. RPA (e.g., UiPath)</th>
+                <th>3. "Doer" AI (e.g., OpenAI)</th>
+                <th>4. AOM (Our Proposal)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Learning Method</strong></td>
+                <td class="fail">None. Blind recording.</td>
+                <td class="fail">None. 100% manual scripting.</td>
+                <td class="fail">None. Follows one-time commands.</td>
+                <td class="highlight"><strong>Autonomous.</strong> Learns by observing human experts.</td>
+            </tr>
+            <tr>
+                <td><strong>Handles "Messy" UI</strong></td>
+                <td class="fail">Brittle. Fails instantly.</td>
+                <td class="fail">Brittle. Fails on UI changes.</td>
+                <td class="fail">Limited. Struggles with legacy apps.</td>
+                <td class="highlight"><strong>Resilient.</strong> Uses VLM to find buttons visually.</td>
+            </tr>
+            <tr>
+                <td><strong>Captures "Tacit Rules"</strong></td>
+                <td class="fail">No</td>
+                <td class="fail">No. Can't script a "gut feeling."</td>
+                <td class="fail">No. Lacks process context.</td>
+                <td class="highlight"><strong>Yes.</strong> Deduces logic from multimodal observation.</td>
+            </tr>
+            <tr>
+                <td><strong>Works Across Apps?</strong></td>
+                <td class="fail">No (Usually single-app)</td>
+                <td>Yes (but needs manual setup)</td>
+                <td class="fail">Limited (Often browser-only)</td>
+                <td class="highlight"><strong>Yes.</strong> Natively system-wide.</td>
+            </tr>
+            <tr>
+                <td><strong>Core Metaphor</strong></td>
+                <td class="fail">A "Tape Recorder"</td>
+                <td class="fail">A "Dumb Robot"</td>
+                <td class="fail">A "New Intern" (every time)</td>
+                <td class="highlight"><strong>A "Trained Apprentice"</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>The Value: A Resilient, Trustworthy "Digital Twin"</h2>
+    <p>When the AOM agent is deployed, it fundamentally solves the failures of the old models. It's <strong>resilient</strong>, not brittle. When the "Approve" button moves, the VLM "eye" finds it. It's <strong>trustworthy</strong>. If it encounters a new situation, it pauses and escalates to Sarah for the final decision. And most importantly, it <strong>eliminates the "AI Tax"</strong> by removing the need for costly backend overhauls, API development, or manual scripting.</p>
+
+    <p>By shifting the burden from human scripters to AI learners, AOM provides a non-invasive, scalable path for EU enterprises to finally unlock the 95% of AI value currently trapped behind their legacy systems.</p>
+
+    <h2>Related Work</h2>
+    <div class="related-work">
+        <p>While the AOM paradigm is novel in its synthesis, it builds upon established and emerging fields of research:</p>
+        <ul>
+            <li><strong>Macro Recorders & Data Scraping:</strong> Tools that record a fixed sequence of user inputs, often tied to screen coordinates or DOM element IDs.</li>
+            <li><strong>Robotic Process Automation (RPA) (e.g., UiPath, Blue Prism):</strong> Mature enterprise platforms that require <strong>manual scripting</strong> by a human developer.</li>
+            <li><strong>Command-Based Agents (e.g., OpenAI, Anthropic, Perplexity):</strong> AI models that can execute commands given in natural language, but are not designed to learn complex, repeatable, multi-system processes from observation.</li>
+            <li><strong>Learning from Demonstration (LfD):</strong> A field in robotics where a physical robot learns by observing a human. We are applying this "learning by watching" concept to the digital environment.</li>
+            <li><strong>Process/Task Mining (e.g., Celonis, Nintex):</strong> Tools that also record users to discover and map business processes. Their sole output, however, is an analytical report for managers, not an autonomously-generated, executable agent.</li>
+        </ul>
+    </div>
+
+</body>
+</html>
