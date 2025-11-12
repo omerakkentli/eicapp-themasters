@@ -11,6 +11,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
+    <!-- Mermaid for Diagrams -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+
     <style>
         /* ========================================
            CSS VARIABLES: DESIGN SYSTEM
@@ -638,6 +644,67 @@
         }
 
         /* ========================================
+           TABLE OF CONTENTS
+        ======================================== */
+        .toc-container {
+            background: #F7FAFC;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border: 2px solid #E2E8F0;
+        }
+
+        .toc-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--color-accent);
+        }
+
+        .toc-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .toc-section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .toc-list {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .toc-list li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .toc-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+
+        .toc-list a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .toc-list a:hover {
+            color: var(--color-accent);
+        }
+
+        /* ========================================
            FOOTER
         ======================================== */
         .article-footer {
@@ -744,11 +811,11 @@
                  INTRODUCTION
             ======================================== -->
             <p class="lead">
-                Every year, B2B startups lose millions building products for buyers they've never spoken to. A founder might spend 8 months and €200K building features for "hospital IT departments," only to discover at launch that procurement actually happens at the <em>network level</em>. Those months and money are gone forever.
+                Every year, B2B startups lose millions building products for buyers they've never spoken to. A builder might spend 8 months and €200K building features for "hospital IT departments," only to discover at launch that procurement actually happens at the <em>network level</em>. Those months and money are gone forever.
             </p>
 
             <p>
-                Traditional expert validation could prevent this disaster—but at €5K-50K per engagement, early-stage founders are priced out. This is the market gap <strong>theMasters</strong> platform is designed to close: connecting founders with enterprise decision-makers (the "Masters") for AI-conducted validation interviews at a fraction of the cost.
+                Traditional expert validation could prevent this disaster, but at €5K-50K per engagement, early-stage builders are priced out. This is the market gap <strong>theMasters</strong> platform is designed to close: connecting builders with enterprise decision-makers (masters/experts) for AI-conducted validation interviews at a fraction of the cost.
             </p>
 
             <p>
@@ -756,14 +823,14 @@
             </p>
 
             <ul>
-                <li><strong>Conduct expert-level Socratic interviews</strong> that extract genuine insights from experienced Masters</li>
+                <li><strong>Conduct expert-level Socratic interviews</strong> that extract genuine insights from experienced masters (experts)</li>
                 <li><strong>Learn from every interaction</strong>, getting progressively smarter with each interview conducted</li>
                 <li><strong>Compound knowledge across 1,000s of conversations</strong> without losing critical details</li>
                 <li><strong>Operate in real-time</strong> during voice calls while maintaining strategic depth</li>
             </ul>
 
             <p>
-                A simple chatbot cannot do this. This is where 95% of enterprise AI deployments fail. The culprit? A catastrophic phenomenon called <strong>Context Collapse</strong>.
+                A simple chatbot cannot do this. This is where 95% of enterprise AI deployments fail. The culprit? A critical phenomenon called <strong>Context Collapse</strong>.
             </p>
 
             <!-- ========================================
@@ -812,7 +879,7 @@
                     <li><strong>Context Collapse:</strong> Progressive loss of information through repeated summarization</li>
                     <li><strong>Socratic Method:</strong> Teaching technique using questions to guide discovery</li>
                     <li><strong>Atomic Note:</strong> Self-contained insight with full context, never summarized</li>
-                    <li><strong>Zettelkasten:</strong> German for "slip box" — a note-taking system where each idea is on a separate card linked to related cards</li>
+                    <li><strong>Zettelkasten:</strong> German for "slip box," a note-taking system where each idea is on a separate card linked to related cards</li>
                 </ul>
             </div>
 
@@ -825,13 +892,116 @@
                     <strong>Implementation Status Note:</strong> This document describes the target architecture for theMasters. The system is being developed iteratively:
                 </p>
                 <ul>
-                    <li><strong>✅ Implemented:</strong> Basic Conductor agent (GPT-4o-based), A-MEM storage (PostgreSQL + pgvector), Manual playbook updates, Real-time memory retrieval (~200ms)</li>
+                    <li><strong>✅ Implemented:</strong> Basic Conductor agent (GPT-5-based), A-MEM storage (PostgreSQL + pgvector), Manual playbook updates, Real-time memory retrieval (~200ms)</li>
                     <li><strong>🚧 In Development:</strong> Automated ACE loop (Reflector complete, Curator in progress), GEPA strategy generation, Pattern discovery algorithms</li>
                     <li><strong>📋 Planned:</strong> MDP for long conversations (Q2 2025), SLM-based Conductor (Q3 2025), Full automation (Q4 2025)</li>
                 </ul>
                 <p style="font-style: italic;">
                     This document presents the complete vision to explain the technical approach. Actual system capabilities will grow over time as components are completed.
                 </p>
+            </div>
+
+            <!-- ========================================
+                 TABLE OF CONTENTS
+            ======================================== -->
+            <div class="toc-container">
+                <div class="toc-title">📋 Table of Contents</div>
+
+                <div class="toc-section">
+                    <div class="toc-section-title">Introduction</div>
+                    <ul class="toc-list">
+                        <li>The Problem: Market Validation Gap</li>
+                        <li>The Technical Challenge</li>
+                    </ul>
+                </div>
+
+                <div class="toc-section">
+                    <div class="toc-section-title">Reference</div>
+                    <ul class="toc-list">
+                        <li>Key Terminology</li>
+                        <li>Implementation Status</li>
+                    </ul>
+                </div>
+
+                <div class="toc-section">
+                    <div class="toc-section-title">Part 1: The Core Problem — Context Collapse</div>
+                    <ul class="toc-list">
+                        <li>Why Context Collapse Matters</li>
+                        <li>Example: How Compression Destroys Knowledge</li>
+                        <li>Running Example: Meet Jordan</li>
+                    </ul>
+                </div>
+
+                <div class="toc-section">
+                    <div class="toc-section-title">Part 2: The Solution — Factored Agent Architecture</div>
+                    <ul class="toc-list">
+                        <li>The Factored Agent Architecture</li>
+                        <li>Agent Communication Architecture</li>
+                        <li>Handling Cold Start</li>
+                    </ul>
+                </div>
+
+                <div class="toc-section">
+                    <div class="toc-section-title">Part 3: Compiling Skills — ACE + GEPA</div>
+                    <ul class="toc-list">
+                        <li>What is ACE?</li>
+                        <li>The ACE/GEPA Evolutionary Loop</li>
+                        <li>GEPA Fitness Function Details</li>
+                    </ul>
+                </div>
+
+                <div class="toc-section">
+                    <div class="toc-section-title">Part 4: Compounding Knowledge — A-MEM</div>
+                    <ul class="toc-list">
+                        <li>What is A-MEM?</li>
+                        <li>The A-MEM Zettelkasten in Action</li>
+                        <li>Contradiction Resolution</li>
+                    </ul>
+                </div>
+
+                <div class="toc-section">
+                    <div class="toc-section-title">Part 5: Real-Time Integration</div>
+                    <ul class="toc-list">
+                        <li>Real-Time Memory Retrieval Pipeline</li>
+                        <li>The Complete System in Action</li>
+                        <li>Failure Modes & Mitigation</li>
+                    </ul>
+                </div>
+
+                <div class="toc-section">
+                    <div class="toc-section-title">Part 6: From Interviews to Intelligence</div>
+                    <ul class="toc-list">
+                        <li>Validation Pattern Intelligence</li>
+                        <li>The Compounding Effect</li>
+                        <li>Success Metrics & Validation</li>
+                        <li>Infrastructure & Cost Analysis</li>
+                        <li>Jordan's Journey: Three Months Later</li>
+                    </ul>
+                </div>
+
+                <div class="toc-section">
+                    <div class="toc-section-title">Part 7: Limitations & Future Work</div>
+                    <ul class="toc-list">
+                        <li>Current Limitations</li>
+                        <li>Open Research Questions</li>
+                    </ul>
+                </div>
+
+                <div class="toc-section">
+                    <div class="toc-section-title">Conclusion: Technical Innovation Summary</div>
+                    <ul class="toc-list">
+                        <li>Novel Contributions</li>
+                        <li>Key Results</li>
+                        <li>For Researchers & Builders</li>
+                    </ul>
+                </div>
+
+                <div class="toc-section">
+                    <div class="toc-section-title">References</div>
+                    <ul class="toc-list">
+                        <li>Academic Citations</li>
+                    </ul>
+                </div>
             </div>
 
             <!-- ========================================
@@ -847,27 +1017,44 @@
             </div>
 
             <p class="lead">
-                <strong>Context Collapse</strong> is the "erosion of critical details as an AI system learns from successive interactions." It's a catastrophic failure mode where an agent's performance gets <em>worse over time</em> as its memory is repeatedly summarized to save space.
+                <strong>Context Collapse</strong> is the "erosion of critical details as an AI system learns from successive interactions." It's a failure mode where an agent's performance degrades <em>over time</em> as its memory is repeatedly summarized to save space.
             </p>
 
             <p>
-                This "information compression" is memory decay disguised as optimization. It destroys value at scale.
+                This "information compression" is memory decay disguised as optimization, creating compounding information loss across learning cycles.
             </p>
 
             <!-- Problem Info Box -->
             <div class="info-box theme-problem">
                 <div class="info-box-header">
                     <div class="info-box-icon">⚠️</div>
-                    <h3>Why Context Collapse is Catastrophic</h3>
+                    <h3>Why Context Collapse Matters</h3>
                 </div>
                 <p>
                     When AI systems process information over multiple iterations, naive optimization techniques compress rich, detailed knowledge into increasingly generic summaries. Each compression cycle loses nuance, domain-specific heuristics, and actionable details.
                 </p>
                 <p>
-                    Research from 2025 shows that iterative monolithic rewrites can collapse an 18,282-token context to just 122 tokens, with accuracy dropping from 66.7% to 57.1% [1]. This isn't theoretical—it's a documented, quantifiable phenomenon destroying production systems.
+                    Research from 2025 shows that iterative monolithic rewrites can collapse an 18,282-token context to just 122 tokens, with accuracy dropping from 66.7% to 57.1% [1]. This isn't theoretical. It's a documented, quantifiable phenomenon destroying production systems.
                 </p>
                 <p>
                     <strong>Context Collapse vs. Other Context Failures:</strong> It's critical to distinguish Context Collapse from simpler problems like <em>Context Overflow</em> (running out of space), <em>Context Poisoning</em> (incorrect information persisting), or <em>Context Confusion</em> (irrelevant tools crowding the context). Context Collapse is uniquely destructive because it's <strong>qualitative degradation</strong>—the context window may be large, but iterative summarization destroys information fidelity within it. Simply adopting models with larger context windows doesn't solve this. The answer lies in <strong>context hygiene</strong>: systematic practices for maintaining context quality through surgical edits (ACE), full-fidelity storage (A-MEM), and strategic offloading.
+                </p>
+            </div>
+
+            <!-- Analogy: The Telephone Game of AI -->
+            <div class="callout">
+                <span class="callout-icon">📞</span>
+                <p><strong>Analogy: The Telephone Game of AI</strong></p>
+                <p>
+                    Imagine playing the telephone game with critical business advice:
+                </p>
+                <ul>
+                    <li><strong>Round 1:</strong> "Medical practice IT departments require 90-day board approval cycles for any software over €5K annually. They prefer 30-day pilot programs with clear ROI metrics before full commitment."</li>
+                    <li><strong>Round 2:</strong> "Healthcare buyers have slow approval processes and prefer pilots."</li>
+                    <li><strong>Round 3:</strong> "B2B sales are complex."</li>
+                </ul>
+                <p>
+                    By Round 3, the actionable detail (90 days, €5K threshold, ROI metrics) is gone. That's Context Collapse, and it destroys production AI systems.
                 </p>
             </div>
 
@@ -893,7 +1080,7 @@
             </table>
 
             <p>
-                When Founder #500 joins the platform, the AI <em>must</em> remember that specific "90-day / €5K / pilot program" heuristic to ask informed questions. The generic summary is useless. <strong>theMasters must preserve everything.</strong>
+                When Builder #500 joins the platform, the AI <em>must</em> remember that specific "90-day / €5K / pilot program" heuristic to ask informed questions. The generic summary is useless. <strong>theMasters must preserve everything.</strong>
             </p>
 
             <!-- Running Example Introduction -->
@@ -904,15 +1091,15 @@
                 </div>
                 <div class="example-tracker-content">
                     <p>
-                        Throughout this article, we'll follow <strong>Jordan</strong>, a founder building a B2B SaaS tool for small medical practices. Jordan is confident about pricing: "Small medical practices will definitely pay €50/month."
+                        Throughout this article, we'll follow <strong>Jordan</strong>, a builder building a B2B SaaS tool for small medical practices. Jordan is confident about pricing: "Small medical practices will definitely pay €50/month."
                     </p>
                     <p>
-                        This is a <em>textbook unvalidated assumption</em>. The Masters platform has already learned from previous interviews that:
+                        This is a <em>textbook unvalidated assumption</em>. theMasters platform has already learned from previous interviews that:
                     </p>
                     <ul>
-                        <li><strong>Master Emily</strong> (Hospital CIO) initially said "€50/month is too expensive" but later changed her mind after seeing a working demo</li>
-                        <li><strong>Three previous founders</strong> (Alex, Sam, Taylor) made similar assumptions and all discovered they needed pricing under €20/month</li>
-                        <li><strong>Working demos</strong> are the key trigger that changes Masters' opinions about pricing</li>
+                        <li><strong>Emily</strong> (Hospital CIO, master/expert) initially said "€50/month is too expensive" but later changed her mind after seeing a working demo</li>
+                        <li><strong>Three previous builders</strong> (Alex, Sam, Taylor) made similar assumptions and all discovered they needed pricing under €20/month</li>
+                        <li><strong>Working demos</strong> are the key trigger that changes masters' opinions about pricing</li>
                     </ul>
                     <p>
                         Our AI system must retrieve, synthesize, and apply all of this knowledge in real-time during Jordan's live interview. Let's see how.
@@ -937,13 +1124,13 @@
                 <ul>
                     <li>Fast execution + Deep learning separated</li>
                     <li>Like a chess player (Conductor) with a coach (Analyst)</li>
-                    <li>Solves the "Latency Paradox" — real-time speed meets strategic depth</li>
+                    <li>Solves the "Latency Paradox" by combining real-time speed with strategic depth</li>
                 </ul>
 
                 <h4>2. Evolving Skills (ACE + GEPA)</h4>
                 <ul>
                     <li>Interview techniques improve through delta edits</li>
-                    <li>Never rewrite everything—surgical improvements only</li>
+                    <li>Never rewrite everything. Surgical improvements only</li>
                     <li>Procedural memory compounds without collapse</li>
                 </ul>
 
@@ -990,41 +1177,24 @@
                 We solve it by <strong>decoupling the system</strong> into two specialized agents with distinct responsibilities:
             </p>
 
-            <!-- Diagram: Factored Architecture -->
+            <!-- Mermaid Diagram: Factored Architecture -->
             <div class="diagram-container">
                 <div class="diagram-title">Factored Agent Architecture</div>
-                <div class="flow-diagram">
-                    <div class="flow-step">
-                        <div class="flow-box">
-                            <span class="flow-icon">🎯</span>
-                            <div class="flow-label">Conductor Agent</div>
-                            <div class="flow-description">Small Language Model (SLM) handles real-time conversations</div>
-                        </div>
-                    </div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-step">
-                        <div class="flow-box">
-                            <span class="flow-icon">💬</span>
-                            <div class="flow-label">Live Interview</div>
-                            <div class="flow-description">Fast execution of current playbook</div>
-                        </div>
-                    </div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-step">
-                        <div class="flow-box">
-                            <span class="flow-icon">🧠</span>
-                            <div class="flow-label">Analyst Agent</div>
-                            <div class="flow-description">Large Language Model (LLM) learns offline</div>
-                        </div>
-                    </div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-step">
-                        <div class="flow-box">
-                            <span class="flow-icon">📚</span>
-                            <div class="flow-label">Updated System</div>
-                            <div class="flow-description">Improved playbook for next day</div>
-                        </div>
-                    </div>
+                <div class="mermaid">
+flowchart TD
+    A[Live Interview] -->|Real-time| B[Conductor Agent<br/>SLM - Fast]
+    B -->|Queries 200ms| C[A-MEM<br/>Knowledge Store]
+    B -->|Executes| D[Playbook v1.38<br/>Compiled Skills]
+    A -->|Transcript| E[Analyst Agent<br/>LLM - Deep]
+    E -->|Offline Learning| F[ACE/GEPA<br/>Strategy Evolution]
+    E -->|Offline Learning| G[A-MEM<br/>Pattern Discovery]
+    F -->|Updates| D
+    G -->|Updates| C
+
+    style B fill:#4A90E2
+    style E fill:#E25C4A
+    style C fill:#50C878
+    style D fill:#F39C12
                 </div>
             </div>
 
@@ -1038,16 +1208,16 @@
                     <strong>Model:</strong> Small Language Model (SLM) like Mistral 7B, Llama 3 8B, or character.ai's Kaiju family (13B-110B variants)
                 </p>
                 <p>
-                    <strong>Role:</strong> The "Execution Specialist" — this is the agent the founder speaks to during live interviews. It's optimized for <em>speed</em> and <em>consistency</em>.
+                    <strong>Role:</strong> The "Execution Specialist." This is the agent the builder speaks to during live interviews. It's optimized for <em>speed</em> and <em>consistency</em>.
                 </p>
                 <p>
-                    <strong>Why an SLM?</strong> Following character.ai's Kaiju design philosophy, we prioritize <strong>per-token inference speed</strong> and <strong>engaging conversational quality</strong> over academic benchmark performance. For real-time voice interviews, the model must respond in <em>milliseconds</em> with natural, contextually appropriate dialogue—not solve complex math problems. SLMs deliver 3-5x faster inference than frontier LLMs while maintaining conversational coherence when executing a well-compiled playbook.
+                    <strong>Why an SLM?</strong> Following character.ai's Kaiju design philosophy, we prioritize <strong>per-token inference speed</strong> and <strong>engaging conversational quality</strong> over academic benchmark performance. For real-time voice interviews, the model must respond in <em>milliseconds</em> with natural, contextually appropriate dialogue, not solve complex math problems. SLMs deliver 3-5x faster inference than frontier LLMs while maintaining conversational coherence when executing a well-compiled playbook.
                 </p>
                 <p>
                     <strong>Function:</strong> Executes the most current "playbook" of Socratic interview techniques compiled by the Analyst. It operates with sub-second latency, making it suitable for natural voice conversations.
                 </p>
                 <p>
-                    <strong>Analogy:</strong> Think of it as a well-trained specialist who has memorized the best scripts, questions, and strategies. It doesn't improvise or learn on the fly—it executes perfectly.
+                    <strong>Analogy:</strong> Think of it as a well-trained specialist who has memorized the best scripts, questions, and strategies. It doesn't improvise or learn on the fly. It executes perfectly.
                 </p>
             </div>
 
@@ -1058,10 +1228,10 @@
                     <h3>The "Analyst" Agent (Offline Architect)</h3>
                 </div>
                 <p>
-                    <strong>Model:</strong> Large Language Model (LLM) like GPT-4o, Claude 3.5 Sonnet, or Gemini 1.5 Pro
+                    <strong>Model:</strong> Large Language Model (LLM) like GPT-5, Claude Sonnet 4.5, or Gemini 2.5 Pro
                 </p>
                 <p>
-                    <strong>Role:</strong> The "Strategic Architect" — this agent wakes up <em>after</em> each interview session to analyze what worked, what failed, and how to improve.
+                    <strong>Role:</strong> The "Strategic Architect." This agent wakes up <em>after</em> each interview session to analyze what worked, what failed, and how to improve.
                 </p>
                 <p>
                     <strong>Function:</strong> Runs the <strong>ACE (Agentic Context Engineering)</strong> and <strong>A-MEM (Agentic Memory)</strong> frameworks to evolve the platform's collective intelligence. It performs deep analysis, pattern recognition, and knowledge synthesis.
@@ -1116,7 +1286,7 @@
                 <p><strong>Initial State:</strong></p>
                 <ul>
                     <li>Pre-seeded playbook based on academic research on Socratic interviewing</li>
-                    <li>Generic validation patterns from founder interview literature</li>
+                    <li>Generic validation patterns from builder interview literature</li>
                     <li>Conservative strategies: more listening, less challenging</li>
                 </ul>
 
@@ -1132,11 +1302,16 @@
             <div class="callout">
                 <span class="callout-icon">💡</span>
                 <p>
-                    <strong>Key Insight:</strong> This separation solves the Latency Paradox. The Conductor can respond in milliseconds because it's not doing deep reasoning—it's executing a pre-optimized playbook. The Analyst can take minutes or hours to process and learn because it works offline, between interviews.
+                    <strong>Key Insight:</strong> This separation solves the Latency Paradox. The Conductor can respond in milliseconds because it's not doing deep reasoning. It's executing a pre-optimized playbook. The Analyst can take minutes or hours to process and learn because it works offline, between interviews.
                 </p>
                 <p>
-                    <strong>Advanced Extension:</strong> For extremely long interviews, the Conductor could employ <strong>MDP (Markov Decision Process)</strong> workspace reconstruction from IterResearch—maintaining an "evolving interview summary" that synthesizes findings at each turn, preventing <em>within-interview</em> context suffocation. The Analyst then uses ACE/A-MEM for <em>across-interview</em> learning. This creates a complete two-axis solution: MDP handles horizontal scaling (long conversations), while ACE/A-MEM handles vertical scaling (many conversations).
+                    <strong>Three-Axis Architecture:</strong> The complete system addresses memory across three dimensions:
                 </p>
+                <ul>
+                    <li><strong>Within-Interview Memory (MDP):</strong> Horizontal scaling for 2000+ turn conversations. The Conductor employs Markov Decision Process workspace reconstruction to maintain an "evolving interview summary" that synthesizes findings at each turn, preventing within-interview context suffocation.</li>
+                    <li><strong>Across-Interview Skills (ACE):</strong> Vertical scaling for procedural memory. The Analyst evolves interview techniques through delta edits.</li>
+                    <li><strong>Across-Interview Knowledge (A-MEM):</strong> Vertical scaling for declarative memory. The Analyst discovers patterns and builds knowledge graphs.</li>
+                </ul>
             </div>
 
             <!-- Running Example: Jordan's Interview Setup -->
@@ -1150,9 +1325,9 @@
                         Jordan joins a live call with the Conductor agent. The Conductor has been pre-loaded with the latest playbook, which includes:
                     </p>
                     <ul>
-                        <li><strong>Procedural Memory (Skills):</strong> "When a founder makes a confident assertion about pricing, use the Socratic Challenge v2.0 technique"</li>
-                        <li><strong>Semantic Memory (Knowledge):</strong> Links to relevant past interviews, including Master Emily's pricing opinion evolution</li>
-                        <li><strong>Episodic Memory (Context):</strong> Access to the three previous founders who had similar pricing assumptions</li>
+                        <li><strong>Procedural Memory (Skills):</strong> "When a builder makes a confident assertion about pricing, use the Socratic Challenge v2.0 technique"</li>
+                        <li><strong>Semantic Memory (Knowledge):</strong> Links to relevant past interviews, including Emily's pricing opinion evolution</li>
+                        <li><strong>Episodic Memory (Context):</strong> Access to the three previous builders who had similar pricing assumptions</li>
                     </ul>
                     <p>
                         The Conductor is ready. Let's see how it applies this knowledge in real-time.
@@ -1190,7 +1365,7 @@
                     <strong>Core Principle:</strong> Contexts should evolve through targeted, incremental improvements rather than complete rewrites.
                 </p>
                 <p>
-                    <strong>The Problem ACE Solves:</strong> Traditional prompt optimization asks an AI to "summarize the entire context to make it shorter." This causes Context Collapse—research shows iterative monolithic rewrites can collapse an 18,282-token context to just 122 tokens, with accuracy dropping from 66.7% to 57.1%. ACE instead uses a three-agent loop that applies <em>surgical delta edits</em>, preserving knowledge while evolving skills.
+                    <strong>The Problem ACE Solves:</strong> Traditional prompt optimization asks an AI to "summarize the entire context to make it shorter." This causes Context Collapse (see Part 1), where iterative rewrites destroy information fidelity. ACE instead uses a three-agent loop that applies <em>surgical delta edits</em>, preserving knowledge while evolving skills.
                 </p>
                 <p>
                     <strong>Three Specialized Agents:</strong>
@@ -1198,11 +1373,54 @@
                 <ul>
                     <li><strong>Generator:</strong> Creates new strategies or improvements using <strong>GEPA (Generative Evolutionary Prompt Architectures)</strong> as its mutation engine. GEPA generates multiple candidate improvements, each scored against a fitness function (e.g., "Which prompt extracts insights without triggering defensiveness?").</li>
                     <li><strong>Reflector:</strong> Analyzes execution traces (interview transcripts + metadata) to identify failure patterns. It searches across all past interactions to discover what works and what doesn't, providing diagnostic insights to the Generator.</li>
-                    <li><strong>Curator:</strong> Selects the highest-fitness strategy from GEPA's candidates and applies <em>precise delta edits</em> to the playbook. Critically, it doesn't rewrite—it <strong>adds new rules with conditions</strong> and <strong>deprecates old rules with context</strong>, preventing information loss.</li>
+                    <li><strong>Curator:</strong> Selects the highest-fitness strategy from GEPA's candidates and applies <em>precise delta edits</em> to the playbook. Critically, it doesn't rewrite. Instead, it <strong>adds new rules with conditions</strong> and <strong>deprecates old rules with context</strong>, preventing information loss.</li>
                 </ul>
                 <p>
                     <strong>Result:</strong> The playbook grows richer and more nuanced with each iteration, accumulating conditional logic and domain-specific heuristics without losing critical details. This is how <strong>procedural memory (skills) compounds</strong> without collapse.
                 </p>
+            </div>
+
+            <!-- Delta Edits: The Key to Preventing Collapse -->
+            <h3>Delta Edits: The Key to Preventing Collapse</h3>
+
+            <div class="example-box">
+                <div class="example-box-header">
+                    <div class="example-box-icon">❌</div>
+                    <h4>Rewrite Approach (Bad)</h4>
+                </div>
+
+                <pre><code><span class="keyword">OLD PLAYBOOK v1.0:</span>
+- Rule 1: Ask about pricing
+- Rule 2: Ask about customers
+- Rule 3: Ask about validation
+
+<span class="keyword">NEW PLAYBOOK v2.0:</span>
+- Rule 1: Ask about validation first
+- Rule 2: Use Socratic questions
+- Rule 3: Avoid direct challenges</code></pre>
+
+                <p style="color: var(--color-problem);"><strong>Problem:</strong> Rules 1, 2, 3 from v1.0 are GONE. Knowledge lost forever.</p>
+            </div>
+
+            <div class="example-box">
+                <div class="example-box-header">
+                    <div class="example-box-icon">✅</div>
+                    <h4>Delta Edit Approach (Good)</h4>
+                </div>
+
+                <pre><code><span class="keyword">PLAYBOOK v1.0:</span>
+- Rule 1: Ask about pricing
+- Rule 2: Ask about customers
+- Rule 3: Ask about validation
+
+<span class="keyword">PLAYBOOK v1.1 (delta applied):</span>
+- Rule 1: Ask about pricing
+- Rule 2: Ask about customers
+- Rule 3: Ask about validation
+- Rule 4: <span class="keyword">[NEW]</span> When confidence > 0.7, use Socratic approach
+- Rule 5: <span class="keyword">[NEW]</span> Direct challenges deprecated for high-confidence builders</code></pre>
+
+                <p style="color: var(--color-skills);"><strong>Result:</strong> Old rules preserved. New rules added. Nothing lost.</p>
             </div>
 
             <h3>The ACE/GEPA Evolutionary Loop in Action</h3>
@@ -1220,9 +1438,9 @@
                 </p>
                 <pre><code><span class="keyword">Conductor Agent:</span> <span class="string">"Have you actually validated this pricing with customers?"</span>
 
-<span class="keyword">Founder (Alex):</span> <span class="string">"I know my customers! I worked in this field for 3 years!"</span>
+<span class="keyword">Builder (Alex):</span> <span class="string">"I know my customers! I worked in this field for 3 years!"</span>
 
-<span class="error">❌ Result: Founder becomes defensive. Conversation derails. No useful insight extracted.</span></code></pre>
+<span class="error">❌ Result: Builder becomes defensive. Conversation derails. No useful insight extracted.</span></code></pre>
                 <p>
                     The interview ends poorly. The Conductor agent has created an "execution trace" (transcript + metadata) that the Analyst will analyze later.
                 </p>
@@ -1238,15 +1456,15 @@
                     After the interview, the Analyst agent (the LLM) wakes up and activates its <strong>ACE Reflector</strong> role. It analyzes the execution trace and searches for patterns across all past interviews:
                 </p>
                 <pre><code><span class="keyword">PATTERN DETECTED:</span>
-Direct challenge questions trigger defensiveness in confident founders.
-<span class="comment">// Failed in 12 out of 18 recent cases with high-confidence founders</span>
+Direct challenge questions trigger defensiveness in confident builders.
+<span class="comment">// Failed in 12 out of 18 recent cases with high-confidence builders</span>
 
 <span class="keyword">SUCCESS PATTERN IDENTIFIED:</span>
 Socratic questions that reveal assumptions through guided discovery work better.
 <span class="comment">// Successful in 47 out of 50 cases</span>
 
 <span class="keyword">ROOT CAUSE:</span>
-When founders have domain experience, direct challenges feel like attacks on their expertise.
+When builders have domain experience, direct challenges feel like attacks on their expertise.
 The Socratic approach lets them discover gaps themselves.</code></pre>
             </div>
 
@@ -1268,8 +1486,8 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
 <span class="string">"So you're confident based on your 3 years in the field. What surprised you most when you talked to potential buyers?"</span>
 
 <span class="keyword">CANDIDATE STRATEGY 3:</span> <span class="string">"Peer Example"</span>
-<span class="comment">// Reference similar founders without being direct</span>
-<span class="string">"Interesting. I've spoken with other founders in healthcare who had similar backgrounds. Many found their pricing assumptions changed after customer conversations. What's your experience been?"</span></code></pre>
+<span class="comment">// Reference similar builders without being direct</span>
+<span class="string">"Interesting. I've spoken with other builders in healthcare who had similar backgrounds. Many found their pricing assumptions changed after customer conversations. What's your experience been?"</span></code></pre>
                 <p>
                     Each candidate is scored against a "fitness function": <em>"Which prompt extracts the insight without triggering defensiveness?"</em>
                 </p>
@@ -1287,7 +1505,7 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
                 <h4>1. Historical Success Rate (40% weight)</h4>
                 <ul>
                     <li>How often did similar strategies succeed in past interviews?</li>
-                    <li>Measured by: founder satisfaction scores + insight extraction rate</li>
+                    <li>Measured by: builder satisfaction scores + insight extraction rate</li>
                     <li>Formula: <code>(successful_outcomes / total_applications) * 0.4</code></li>
                 </ul>
 
@@ -1300,7 +1518,7 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
 
                 <h4>3. Defensive Risk (20% weight)</h4>
                 <ul>
-                    <li>Likelihood of triggering founder defensiveness</li>
+                    <li>Likelihood of triggering builder defensiveness</li>
                     <li>Measured by: presence of challenge markers, negation words</li>
                     <li>Formula: <code>(1 - defensiveness_score) * 0.2</code></li>
                 </ul>
@@ -1335,7 +1553,7 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
                 <pre><code><span class="keyword">PLAYBOOK UPDATED</span> (v1.37 → v1.38):
 
 <span class="keyword">NEW RULE ADDED:</span>
-<span class="keyword">IF</span> founder_confidence_score > 0.7
+<span class="keyword">IF</span> builder_confidence_score > 0.7
    <span class="keyword">AND</span> assumption_detected = <span class="string">true</span>
    <span class="keyword">AND</span> domain_experience_claimed = <span class="string">true</span>
 <span class="keyword">THEN</span>
@@ -1344,13 +1562,13 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
 
 <span class="keyword">DEPRECATED:</span>
    strategy = <span class="string">"Direct Challenge v1.0"</span>
-   <span class="comment">// Marked as deprecated for high-confidence founders</span></code></pre>
+   <span class="comment">// Marked as deprecated for high-confidence builders</span></code></pre>
             </div>
 
             <div class="callout">
                 <span class="callout-icon">💡</span>
                 <p>
-                    <strong>Why This Matters:</strong> The playbook has evolved from v1.37 to v1.38 with a surgical edit. The old knowledge isn't deleted—it's deprecated with context about when it fails. The new rule is added with clear conditions. This is how skills compound without collapse.
+                    <strong>Why This Matters:</strong> The playbook has evolved from v1.37 to v1.38 with a surgical edit. The old knowledge isn't deleted. It's deprecated with context about when it fails. The new rule is added with clear conditions. This is how skills compound without collapse.
                 </p>
                 <p>
                     The next day, when the Conductor agent encounters Interview #38 with Jordan (our running example), it will have this improved strategy available.
@@ -1402,7 +1620,7 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
             </div>
 
             <p class="lead">
-                The second half of our dual-memory system is for <strong>Episodic</strong> and <strong>Semantic Memory</strong>—the "what" and "why" of knowledge learned from interviews.
+                The second half of our dual-memory system is for <strong>Episodic</strong> and <strong>Semantic Memory</strong>: the "what" and "why" of knowledge learned from interviews.
             </p>
 
             <p>
@@ -1423,13 +1641,13 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
                     <strong>Core Principle:</strong> Knowledge should be stored as an interconnected network of "atomic notes" that can evolve and link over time, based on the <strong>Zettelkasten method</strong> (a note-taking system used by researchers for knowledge compounding).
                 </p>
                 <p>
-                    <strong>The Problem A-MEM Solves:</strong> Traditional RAG (Retrieval-Augmented Generation) systems store <em>fixed, frozen chunks</em> in vector databases. They have no mechanism to discover higher-order patterns or evolve knowledge. When Master Emily says "€50 is too expensive" in Week 1, then says "€50 is reasonable" in Week 3, standard RAG retrieves <em>both quotes as contradictions</em>. A-MEM sees this as <em>knowledge evolution</em> and automatically learns <strong>why</strong> the opinion changed (trigger: working demo).
+                    <strong>The Problem A-MEM Solves:</strong> Traditional RAG (Retrieval-Augmented Generation) systems store <em>fixed, frozen chunks</em> in vector databases. They have no mechanism to discover higher-order patterns or evolve knowledge. When Emily (a domain expert) says "€50 is too expensive" in Week 1, then says "€50 is reasonable" in Week 3, standard RAG retrieves <em>both quotes as contradictions</em>. A-MEM sees this as <em>knowledge evolution</em> and automatically learns <strong>why</strong> the opinion changed (trigger: working demo).
                 </p>
                 <p>
                     <strong>How It Works (Four Mechanisms):</strong>
                 </p>
                 <ul>
-                    <li><strong>Atomic Notes (Full-Fidelity Storage):</strong> Each interview insight is stored as a self-contained "note" with complete context: the exact quote, speaker profile, timestamp, semantic tags, and confidence level. No summarization—<em>full fidelity is preserved</em>. This prevents the information loss that destroys traditional systems.</li>
+                    <li><strong>Atomic Notes (Full-Fidelity Storage):</strong> Each interview insight is stored as a self-contained "note" with complete context: the exact quote, speaker profile, timestamp, semantic tags, and confidence level. No summarization. <em>Full fidelity is preserved</em>. This prevents the information loss that destroys traditional systems.</li>
                     <li><strong>Dynamic Linking (Knowledge Graph):</strong> The Analyst agent creates typed relationships between notes: <code>contradicts</code>, <code>supports</code>, <code>evolves_from</code>, <code>triggered_by</code>. This creates a living knowledge graph, not just a database of isolated facts.</li>
                     <li><strong>Retroactive Updates (Memory Evolution):</strong> New information triggers <em>updates</em> to existing notes. When Emily's opinion changes, Note #14A receives a status update ("Opinion Evolved"), a link to Note #27B, and meta-knowledge about the trigger ("working demo"). The system learns <em>narratives</em>, not just facts.</li>
                     <li><strong>Pattern Discovery (Meta-Learning):</strong> By analyzing link structures across hundreds of notes, A-MEM discovers <strong>higher-order patterns</strong> like "Demo-Triggered Validation" (87% success rate). These patterns become <em>compiled intelligence</em> that guides future interviews, creating true knowledge compounding.</li>
@@ -1439,9 +1657,91 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
                 </p>
             </div>
 
+            <!-- A-MEM Technical Implementation -->
+            <h3>A-MEM Technical Implementation</h3>
+
+            <div class="info-box theme-architecture">
+                <div class="info-box-header">
+                    <div class="info-box-icon">🔧</div>
+                    <h3>Storage Layer</h3>
+                </div>
+
+                <h4>Primary Store: PostgreSQL with pgvector extension</h4>
+                <ul>
+                    <li>Atomic notes stored as JSONB</li>
+                    <li>Metadata indexed for fast filtering</li>
+                    <li>Graph relationships stored as foreign keys</li>
+                </ul>
+
+                <h4>Vector Embeddings: OpenAI text-embedding-3-large</h4>
+                <ul>
+                    <li>3,072 dimensions per note</li>
+                    <li>~12KB per embedding</li>
+                    <li>Cosine similarity search</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <div class="example-box-header">
+                    <div class="example-box-icon">🔍</div>
+                    <h4>Query Strategy: Hybrid Search</h4>
+                </div>
+
+                <p><strong>Example: "medical practice pricing" query</strong></p>
+                <ol>
+                    <li><strong>Embed query</strong> → vector search → top 50 candidates</li>
+                    <li><strong>Filter by domain tags</strong> → 20 relevant notes</li>
+                    <li><strong>Graph expansion</strong> → follow links → 10 most connected</li>
+                    <li><strong>Return top 5</strong> with full context</li>
+                </ol>
+
+                <p style="margin-top: 1rem;"><strong>Why PostgreSQL + pgvector:</strong></p>
+                <ul>
+                    <li>Unified storage (no separate vector DB)</li>
+                    <li>ACID guarantees for knowledge updates</li>
+                    <li>Native graph relationship support</li>
+                    <li>Cost-effective at scale (vs. Pinecone/Weaviate)</li>
+                </ul>
+            </div>
+
             <h3>The A-MEM Zettelkasten in Action</h3>
 
             <p>Let's trace how the Analyst builds and evolves a knowledge graph:</p>
+
+            <!-- How Retroactive Updates Work -->
+            <div class="info-box theme-knowledge">
+                <div class="info-box-header">
+                    <div class="info-box-icon">🔄</div>
+                    <h3>How Retroactive Updates Work</h3>
+                </div>
+
+                <p><strong>Scenario:</strong> Emily's opinion changes (Note #14A → Note #27B)</p>
+
+                <h4>What happens automatically:</h4>
+
+                <p><strong>1. Detection</strong></p>
+                <pre><code><span class="comment"># System detects semantic similarity + opposing sentiment</span>
+<span class="keyword">if</span> cosine_similarity(note_14A, note_27B) > 0.8 <span class="keyword">and</span> sentiment_opposite:
+    trigger_retroactive_update(note_14A, note_27B)</code></pre>
+
+                <p><strong>2. Linking</strong></p>
+                <pre><code>note_14A.status = <span class="string">"superseded"</span>
+note_14A.superseded_by = note_27B.id
+note_27B.evolves_from = note_14A.id
+note_27B.trigger = extract_trigger(context)  <span class="comment"># "working_demo"</span></code></pre>
+
+                <p><strong>3. Pattern Detection</strong></p>
+                <pre><code>similar_evolutions = find_similar_links(note_14A, note_27B)
+<span class="keyword">if</span> len(similar_evolutions) >= 3:
+    create_pattern(<span class="string">"Demo-Triggered Validation"</span>, similar_evolutions)</code></pre>
+
+                <p style="margin-top: 1rem;"><strong>Why this matters:</strong></p>
+                <ul>
+                    <li>System learns WHY Emily changed (trigger: demo)</li>
+                    <li>System discovers this happens often (pattern)</li>
+                    <li>System can predict it will happen again (compiled intelligence)</li>
+                </ul>
+            </div>
 
             <!-- Step 1: Atomic Note Construction -->
             <div class="example-box">
@@ -1450,10 +1750,10 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
                     <h4>Step 1: Atomic Note Construction (Episodic + Semantic)</h4>
                 </div>
                 <p>
-                    After Interview #4 with Master Emily (Hospital CIO), the Analyst creates an atomic note:
+                    After Interview #4 with Emily (Hospital CIO, master/expert), the Analyst creates an atomic note:
                 </p>
                 <pre><code><span class="keyword">NOTE ID:</span> #14A
-<span class="keyword">SOURCE:</span> Interview #4, Master Emily (Hospital CIO, 15 years experience)
+<span class="keyword">SOURCE:</span> Interview #4, Emily (Hospital CIO, 15 years experience)
 <span class="keyword">TIMESTAMP:</span> 2025-03-15, Week 1
 <span class="keyword">CONTEXT:</span> Discussing pricing for B2B SaaS tool targeting small medical practices
 
@@ -1470,7 +1770,7 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
   Context: Pre-demo evaluation
   Confidence: High (8/10)</code></pre>
                 <p>
-                    This note is stored with <strong>full fidelity</strong>—the exact quote, the full context, and rich metadata. It's not summarized or compressed.
+                    This note is stored with <strong>full fidelity</strong>: the exact quote, the full context, and rich metadata. It's not summarized or compressed.
                 </p>
             </div>
 
@@ -1481,10 +1781,10 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
                     <h4>Step 2: Memory Evolution (The Compounding Mechanism)</h4>
                 </div>
                 <p>
-                    Two weeks later, Master Emily participates in a follow-up interview (#12) after seeing a working demo. She changes her opinion. The Analyst creates a <em>new</em> note and <em>updates the old one</em>:
+                    Two weeks later, Emily participates in a follow-up interview (#12) after seeing a working demo. She changes her opinion. The Analyst creates a <em>new</em> note and <em>updates the old one</em>:
                 </p>
                 <pre><code><span class="keyword">NOTE ID:</span> #27B
-<span class="keyword">SOURCE:</span> Interview #12, Master Emily (Hospital CIO)
+<span class="keyword">SOURCE:</span> Interview #12, Emily (Hospital CIO)
 <span class="keyword">TIMESTAMP:</span> 2025-03-29, Week 3
 <span class="keyword">CONTEXT:</span> Follow-up interview after viewing working demo
 
@@ -1514,7 +1814,7 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
   "working_demo" (critical validation trigger)
 <span class="keyword">TIME DELTA:</span> 14 days</code></pre>
                 <p>
-                    The system hasn't just "remembered" two facts—it has <strong>learned WHY the opinion changed</strong>. This is true knowledge compounding.
+                    The system hasn't just "remembered" two facts. It has <strong>learned WHY the opinion changed</strong>. This is true knowledge compounding.
                 </p>
             </div>
 
@@ -1530,27 +1830,27 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
                 <pre><code><span class="keyword">DISCOVERED PATTERN #7:</span> "Demo-Triggered Validation"
 
 <span class="keyword">EVIDENCE:</span>
-  - Note #14A → #27B (Master Emily, medical)
-  - Note #52C → #58D (Master Raj, medical)
-  - Note #71A → #73B (Master Sofia, medical)
-  - Note #89F → #94G (Master Chen, medical)
+  - Note #14A → #27B (Emily, medical)
+  - Note #52C → #58D (Raj, medical)
+  - Note #71A → #73B (Sofia, medical)
+  - Note #89F → #94G (Chen, medical)
 
 <span class="keyword">PATTERN DESCRIPTION:</span>
-  Masters in medical practice domain initially reject premium pricing
+  Domain experts in medical practice domain initially reject premium pricing
   but accept it after seeing working demos that quantify time savings.
 
 <span class="keyword">SUCCESS RATE:</span>
-  87% of initially skeptical Masters (12/14 cases)
+  87% of initially skeptical experts (12/14 cases)
 
 <span class="keyword">KEY INSIGHT:</span>
   "Working demo" is the critical validation trigger for medical practice
   pricing discussions. Time savings visualization is the key persuader.
 
 <span class="keyword">ACTIONABLE RECOMMENDATION:</span>
-  Founders targeting medical practices should prioritize demo-ready
-  state before discussing pricing with Masters.</code></pre>
+  Builders targeting medical practices should prioritize demo-ready
+  state before discussing pricing with domain experts.</code></pre>
                 <p>
-                    This insight is now available to the Conductor agent during future interviews. It's not just data—it's <strong>compiled intelligence</strong>.
+                    This insight is now available to the Conductor agent during future interviews. It's not just data. It's <strong>compiled intelligence</strong>.
                 </p>
             </div>
 
@@ -1558,7 +1858,7 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
             <h3>Contradiction Resolution in A-MEM</h3>
 
             <p>
-                When new information contradicts existing notes, A-MEM doesn't delete the old information—it creates an evolution narrative:
+                When new information contradicts existing notes, A-MEM doesn't delete the old information. It creates an evolution narrative:
             </p>
 
             <div class="example-box">
@@ -1626,11 +1926,11 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
 
 <span class="keyword">SEMANTIC MEMORY RETRIEVAL:</span>
   ✓ Pattern #7: "Demo-Triggered Validation" (87% success rate)
-  ✓ Note #14A → #27B: Master Emily's opinion evolution
+  ✓ Note #14A → #27B: Emily's opinion evolution
   ✓ 4 similar pattern instances
 
 <span class="keyword">EPISODIC MEMORY RETRIEVAL:</span>
-  ✓ 3 previous founders (Alex, Sam, Taylor) with similar assumptions
+  ✓ 3 previous builders (Alex, Sam, Taylor) with similar assumptions
   ✓ All discovered need for < €20/month in initial conversations
   ✓ 2 later succeeded with €45/month after demo-based validation
 
@@ -1638,9 +1938,9 @@ The Socratic approach lets them discover gaps themselves.</code></pre>
                     <p>
                         The Conductor responds with informed, experience-backed guidance:
                     </p>
-                    <pre><code><span class="keyword">Conductor Agent:</span> <span class="string">"That's helpful context. Based on conversations with other founders
-and Masters in the medical practice space, I've noticed an interesting
-pattern: Masters often express initial price sensitivity, but their opinions
+                    <pre><code><span class="keyword">Conductor Agent:</span> <span class="string">"That's helpful context. Based on conversations with other builders
+and domain experts in the medical practice space, I've noticed an interesting
+pattern: experts often express initial price sensitivity, but their opinions
 frequently shift after seeing working demos that quantify time savings.
 
 Have you considered what specific time savings your tool provides? That
@@ -1664,44 +1964,30 @@ the collective learning from 50+ previous interviews.</span></code></pre>
             </div>
 
             <p class="lead">
-                This dual-memory architecture comes together during live interviews. The Conductor doesn't just execute a script—it has real-time access (~200ms) to the entire platform's collective intelligence.
+                This dual-memory architecture comes together during live interviews. The Conductor doesn't just execute a script. It has real-time access (~200ms) to the entire platform's collective intelligence.
             </p>
 
             <!-- Real-Time Query Pipeline Diagram -->
             <div class="diagram-container">
                 <div class="diagram-title">Real-Time Memory Retrieval Pipeline</div>
-                <div class="flow-diagram">
-                    <div class="flow-step">
-                        <div class="flow-box">
-                            <span class="flow-icon">💬</span>
-                            <div class="flow-label">Founder Statement</div>
-                            <div class="flow-description">Input from live conversation</div>
-                        </div>
-                    </div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-step">
-                        <div class="flow-box">
-                            <span class="flow-icon">🔍</span>
-                            <div class="flow-label">Parallel Query</div>
-                            <div class="flow-description">Search all memory systems</div>
-                        </div>
-                    </div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-step">
-                        <div class="flow-box">
-                            <span class="flow-icon">🧠</span>
-                            <div class="flow-label">Synthesis</div>
-                            <div class="flow-description">Combine ACE + A-MEM results</div>
-                        </div>
-                    </div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-step">
-                        <div class="flow-box">
-                            <span class="flow-icon">💡</span>
-                            <div class="flow-label">Response</div>
-                            <div class="flow-description">Informed, contextual reply</div>
-                        </div>
-                    </div>
+                <div class="mermaid">
+flowchart LR
+    A[💬 Builder Statement<br/>Live conversation input] -->|T+0ms| B[🔍 Pattern Detection<br/>Confidence analysis]
+    B -->|T+50ms| C[⚙️ Procedural Memory<br/>ACE Playbook query]
+    B -->|T+150ms| D[📊 Semantic Memory<br/>A-MEM pattern search]
+    B -->|T+200ms| E[📝 Episodic Memory<br/>Historical cases]
+    C --> F[🧠 Synthesis Engine<br/>Combine all sources]
+    D --> F
+    E --> F
+    F -->|T+250ms| G[💡 Informed Response<br/>Contextual reply]
+
+    style A fill:#E3F2FD
+    style B fill:#FFF3E0
+    style C fill:#E8F5E9
+    style D fill:#F3E5F5
+    style E fill:#FCE4EC
+    style F fill:#E0F2F1
+    style G fill:#E8EAF6
                 </div>
             </div>
 
@@ -1719,7 +2005,7 @@ the collective learning from 50+ previous interviews.</span></code></pre>
                     </p>
 
                     <pre><code><span class="comment">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>
-<span class="comment">// LIVE INTERVIEW - Jordan (Founder #153)</span>
+<span class="comment">// LIVE INTERVIEW - Jordan (Builder #153)</span>
 <span class="comment">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>
 
 <span class="keyword">Jordan:</span> <span class="string">"Small medical practices will definitely pay €50/month."</span>
@@ -1743,10 +2029,10 @@ the collective learning from 50+ previous interviews.</span></code></pre>
 
 <span class="comment">// [T+200ms] Query Episodic Memory (A-MEM)</span>
 <span class="keyword">EPISODIC MEMORY (Historical Cases):</span>
-  ✓ Master Emily: #14A → #27B (€50 rejection → acceptance post-demo)
-  ✓ Founder Alex: Similar assumption, discovered < €20 needed initially
-  ✓ Founder Sam: Similar assumption, discovered < €20 needed initially
-  ✓ Founder Taylor: Similar assumption, discovered < €20 needed initially
+  ✓ Emily (expert): #14A → #27B (€50 rejection → acceptance post-demo)
+  ✓ Builder Alex: Similar assumption, discovered < €20 needed initially
+  ✓ Builder Sam: Similar assumption, discovered < €20 needed initially
+  ✓ Builder Taylor: Similar assumption, discovered < €20 needed initially
 
 <span class="comment">// [T+250ms] Synthesis & Response Generation</span>
 <span class="keyword">SYNTHESIS:</span>
@@ -1760,7 +2046,7 @@ did medical practice administrators say when you interviewed them about pricing?
 <span class="keyword">Jordan:</span> <span class="string">"Well... I haven't actually interviewed them yet."</span>
 
 <span class="keyword">Conductor Agent:</span> <span class="string">"That's helpful context. I've noticed an interesting
-pattern with other founders in medical practice space: initial price sensitivity
+pattern with other builders in medical practice space: initial price sensitivity
 often shifts dramatically after prospects see working demos that quantify time
 savings. Have you mapped out the specific time savings your tool provides?"</span>
 
@@ -1783,12 +2069,63 @@ savings. Have you mapped out the specific time savings your tool provides?"</spa
                 <ul>
                     <li><strong>ACE (Procedural Memory):</strong> Provided the Socratic Discovery strategy that was learned from Alex's failed interview</li>
                     <li><strong>A-MEM Semantic (Pattern Memory):</strong> Supplied the "Demo-Triggered Validation" pattern discovered across 12 interviews</li>
-                    <li><strong>A-MEM Episodic (Case Memory):</strong> Retrieved Emily's specific opinion evolution and three similar founder cases</li>
+                    <li><strong>A-MEM Episodic (Case Memory):</strong> Retrieved Emily's specific opinion evolution and three similar builder cases</li>
                     <li><strong>Factored Architecture:</strong> Conductor executed in real-time while Analyst's compiled intelligence was instantly accessible</li>
                 </ul>
                 <p>
                     The response isn't generic advice—it's <strong>compiled intelligence from the collective experience of the entire platform</strong>.
                 </p>
+            </div>
+
+            <!-- Failure Modes & Mitigation -->
+            <h3>Failure Modes & Mitigation</h3>
+
+            <p>
+                While the system is designed for robustness, several failure modes can occur. Here's how theMasters detects and mitigates each scenario:
+            </p>
+
+            <div class="example-box">
+                <div class="example-box-header">
+                    <div class="example-box-icon">⚠️</div>
+                    <h4>Failure Scenario 1: Conductor Misunderstands Builder</h4>
+                </div>
+                <p><strong>Symptom:</strong> Builder explicitly corrects the Conductor</p>
+                <p><strong>Detection:</strong> Correction markers in transcript ("No, what I meant was...")</p>
+                <p><strong>Mitigation:</strong> Flag conversation for Analyst priority review</p>
+                <p><strong>Learning:</strong> Pattern added to reflector analysis</p>
+            </div>
+
+            <div class="example-box">
+                <div class="example-box-header">
+                    <div class="example-box-icon">🔀</div>
+                    <h4>Failure Scenario 2: A-MEM Returns Contradictory Information</h4>
+                </div>
+                <p><strong>Symptom:</strong> Semantic search returns notes with conflicting advice</p>
+                <p><strong>Mitigation:</strong> Conductor acknowledges uncertainty, asks clarifying questions</p>
+                <p><strong>Display to builder:</strong> "I've heard different perspectives on this..."</p>
+                <p><strong>Learning:</strong> Analyst investigates contradictions, adds contextual conditions</p>
+            </div>
+
+            <div class="example-box">
+                <div class="example-box-header">
+                    <div class="example-box-icon">📉</div>
+                    <h4>Failure Scenario 3: Analyst Generates Low-Quality Strategy</h4>
+                </div>
+                <p><strong>Detection:</strong> GEPA fitness scoring < 0.6 threshold</p>
+                <p><strong>Mitigation:</strong> Strategy rejected, not added to playbook</p>
+                <p><strong>Fallback:</strong> Use previous known-good strategy</p>
+                <p><strong>Learning:</strong> Failure pattern added to Reflector's exclusion list</p>
+            </div>
+
+            <div class="example-box">
+                <div class="example-box-header">
+                    <div class="example-box-icon">⏱️</div>
+                    <h4>Failure Scenario 4: Real-Time Performance Degradation</h4>
+                </div>
+                <p><strong>Symptom:</strong> Response latency > 500ms</p>
+                <p><strong>Detection:</strong> Monitoring alerts</p>
+                <p><strong>Mitigation:</strong> Automatic fallback to simpler strategies (fewer memory queries)</p>
+                <p><strong>Learning:</strong> Analyst optimizes query patterns in next update</p>
             </div>
 
             <!-- ========================================
@@ -1824,7 +2161,7 @@ savings. Have you mapped out the specific time savings your tool provides?"</spa
                     <strong>Evidence Base:</strong> 247 interviews analyzed
                 </p>
                 <p>
-                    <strong>Finding:</strong> Founders who use absolute confidence markers ("definitely", "certainly", "obviously") without citing evidence have an 87% probability of harboring unvalidated assumptions.
+                    <strong>Finding:</strong> Builders who use absolute confidence markers ("definitely", "certainly", "obviously") without citing evidence have an 87% probability of harboring unvalidated assumptions.
                 </p>
                 <p>
                     <strong>Action Trigger:</strong> When detected, system automatically deploys Socratic Discovery v2.0 strategy with 94% success rate in surfacing the validation gap.
@@ -1840,13 +2177,13 @@ savings. Have you mapped out the specific time savings your tool provides?"</spa
                     <strong>Pattern Discovered:</strong> "Demo-Ready Matching Priority"
                 </p>
                 <p>
-                    <strong>Evidence Base:</strong> 89 founder-master matching cycles
+                    <strong>Evidence Base:</strong> 89 builder-master matching cycles
                 </p>
                 <p>
-                    <strong>Finding:</strong> Masters are 3.2x more likely to provide high-quality validation when matched with founders who have working demos vs. slide decks. Post-demo conversations yield 71% more actionable insights.
+                    <strong>Finding:</strong> Domain experts are 3.2x more likely to provide high-quality validation when matched with builders who have working demos vs. slide decks. Post-demo conversations yield 71% more actionable insights.
                 </p>
                 <p>
-                    <strong>Action Trigger:</strong> Platform prioritizes matching demo-ready founders with Masters, increasing overall validation quality.
+                    <strong>Action Trigger:</strong> Platform prioritizes matching demo-ready builders with domain experts, increasing overall validation quality.
                 </p>
             </div>
 
@@ -1865,14 +2202,14 @@ savings. Have you mapped out the specific time savings your tool provides?"</spa
                     <strong>Finding:</strong> "Medical practice IT departments require 90-day board approval cycles for any software over €5K annually. They prefer 30-day pilot programs with clear ROI metrics. Budget holders are typically CFOs, not CIOs, for practices under 50 employees."
                 </p>
                 <p>
-                    <strong>Usage:</strong> This specific heuristic is now used in 1,000+ future interviews, guiding founders toward correct stakeholder targeting and sales cycle expectations.
+                    <strong>Usage:</strong> This specific heuristic is now used in 1,000+ future interviews, guiding builders toward correct stakeholder targeting and sales cycle expectations.
                 </p>
             </div>
 
             <h3>The Compounding Effect: Network Value</h3>
 
             <p>
-                This intelligence doesn't just help individual founders—it creates a <strong>network effect</strong>. Every interview makes the platform smarter for every future user:
+                This intelligence doesn't just help individual builders—it creates a <strong>network effect</strong>. Every interview makes the platform smarter for every future user:
             </p>
 
             <ul>
@@ -1902,14 +2239,14 @@ savings. Have you mapped out the specific time savings your tool provides?"</spa
                     <li>Current: 6.8 avg (based on 247 interviews)</li>
                 </ul>
 
-                <h4>2. Founder Satisfaction</h4>
+                <h4>2. Builder Satisfaction</h4>
                 <ul>
                     <li>Post-interview NPS score</li>
                     <li>Target: ≥ 50 (promoters - detractors)</li>
                     <li>Current: 67 avg</li>
                 </ul>
 
-                <h4>3. Master Engagement</h4>
+                <h4>3. Expert Engagement</h4>
                 <ul>
                     <li>Willingness to do follow-up interviews</li>
                     <li>Target: ≥ 70% accept follow-ups</li>
@@ -1947,9 +2284,40 @@ savings. Have you mapped out the specific time savings your tool provides?"</spa
                 <h4>4. Validation Methodology</h4>
                 <ul>
                     <li>Monthly blind review: Human expert rates 20 random interviews</li>
-                    <li>Founder follow-up surveys: Did insights lead to pivots?</li>
+                    <li>Builder follow-up surveys: Did insights lead to pivots?</li>
                     <li>A/B testing: New strategies tested against baseline</li>
                     <li>Error analysis: Weekly review of flagged failures</li>
+                </ul>
+            </div>
+
+            <!-- Infrastructure & Cost Analysis -->
+            <h3>Infrastructure & Cost Analysis</h3>
+
+            <div class="info-box theme-architecture">
+                <div class="info-box-header">
+                    <div class="info-box-icon">💰</div>
+                    <h3>Per-Interview Costs</h3>
+                </div>
+
+                <ul>
+                    <li><strong>Conductor (SLM):</strong> ~$0.02 per interview (15-minute conversation, Mistral 7B)</li>
+                    <li><strong>A-MEM Queries:</strong> ~$0.005 per interview (5-10 semantic searches)</li>
+                    <li><strong>Analyst Learning:</strong> ~$0.50 per interview batch (nightly GPT-5 processing)</li>
+                </ul>
+
+                <h4>Storage Requirements:</h4>
+                <ul>
+                    <li><strong>A-MEM:</strong> ~2MB per interview (full-fidelity atomic notes)</li>
+                    <li><strong>Playbook:</strong> ~500KB (version controlled)</li>
+                    <li><strong>Execution traces:</strong> ~1MB per interview</li>
+                    <li><strong>Total:</strong> ~3.5MB per interview</li>
+                </ul>
+
+                <h4>Scale Economics:</h4>
+                <ul>
+                    <li><strong>At 1,000 interviews/month:</strong> ~$525/month in LLM costs</li>
+                    <li><strong>At 10,000 interviews/month:</strong> ~$5,000/month</li>
+                    <li><strong>Storage:</strong> ~$50/month for 1TB (10,000 interviews)</li>
                 </ul>
             </div>
 
@@ -1969,7 +2337,7 @@ savings. Have you mapped out the specific time savings your tool provides?"</spa
                     <h4>Actions Taken:</h4>
                     <ol>
                         <li><strong>Delayed her launch</strong> to build a working demo (Demo-Triggered Validation pattern)</li>
-                        <li><strong>Revised pricing</strong> from €50 to €35/month with pilot option (Master Emily's insight)</li>
+                        <li><strong>Revised pricing</strong> from €50 to €35/month with pilot option (Emily's insight)</li>
                         <li><strong>Targeted CFOs</strong> instead of CIOs for practices < 50 employees (Procurement pattern)</li>
                     </ol>
 
@@ -1983,7 +2351,7 @@ savings. Have you mapped out the specific time savings your tool provides?"</spa
 
                     <h4>theMasters ROI for Jordan:</h4>
                     <ul>
-                        <li>Cost: €800 for 3 Master interviews</li>
+                        <li>Cost: €800 for 3 expert interviews</li>
                         <li>Savings: €150K + 6 months</li>
                         <li>Value: 187.5x return</li>
                     </ul>
@@ -2024,18 +2392,18 @@ savings. Have you mapped out the specific time savings your tool provides?"</spa
                     <li>Future work: Cross-domain transfer learning</li>
                 </ul>
 
-                <h4>2. Founder Honesty Assumption</h4>
+                <h4>2. Honesty Assumption</h4>
                 <ul>
-                    <li>System assumes founders answer truthfully</li>
+                    <li>System assumes participants (builders, domain experts) answer truthfully</li>
                     <li>No mechanism to detect intentional deception (e.g., overstating progress)</li>
                     <li>Mitigation: Pattern detection flags inconsistencies over time</li>
                 </ul>
 
-                <h4>3. Master Quality Variance</h4>
+                <h4>3. Expert Quality Variance</h4>
                 <ul>
-                    <li>Not all Masters provide equal insight quality</li>
-                    <li>System doesn't yet weight insights by Master expertise level</li>
-                    <li>Future work: Master reputation scoring</li>
+                    <li>Not all domain experts provide equal insight quality</li>
+                    <li>System doesn't yet weight insights by expert expertise level</li>
+                    <li>Future work: Expert reputation scoring</li>
                 </ul>
 
                 <h4>4. Cold Start Performance</h4>
@@ -2055,7 +2423,7 @@ savings. Have you mapped out the specific time savings your tool provides?"</spa
                 <h4>6. Real-Time Adaptation</h4>
                 <ul>
                     <li>Conductor cannot learn during live interview (only between interviews)</li>
-                    <li>If Master provides genuinely novel information, Conductor can't adapt mid-conversation</li>
+                    <li>If a domain expert provides genuinely novel information, Conductor can't adapt mid-conversation</li>
                     <li>Trade-off: Real-time speed vs. real-time learning</li>
                 </ul>
             </div>
@@ -2067,9 +2435,9 @@ savings. Have you mapped out the specific time savings your tool provides?"</spa
                     <h3>Open Research Questions</h3>
                 </div>
 
-                <h4>1. Can patterns predict optimal Master matching?</h4>
+                <h4>1. Can patterns predict optimal expert matching?</h4>
                 <p>
-                    Hypothesis: If 3+ founders in fintech needed pricing validation, next fintech founder should be matched with Masters who changed opinions on pricing. Status: Not yet implemented.
+                    Hypothesis: If 3+ builders in fintech needed pricing validation, next fintech builder should be matched with domain experts who changed opinions on pricing. Status: Not yet implemented.
                 </p>
 
                 <h4>2. How to measure "knowledge quality" vs "knowledge quantity"?</h4>
@@ -2112,9 +2480,9 @@ savings. Have you mapped out the specific time savings your tool provides?"</spa
                     <h3>Three Core Innovations</h3>
                 </div>
 
-                <h4>1. Two-Axis Context Management</h4>
+                <h4>1. Three-Axis Context Management</h4>
                 <p>
-                    Combining MDP (horizontal/within-interview) with ACE/A-MEM (vertical/across-interviews) for complete scaling. No other production system addresses both dimensions simultaneously.
+                    Combining MDP (horizontal/within-interview) with ACE (vertical/procedural skills) and A-MEM (vertical/declarative knowledge) for complete scaling. No other production system addresses all three dimensions simultaneously.
                 </p>
 
                 <h4>2. Retroactive Memory Evolution</h4>
@@ -2211,7 +2579,7 @@ savings. Have you mapped out the specific time savings your tool provides?"</spa
             <p><strong>theMasters</strong> — Building the future of AI-conducted expert validation interviews</p>
             <p>Powered by ACE, GEPA, A-MEM, and MDP/EAPO</p>
             <p style="font-style: italic; color: var(--color-text-tertiary); margin-top: 1rem;">
-                Two-axis context management: Learning across interviews, scaling within interviews
+                Three-axis context management: MDP (within-interview), ACE (procedural skills), A-MEM (declarative knowledge)
             </p>
         </footer>
 
