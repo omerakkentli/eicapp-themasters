@@ -301,11 +301,13 @@
     <p><strong>AOM 2.0 enables AI agents to learn complex workflows by observing expert behavior, discovering implicit patterns through reasoning, and continuously improving through memory-augmented reflection—all without training from scratch or fine-tuning large models.</strong></p>
 </div>
 
+<p><em><strong>Note on "Zero-Training":</strong> Our "Zero-Training" framework refers to the explicit avoidance of costly, time-consuming model fine-tuning. Instead, AOM 2.0 learns in-context by observing expert demonstrations (leveraging the principles of Many-Shot ICL) and adapts in-memory by processing human corrections via verbal reflection, allowing it to adapt in hours, not weeks.</em></p>
+
 <hr class="divider">
 
 <h2>Executive Summary</h2>
 
-<p>We face a striking paradox in enterprise AI: while 72% of organizations use AI, <strong>95% of pilots fail to deliver measurable ROI</strong>, and only 11% achieve full production deployment. This document presents Agentic Operational Mimicry (AOM) 2.0—a novel framework that solves this problem through <strong>context engineering over model training</strong>.</p>
+<p>We face a striking paradox in enterprise AI. Adoption has surged, with 2024 reports from McKinsey placing usage and exploration at 72%. Yet, this adoption has not translated to value. A recent BCG study found that 74% of companies have yet to show tangible, scaled value from their AI initiatives. This crisis of ROI is even starker for new projects, where <strong>an estimated 95% of pilots fail to deliver measurable ROI (per MIT research)</strong>, and only 11% achieve full production deployment. This document presents Agentic Operational Mimicry (AOM) 2.0—a novel framework that solves this problem through <strong>context engineering over model training</strong>.</p>
 
 <p><strong>The Problem</strong>: Traditional automation fails because it treats workflows as either mechanical repetition (macros), exhaustive specification (RPA), or stateless command execution (modern doer AI). None capture how experts actually work: through pattern recognition from experience, judgment calls based on subtle cues, and tacit knowledge they cannot fully articulate.</p>
 
@@ -412,14 +414,15 @@
 
 <p><strong>Privacy-by-design</strong>: On-device VLM processing, selective redaction (passwords/CC/IDs masked), differential privacy noise, granular employee consent.</p>
 
-<h3>Component 2: Autonomous Business Logic Deduction (ABL-D)</h3>
+<h3>Component 2: The ABL-D Pipeline for Knowledge Extraction</h3>
 
 <div class="technical-box">
-    <h4>The Innovation: Discovering Implicit Patterns</h4>
-    <p><strong>Step 1</strong>: Workflow Graph Construction - Claude 4.5 analyzes 50-200 traces, identifies states, transitions, decision branches</p>
-    <p><strong>Step 2</strong>: Explicit Pattern Discovery - "Mainframe query occurs when amount > €10,000" (10 of 10 cases, 100% precision)</p>
-    <p><strong>Step 3</strong>: <strong>Implicit Pattern Discovery</strong> (THE KEY INNOVATION) - Correlate audio sentiment with outcomes: 62.5% of escalations had "agitated" audio vs 2.4% of approvals (p<0.001). <strong>Sarah never articulated this—system discovered it from behavioral patterns.</strong></p>
-    <p><strong>Step 4</strong>: Counter-Example Search - Fast model generates candidates, large model searches for exceptions and edge cases</p>
+    <h4>An Orchestrated Pipeline for Autonomous Pattern Discovery</h4>
+    <p>ABL-D is not a single algorithm but an orchestrated pipeline that transforms unstructured, multimodal observations into a structured, queryable knowledge base through four automated stages:</p>
+    <p><strong>Step 1: Graph Construction</strong> - Claude 4.5 analyzes 50-200 traces, constructs a state-transition graph, identifies all explicit decision branches and workflow states</p>
+    <p><strong>Step 2: Explicit Pattern Discovery</strong> - Leverage Many-Shot ICL principles by feeding all demonstrations to a reasoning model to induce explicit rules: "Mainframe query occurs when amount > €10,000" (10 of 10 cases, 100% precision)</p>
+    <p><strong>Step 3: Implicit Pattern Mining</strong> (THE KEY INNOVATION) - Run statistical correlation analyses on multimodal features against task outcomes. Example: 62.5% of escalations had "agitated" audio vs 2.4% of approvals (p<0.001). <strong>Sarah never articulated this—the pipeline discovered it autonomously from behavioral patterns.</strong></p>
+    <p><strong>Step 4: Counter-Example Refinement</strong> - Fast model generates candidate edge cases, large model searches for exceptions and validates rule boundaries</p>
 </div>
 
 <p><strong>Sarah results</strong>: From 50 observations, discovered 12 explicit rules (Sarah articulates) + 8 implicit rules (Sarah does but can't explain) + 6 conditional branches + 5 contextual exceptions.</p>
@@ -573,7 +576,7 @@
     </tbody>
 </table>
 
-<h3>The Six-Barrier Moat</h3>
+<h3>Key Strategic Differentiators</h3>
 
 <ol>
     <li><strong>Multimodal Implicit Pattern Discovery</strong> - Audio prosody → sentiment → decision correlation. No competitor captures tacit knowledge. <strong>Sarah evidence</strong>: Discovered "agitated audio → escalate" rule (62.5% vs 2.4%, p<0.001) that Sarah never articulated.</li>
@@ -589,7 +592,7 @@
     <li><strong>Cost-Optimized Multi-Model Orchestration</strong> - €50K/month naive → €5K/month optimized (90% savings). Small models for 60-70% of operations, large models for complex reasoning.</li>
 </ol>
 
-<p><strong>Conservative replication timeline</strong>: 18-24 months for well-resourced competitor to replicate full capability. By then, AOM has 1.5-2 years of deployed learning and customer data flywheel.</p>
+<p><strong>Estimated competitive timeline</strong>: 18-24 months for a well-resourced competitor to replicate full capability. By then, AOM would have 1.5-2 years of deployed learning and customer data advantages.</p>
 
 <hr class="divider">
 
@@ -608,11 +611,13 @@
 <h3>What We Innovate (Novel Contributions)</h3>
 
 <div class="innovation-box">
-    <h4>Innovation 1: Autonomous Business Logic Deduction (ABL-D)</h4>
-    <p><strong>Process mining</strong> discovers workflows from structured logs. <strong>ABL-D</strong> works on unstructured multimodal observations.</p>
-    <p><strong>Traditional ML</strong> requires labeled training data. <strong>ABL-D</strong> uses reasoning models to induce patterns.</p>
-    <p><strong>RPA</strong> requires manual specification. <strong>ABL-D</strong> discovers autonomously.</p>
-    <p><strong>Algorithm</strong>: Workflow graph construction → Explicit pattern discovery → <strong>Implicit pattern discovery (correlation analysis, statistical significance testing)</strong> → Counter-example refinement → Confidence calibration.</p>
+    <h4>Innovation 1: The ABL-D Pipeline for Knowledge Extraction</h4>
+    <p>Our first core innovation is an orchestrated pipeline, ABL-D, that transforms unstructured, multimodal observations into a structured, queryable knowledge base. It is not a single model but a 4-stage automated data science process:</p>
+    <p><strong>1. Graph Construction</strong>: We use an LLM to analyze all observation traces and construct a state-transition graph, identifying all explicit decision branches.</p>
+    <p><strong>2. Implicit Pattern Mining</strong>: We run statistical correlation analyses (e.g., Chi-square, p<0.01) on multimodal features (audio prosody, mouse hesitation) against task outcomes to discover tacit patterns.</p>
+    <p><strong>3. Explicit Rule Induction</strong>: We leverage the principles of Many-Shot ICL by feeding all 50-200 demonstrations as a single context to a reasoning model, prompting it to induce the explicit rules.</p>
+    <p><strong>4. Counter-Example Refinement</strong>: We use a fast model to generate candidate edge cases, then a large model searches for exceptions and validates rule boundaries.</p>
+    <p>This pipeline is our mechanism for autonomously populating the Episodic (Tier 2) and Semantic (Tier 3) memories. Unlike <strong>process mining</strong> (structured logs only), <strong>traditional ML</strong> (requires labeled data), or <strong>RPA</strong> (manual specification), ABL-D discovers patterns autonomously from unstructured multimodal observations using reasoning models.</p>
 </div>
 
 <div class="innovation-box">
@@ -623,14 +628,18 @@
 </div>
 
 <div class="innovation-box">
-    <h4>Innovation 3: Hybrid Three-Tier Memory with Self-Directed Paging</h4>
-    <p><strong>MemGPT-inspired</strong> but integrated with ABL-D, reflection loop, domain optimization.</p>
-    <p><strong>Working memory</strong> (50-100K tokens) with self-management → <strong>Episodic memory</strong> (vector DB, semantic similarity) → <strong>Semantic memory</strong> (graph DB, temporal validity, correction history).</p>
+    <h4>Innovation 3: A Novel Synthesis for Continuous Memory Updating</h4>
+    <p>Our core technical innovation is the creation of a closed-loop, self-correcting memory pipeline. We synthesize two leading academic concepts:</p>
+    <p><strong>1. Memory Architecture</strong>: We implement the three-tier stateful memory architecture proposed by MemGPT (working, episodic, and semantic tiers).</p>
+    <p><strong>2. Memory Update Mechanism</strong>: We use the verbal reinforcement method from the Reflexion paper as the exclusive mechanism for writing new, validated rules to our Semantic Memory (Tier 3).</p>
+    <p>This novel synthesis (HITL Correction → Reflexion Analysis → MemGPT-Tier-3-Update) is what allows AOM 2.0 to learn continuously and permanently from human corrections, adapting in hours without retraining.</p>
+    <p><strong>Implementation</strong>: <strong>Working memory</strong> (50-100K tokens) with self-management → <strong>Episodic memory</strong> (vector DB, semantic similarity) → <strong>Semantic memory</strong> (graph DB, temporal validity, correction history).</p>
 </div>
 
 <div class="innovation-box">
-    <h4>Innovation 4: Reflection-Driven Continuous Learning</h4>
-    <p>Correction → Reflection prompt → LLM analysis → Rule creation/refinement → Memory update → Future application.</p>
+    <h4>Innovation 4: Operationalizing Reflection-Driven Learning in Enterprise Memory</h4>
+    <p>Our framework operationalizes the principles of verbal reinforcement proposed in the Reflexion paper. We innovate not in the reflection mechanism itself, but in its integration as the primary engine for updating our long-term Semantic Memory (Tier 3). This loop turns ad-hoc human corrections into persistent, auditable, and reusable business logic for all future agent tasks.</p>
+    <p><strong>Implementation</strong>: Correction → Reflection prompt → LLM analysis → Rule creation/refinement → Memory update → Future application.</p>
     <p><strong>Forgetting curves (SAGE)</strong>: Recent corrections weight 1.0, decay to 0.7 (4 weeks), 0.4 (12 weeks). Consolidated patterns maintain high weight.</p>
 </div>
 
@@ -714,7 +723,7 @@
 
 <p><strong>Benchmarks</strong>: OSWorld (NeurIPS 2024, 369 tasks), WebVoyager, AndroidWorld, Spider2-V</p>
 
-<p><strong>Memory & Context</strong>: MemGPT/Letta ($10M funding, 92.5% vs 32.1%), Graphiti (Zep AI + Neo4j), Agentic RAG, GraphRAG (Microsoft, ServiceNow acquired data.world $105M)</p>
+<p><strong>Memory & Context</strong>: MemGPT/Letta ($10M funding, 92.5% vs 32.1%), Graphiti (Zep AI + Neo4j), Agentic RAG, GraphRAG (Microsoft, ServiceNow acquired data.world)</p>
 
 <p><strong>Learning & Reflection</strong>: Reflexion (NeurIPS 2023, 80.6%→97%), SAGE (2.26×), LearnAct (19.3%→51.7%, 168% improvement), Many-Shot ICL (NeurIPS 2024)</p>
 
@@ -910,7 +919,7 @@
     <h3>Final Statement</h3>
     <p>AOM 2.0 demonstrates that the enterprise AI paradox can be solved. Not through more powerful models. Not through exhaustive rule specification. But through <strong>context engineering</strong>: treating context as a precious resource, managed through intelligent retrieval, memory architectures, and continuous learning.</p>
     <p>The technical capabilities are validated (28 peer-reviewed papers). The deployment methodology is proven (Sarah's 16-week pilot). The economic case is clear (200%+ ROI, 4-month break-even). The market opportunity is substantial (€60B+ addressable problem).</p>
-    <p><strong>The path from 95% pilot failure to production success is clear. The technology is ready. The market is waiting. With your support, we will build the future of human-centric enterprise automation.</strong></p>
+    <p><strong>The path from 95% pilot failure to production success is clear. The technology is ready. With the right support and resources, we can build the future of human-centric enterprise automation.</strong></p>
 </div>
 
 <hr class="divider">
