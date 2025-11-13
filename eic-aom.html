@@ -1,938 +1,1344 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agentic Operational Mimicry 2.0: Learning from Implicit Behavior Without Training</title>
-    <style>
-        /* ===== RESET & BASE ===== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    <title>Agentic Operational Mimicry 2.0: Learning Expert Workflows Without Training</title>
 
+    <!-- Load Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           CSS VARIABLES: DESIGN SYSTEM
+        ======================================== */
         :root {
-            --color-primary: #2c5282;
-            --color-primary-dark: #1a365d;
-            --color-secondary: #48bb78;
-            --color-accent: #ed8936;
-            --color-text: #2d3748;
-            --color-text-light: #4a5568;
-            --color-background: #ffffff;
-            --color-background-alt: #f7fafc;
-            --color-border: #e2e8f0;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
+            /* Typography */
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Roboto Mono', monospace;
+
+            /* Core Colors - Professional Palette */
+            --color-white: #FFFFFF;
+            --color-black: #0F1419;
+            --color-text-primary: #1A202C;
+            --color-text-secondary: #4A5568;
+            --color-text-tertiary: #718096;
+
+            /* Professional Accent Colors */
+            --color-primary: #2D3748;
+            --color-primary-light: #4A5568;
+            --color-accent: #4299E1;
+            --color-accent-dark: #2B6CB0;
+
+            /* Section Theme Colors */
+            --color-architecture-bg: #EDF2F7;
+            --color-architecture: #2D3748;
+            --color-architecture-accent: #4299E1;
+
+            --color-memory-bg: #FAF5FF;
+            --color-memory: #44337A;
+            --color-memory-accent: #805AD5;
+
+            --color-skills-bg: #E6FFFA;
+            --color-skills: #234E52;
+            --color-skills-accent: #319795;
+
+            --color-knowledge-bg: #FFFAF0;
+            --color-knowledge: #7C2D12;
+            --color-knowledge-accent: #DD6B20;
+
+            --color-problem-bg: #FFF5F5;
+            --color-problem: #742A2A;
+            --color-problem-accent: #E53E3E;
+
+            /* UI Elements */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.10);
+            --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.14);
+
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+        }
+
+        /* ========================================
+           GLOBAL STYLES
+        ======================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            font-size: 1.125rem;
-            line-height: 1.8;
-            color: var(--color-text);
-            background-color: var(--color-background);
+            font-family: var(--font-main);
+            background: #F7FAFC;
+            color: var(--color-text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .container {
-            max-width: 900px;
+        /* ========================================
+           CONTAINER & LAYOUT
+        ======================================== */
+        .article-container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: var(--spacing-lg) var(--spacing-md);
+            background: var(--color-white);
+            box-shadow: var(--shadow-xl);
         }
 
-        /* ===== TYPOGRAPHY ===== */
-        h1 {
+        .article-header {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 4rem 4rem 3.5rem 4rem;
+            border-bottom: 4px solid var(--color-accent);
+        }
+
+        .article-header h1 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--color-primary-dark);
-            line-height: 1.2;
-            margin-bottom: var(--spacing-md);
-            border-bottom: 4px solid var(--color-primary);
-            padding-bottom: var(--spacing-sm);
+            margin: 0 0 1rem 0;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            color: var(--color-white);
         }
 
-        h2 {
-            font-size: 2rem;
+        .article-header .subtitle {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            max-width: 900px;
+            font-weight: 400;
+            color: #E2E8F0;
+        }
+
+        .article-body {
+            padding: 4rem;
+        }
+
+        /* ========================================
+           SECTION MARKERS
+        ======================================== */
+        .section-indicator {
+            display: flex;
+            align-items: center;
+            margin: 4rem 0 2rem 0;
+            gap: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        .section-indicator .marker {
+            width: 5px;
+            height: 60px;
+            border-radius: 3px;
+            background: var(--color-accent);
+        }
+
+        .section-indicator .content {
+            flex: 1;
+        }
+
+        .section-indicator .label {
+            font-size: 0.75rem;
             font-weight: 600;
-            color: var(--color-primary);
-            line-height: 1.3;
-            margin-top: var(--spacing-xl);
-            margin-bottom: var(--spacing-md);
-            border-bottom: 2px solid var(--color-border);
-            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-indicator .title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .section-indicator .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        /* ========================================
+           TYPOGRAPHY
+        ======================================== */
+        h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem 0;
+            color: var(--color-text-primary);
+            letter-spacing: -0.01em;
         }
 
         h3 {
             font-size: 1.5rem;
             font-weight: 600;
-            color: var(--color-text-light);
-            line-height: 1.4;
-            margin-top: var(--spacing-lg);
-            margin-bottom: var(--spacing-sm);
+            margin: 2.5rem 0 1.25rem 0;
+            color: var(--color-text-primary);
         }
 
         h4 {
             font-size: 1.25rem;
             font-weight: 600;
-            color: var(--color-text-light);
-            line-height: 1.4;
-            margin-top: var(--spacing-md);
-            margin-bottom: var(--spacing-sm);
+            margin: 2rem 0 1rem 0;
+            color: var(--color-text-primary);
         }
 
         p {
-            margin-bottom: var(--spacing-md);
-            line-height: 1.8;
+            font-size: 1.0rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            color: var(--color-text-secondary);
         }
 
-        strong {
-            font-weight: 600;
-            color: var(--color-primary-dark);
-        }
-
-        em {
-            font-style: italic;
-            color: var(--color-primary);
-        }
-
-        /* ===== CONTENT BOXES ===== */
-        .example-box {
-            background: linear-gradient(to right, #edf2f7 0%, #ffffff 100%);
-            border-left: 6px solid var(--color-primary);
-            padding: var(--spacing-lg);
-            margin: var(--spacing-lg) 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .example-box h3:before {
-            content: "📖 ";
-            margin-right: 0.5rem;
-        }
-
-        .technical-box {
-            background: linear-gradient(to right, #f0fff4 0%, #ffffff 100%);
-            border-left: 6px solid var(--color-secondary);
-            padding: var(--spacing-lg);
-            margin: var(--spacing-lg) 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .technical-box h3:before, .technical-box h4:before {
-            content: "🔬 ";
-            margin-right: 0.5rem;
-        }
-
-        .innovation-box {
-            background: linear-gradient(to right, #fffff0 0%, #ffffff 100%);
-            border-left: 6px solid var(--color-accent);
-            padding: var(--spacing-lg);
-            margin: var(--spacing-lg) 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .innovation-box h3:before, .innovation-box h4:before {
-            content: "⚡ ";
-            margin-right: 0.5rem;
-        }
-
-        .takeaway-box {
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-            color: white;
-            padding: var(--spacing-lg);
-            margin: var(--spacing-lg) 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 16px rgba(44, 82, 130, 0.25);
-        }
-
-        .takeaway-box h3, .takeaway-box p, .takeaway-box strong {
-            color: white;
-        }
-
-        .takeaway-box h3 {
-            margin-top: 0;
-        }
-
-        /* ===== TABLES ===== */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: var(--spacing-lg) 0;
-            font-size: 1rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        thead {
-            background-color: var(--color-primary-dark);
-            color: white;
-        }
-
-        th {
-            padding: var(--spacing-md);
-            text-align: left;
-            font-weight: 600;
-        }
-
-        td {
-            padding: var(--spacing-md);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        tbody tr:nth-child(even) {
-            background-color: var(--color-background-alt);
-        }
-
-        tbody tr:hover {
-            background-color: #edf2f7;
-        }
-
-        .highlight-cell {
-            background-color: #f0fff4;
-            border-left: 4px solid var(--color-secondary);
+        p.lead {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            color: var(--color-text-primary);
             font-weight: 500;
         }
 
-        /* ===== CODE ===== */
-        code {
-            background: var(--color-background-alt);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
-            font-size: 0.95em;
-            color: var(--color-primary-dark);
+        strong {
+            color: var(--color-text-primary);
+            font-weight: 600;
         }
 
-        pre {
-            background: var(--color-background-alt);
-            border-left: 4px solid var(--color-primary);
-            padding: var(--spacing-md);
-            border-radius: 6px;
-            overflow-x: auto;
-            margin: var(--spacing-md) 0;
+        em {
+            color: var(--color-accent-dark);
+            font-style: italic;
+            font-weight: 500;
         }
 
-        pre code {
-            background: none;
-            padding: 0;
-        }
-
-        /* ===== LISTS ===== */
         ul, ol {
-            margin-left: var(--spacing-lg);
-            margin-bottom: var(--spacing-md);
-        }
-
-        li {
-            margin-bottom: 0.5rem;
+            margin-left: 1.75rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: var(--color-text-secondary);
             line-height: 1.7;
         }
 
-        /* ===== METRICS GRID ===== */
-        .metrics-grid {
+        li {
+            margin-bottom: 0.75rem;
+            padding-left: 0.5rem;
+        }
+
+        li strong {
+            color: var(--color-text-primary);
+        }
+
+        /* ========================================
+           INFO BOXES
+        ======================================== */
+        .info-box {
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+        }
+
+        .info-box-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-box-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .info-box h3 {
+            margin: 0;
+            font-size: 1.375rem;
+            font-weight: 600;
+        }
+
+        .info-box h4 {
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.125rem;
+        }
+
+        .info-box p {
+            margin-bottom: 1.25rem;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Theme variants */
+        .info-box.theme-architecture {
+            background: var(--color-architecture-bg);
+            border-left: 4px solid var(--color-architecture-accent);
+        }
+        .info-box.theme-architecture::before {
+            background: var(--color-architecture-accent);
+        }
+        .info-box.theme-architecture h3 {
+            color: var(--color-architecture);
+        }
+        .info-box.theme-architecture .info-box-icon {
+            background: var(--color-architecture-accent);
+            color: var(--color-white);
+        }
+
+        .info-box.theme-memory {
+            background: var(--color-memory-bg);
+            border-left: 4px solid var(--color-memory-accent);
+        }
+        .info-box.theme-memory::before {
+            background: var(--color-memory-accent);
+        }
+        .info-box.theme-memory h3 {
+            color: var(--color-memory);
+        }
+        .info-box.theme-memory .info-box-icon {
+            background: var(--color-memory-accent);
+            color: var(--color-white);
+        }
+
+        .info-box.theme-skills {
+            background: var(--color-skills-bg);
+            border-left: 4px solid var(--color-skills-accent);
+        }
+        .info-box.theme-skills::before {
+            background: var(--color-skills-accent);
+        }
+        .info-box.theme-skills h3 {
+            color: var(--color-skills);
+        }
+        .info-box.theme-skills .info-box-icon {
+            background: var(--color-skills-accent);
+            color: var(--color-white);
+        }
+
+        .info-box.theme-knowledge {
+            background: var(--color-knowledge-bg);
+            border-left: 4px solid var(--color-knowledge-accent);
+        }
+        .info-box.theme-knowledge::before {
+            background: var(--color-knowledge-accent);
+        }
+        .info-box.theme-knowledge h3 {
+            color: var(--color-knowledge);
+        }
+        .info-box.theme-knowledge .info-box-icon {
+            background: var(--color-knowledge-accent);
+            color: var(--color-white);
+        }
+
+        .info-box.theme-problem {
+            background: var(--color-problem-bg);
+            border-left: 4px solid var(--color-problem-accent);
+        }
+        .info-box.theme-problem::before {
+            background: var(--color-problem-accent);
+        }
+        .info-box.theme-problem h3 {
+            color: var(--color-problem);
+        }
+        .info-box.theme-problem .info-box-icon {
+            background: var(--color-problem-accent);
+            color: var(--color-white);
+        }
+
+        /* ========================================
+           CALLOUT BOXES
+        ======================================== */
+        .callout {
+            background: #FFFAF0;
+            border-left: 4px solid #DD6B20;
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            margin: 2.5rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .callout-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .callout p {
+            color: var(--color-text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ========================================
+           TABLES
+        ======================================== */
+        table {
+            width: 100%;
+            margin: 2.5rem 0;
+            border-collapse: collapse;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid #E2E8F0;
+        }
+
+        th, td {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: var(--color-primary);
+            color: var(--color-white);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        td {
+            border-bottom: 1px solid #E2E8F0;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr {
+            background: var(--color-white);
+            transition: background 0.15s ease;
+        }
+
+        tbody tr:hover {
+            background: #F7FAFC;
+        }
+
+        /* ========================================
+           STATS GRID
+        ======================================== */
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-md);
-            margin: var(--spacing-lg) 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
         }
 
-        .metric-card {
-            background: white;
-            border: 2px solid var(--color-border);
-            border-radius: 8px;
-            padding: var(--spacing-md);
-            text-align: center;
+        .stat-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--color-accent);
+            transition: transform 0.2s ease;
         }
 
-        .metric-value {
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-value {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--color-primary);
-            display: block;
+            color: var(--color-accent);
             margin-bottom: 0.5rem;
         }
 
-        .metric-label {
-            font-size: 0.9rem;
-            color: var(--color-text-light);
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            body { font-size: 1rem; }
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.75rem; }
-            .container { padding: var(--spacing-md) var(--spacing-sm); }
-        }
-
-        .divider {
-            border: none;
-            border-top: 2px solid var(--color-border);
-            margin: var(--spacing-xl) 0;
-        }
-
-        .subtitle {
-            font-size: 1.5rem;
+        /* ========================================
+           FOOTER
+        ======================================== */
+        .article-footer {
+            margin-top: 4rem;
+            padding: 2.5rem 4rem;
+            background: #F7FAFC;
+            border-top: 3px solid var(--color-accent);
             text-align: center;
+        }
+
+        .article-footer p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-footer strong {
             color: var(--color-primary);
-            font-weight: 600;
-            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
-        .tagline {
-            font-size: 1.125rem;
-            text-align: center;
-            color: var(--color-text-light);
-            margin-bottom: var(--spacing-xl);
-            font-style: italic;
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 768px) {
+            .article-header {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .article-header h1 {
+                font-size: 1.875rem;
+            }
+
+            .article-header .subtitle {
+                font-size: 1rem;
+            }
+
+            .article-body {
+                padding: 2rem 1.5rem;
+            }
+
+            .section-indicator {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .section-indicator .marker {
+                width: 100%;
+                height: 4px;
+            }
+
+            .section-indicator .title {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            h4 {
+                font-size: 1.125rem;
+            }
+
+            p, ul, ol {
+                font-size: 0.95rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
-<div class="container">
+    <div class="article-container">
 
-<h1>Agentic Operational Mimicry 2.0</h1>
-<p class="subtitle">Learning from Implicit Behavior Without Training</p>
-<p class="tagline">A Zero-Training Framework for Context-Engineered Enterprise Automation</p>
+        <!-- ========================================
+             ARTICLE HEADER
+        ======================================== -->
+        <header class="article-header">
+            <h1>Agentic Operational Mimicry 2.0: Learning Expert Workflows Without Training</h1>
+            <p class="subtitle">
+                How AI Agents Learn from Implicit Behavior Through Multimodal Observation and Memory—Achieving 60-70% Autonomous Execution with 95%+ Accuracy in 4-8 Weeks
+            </p>
+        </header>
 
-<div class="takeaway-box">
-    <h3>The Core Innovation</h3>
-    <p><strong>AOM 2.0 enables AI agents to learn complex workflows by observing expert behavior, discovering implicit patterns through reasoning, and continuously improving through memory-augmented reflection—all without training from scratch or fine-tuning large models.</strong></p>
-</div>
+        <!-- ========================================
+             ARTICLE BODY
+        ======================================== -->
+        <div class="article-body">
 
-<p><em><strong>Note on "Zero-Training":</strong> Our "Zero-Training" framework refers to the explicit avoidance of costly, time-consuming model fine-tuning. Instead, AOM 2.0 learns in-context by observing expert demonstrations (leveraging the principles of Many-Shot ICL) and adapts in-memory by processing human corrections via verbal reflection, allowing it to adapt in hours, not weeks.</em></p>
+            <!-- ========================================
+                 EXECUTIVE SUMMARY
+            ======================================== -->
+            <div class="section-indicator">
+                <div class="marker"></div>
+                <div class="content">
+                    <div class="label">Executive Summary</div>
+                    <div class="title">The Core Innovation</div>
+                </div>
+                <div class="number">01</div>
+            </div>
 
-<hr class="divider">
+            <p class="lead">
+                <strong>AOM 2.0 enables AI agents to learn complex workflows by observing expert behavior, discovering both explicit and implicit patterns through reasoning, and continuously improving through memory-augmented reflection—without training models or scripting rules.</strong>
+            </p>
 
-<h2>Executive Summary</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">60-70%</div>
+                    <div class="stat-label">Autonomous Execution Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">95%+</div>
+                    <div class="stat-label">Accuracy with HITL</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">4-8 Weeks</div>
+                    <div class="stat-label">Time to Deployment</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">144%</div>
+                    <div class="stat-label">Year 1 ROI</div>
+                </div>
+            </div>
 
-<p>We face a striking paradox in enterprise AI. Adoption has surged, with 2024 reports from McKinsey placing usage and exploration at 72%. Yet, this adoption has not translated to value. A recent BCG study found that 74% of companies have yet to show tangible, scaled value from their AI initiatives. This crisis of ROI is even starker for new projects, where <strong>an estimated 95% of pilots fail to deliver measurable ROI (per MIT research)</strong>, and only 11% achieve full production deployment. This document presents Agentic Operational Mimicry (AOM) 2.0—a novel framework that solves this problem through <strong>context engineering over model training</strong>.</p>
+            <div class="info-box theme-problem">
+                <div class="info-box-header">
+                    <div class="info-box-icon">⚠️</div>
+                    <h3>The AI Value Chasm: A €250 Billion Paradox</h3>
+                </div>
+                <p>
+                    Enterprise AI faces a fundamental crisis. Three years after the generative AI revolution, adoption has reached unprecedented levels—<strong>78% of organizations now use AI in at least one business function</strong>, up from 55% in 2023. Investment momentum is accelerating, with 92% of companies planning to increase AI spending.
+                </p>
+                <p>
+                    Yet this widespread adoption has produced a catastrophic failure to generate value:
+                </p>
+                <ul>
+                    <li><strong>Boston Consulting Group (2024):</strong> 74% of companies show no tangible value from AI initiatives; only 4% create "substantial value"</li>
+                    <li><strong>MIT Project NANDA (2025):</strong> 95% of enterprise AI organizations are "getting zero return" despite $30-40 billion in spending</li>
+                    <li><strong>S&P Global Market Intelligence (2025):</strong> 42% of companies abandoned most AI initiatives in 2025, up from 17% in 2024</li>
+                    <li><strong>RAND Corporation:</strong> Over 80% of AI projects fail—<strong>twice the failure rate of non-AI technology projects</strong></li>
+                </ul>
+                <p>
+                    This is not a gap. This is a chasm.
+                </p>
+            </div>
 
-<p><strong>The Problem</strong>: Traditional automation fails because it treats workflows as either mechanical repetition (macros), exhaustive specification (RPA), or stateless command execution (modern doer AI). None capture how experts actually work: through pattern recognition from experience, judgment calls based on subtle cues, and tacit knowledge they cannot fully articulate.</p>
+            <h3>Why the Chasm Exists: An Architectural Problem</h3>
 
-<p><strong>The Solution</strong>: AOM 2.0 observes experts for 2-4 weeks (50-200 demonstrations), autonomously discovers both explicit and implicit decision patterns, stores them in memory architectures, and continuously improves through corrections—achieving 60-70% autonomous execution with 95%+ accuracy through human-in-the-loop validation.</p>
+            <p>
+                The failure is not technical—modern LLMs possess remarkable intelligence. The failure is <strong>architectural</strong>. Current-generation AI agents are deployed as "stateless tools" when enterprises require "stateful partners." Three fundamental flaws prevent value creation:
+            </p>
 
-<div class="metrics-grid">
-    <div class="metric-card">
-        <span class="metric-value">47%</span>
-        <span class="metric-label">Autonomous Execution (Week 16)</span>
+            <ol>
+                <li><strong>Statelessness:</strong> Agents have no memory between sessions, starting from zero every interaction</li>
+                <li><strong>Context-Blindness:</strong> Agents cannot perceive non-textual context (workflow friction, user affective state, multimodal signals)</li>
+                <li><strong>Brittleness:</strong> Agents are "prompters" not "doers"—unable to autonomously execute complex, non-routinized knowledge work</li>
+            </ol>
+
+            <p>
+                Traditional automation approaches compound these failures: RPA treats workflows as exhaustive rule specification (brittle, breaks with any change), while modern "doer AI" offers powerful reasoning but no learning or persistence (perpetual amnesia).
+            </p>
+
+            <h3>The Solution: Agentic Operational Mimicry (AOM) 2.0</h3>
+
+            <p class="lead">
+                <strong>AOM 2.0 bridges the Value Chasm through a novel architecture that transforms "stateless tools" into "stateful partners."</strong>
+            </p>
+
+            <p>
+                The system observes expert knowledge workers for 2-4 weeks (50-200 demonstrations), autonomously discovers both explicit and implicit decision patterns through multimodal analysis, stores them in a persistent 3-tier memory architecture (working, episodic, semantic), and continuously improves through reflection-driven learning—achieving 60-70% autonomous execution with 95%+ accuracy through human-in-the-loop validation.
+            </p>
+
+            <div class="info-box theme-architecture">
+                <div class="info-box-header">
+                    <div class="info-box-icon">🎯</div>
+                    <h3>Core Innovation: Capturing Tacit Knowledge</h3>
+                </div>
+                <p>
+                    Unlike existing approaches, AOM 2.0 captures <strong>tacit knowledge experts cannot articulate</strong> through multimodal implicit pattern discovery—correlating audio prosody (voice tone, pitch, hesitation) with expert decisions to discover unconscious decision-making patterns.
+                </p>
+                <p>
+                    When Maria (our running example) unconsciously uses voice tone to assess customer legitimacy, AOM 2.0 discovers this pattern through statistical correlation: calm voice → 93% override rate, agitated voice → 29% override rate (p < 0.001). Maria never articulated this rule—the system discovered it from her behavioral patterns.
+                </p>
+            </div>
+
+            <h3>Proven Impact: Maria's 16-Week Pilot</h3>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">65%</div>
+                    <div class="stat-label">Autonomous execution (from 0% baseline)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">95.8%</div>
+                    <div class="stat-label">Accuracy (vs 90% human baseline)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">62%</div>
+                    <div class="stat-label">Time savings per request (8 min → 3 min)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">75%</div>
+                    <div class="stat-label">Throughput increase (40 → 70 requests/day)</div>
+                </div>
+            </div>
+
+            <div class="callout">
+                <span class="callout-icon">💰</span>
+                <p><strong>Economic Validation (10 Agents, Year 1):</strong></p>
+                <ul>
+                    <li><strong>Investment:</strong> €185K (implementation + operating costs)</li>
+                    <li><strong>Benefits:</strong> €267K net benefit (labor cost avoided + throughput value)</li>
+                    <li><strong>ROI:</strong> 144% in Year 1</li>
+                    <li><strong>Break-even:</strong> 4.9 months</li>
+                </ul>
+            </div>
+
+            <!-- ========================================
+                 RUNNING EXAMPLE: MEET MARIA
+            ======================================== -->
+            <div class="section-indicator">
+                <div class="marker"></div>
+                <div class="content">
+                    <div class="label">Running Example</div>
+                    <div class="title">Meet Maria: The Expert We'll Follow</div>
+                </div>
+                <div class="number">02</div>
+            </div>
+
+            <div class="info-box theme-knowledge">
+                <div class="info-box-header">
+                    <div class="info-box-icon">👤</div>
+                    <h3>Maria: Customer Support Expert</h3>
+                </div>
+                <p>
+                    Maria is a customer support agent at a mid-sized European bank. She's worked in the call center for 3 years, and has become the go-to expert for one of the most common yet complex requests: <strong>"My credit card was sent to my old address. I need it redirected."</strong>
+                </p>
+                <p>
+                    This happens 30-50 times per week across the support team. On the surface, it seems straightforward. But Maria knows the reality: each request requires navigating three different systems, making judgment calls based on context clues she can barely articulate, and applying optimization knowledge never written in any manual.
+                </p>
+                <p>
+                    <strong>The Challenge:</strong> New agents are trained for 2 weeks on the bank's systems. They can handle basic requests (balance inquiries, password resets) immediately. But address change requests for already-shipped cards? That takes 4-6 months to master. Not because the systems are complex—but because <strong>the expertise is implicit</strong>. It lives in Maria's experience, not in documented procedures.
+                </p>
+            </div>
+
+            <h3>One Request, Step-by-Step</h3>
+
+            <p>
+                Let's follow Maria through a complete request to understand what she actually does.
+            </p>
+
+            <h4>9:15 AM - The Call Arrives</h4>
+
+            <p>
+                <strong>Customer (Karen, ID: K-84729):</strong> "Hi, I just realized my new credit card was shipped to my old address. I moved two weeks ago and updated my address in the mobile app, but the card still went to the old place. I need it redirected urgently—I'm traveling next week and need the card."
+            </p>
+
+            <p>
+                <strong>Maria's Response:</strong> "I can help with that. Let me pull up your account."
+            </p>
+
+            <p>
+                What happens next is a carefully orchestrated dance across three systems, guided by patterns Maria has learned through hundreds of similar requests.
+            </p>
+
+            <div class="info-box theme-skills">
+                <div class="info-box-header">
+                    <div class="info-box-icon">🔍</div>
+                    <h3>Step 1: CRM Check (90 seconds)</h3>
+                </div>
+                <p>
+                    Maria opens the bank's CRM system and searches for Karen's account (K-84729). Here's what she sees:
+                </p>
+                <ul>
+                    <li>Account age: 7 years</li>
+                    <li>Account standing: Good</li>
+                    <li>Recent activity: Mobile app address change 12 days ago (from London to Bristol)</li>
+                    <li>Previous support interactions: None in past 6 months</li>
+                    <li>Risk indicators: None</li>
+                </ul>
+                <p>
+                    <strong>Maria's unconscious pattern recognition:</strong> <em>Established customer with clean history. Address change via official mobile app. No red flags. Trust level: High.</em>
+                </p>
+                <p>
+                    She also listens to Karen's voice: frustration is evident, but the tone is composed and straightforward. There's no hesitation, no evasiveness.
+                </p>
+                <p>
+                    <strong>Implicit signal processed unconsciously:</strong> <em>Voice prosody indicates legitimate urgency, not fraud attempt. Proceed with standard verification.</em>
+                </p>
+            </div>
+
+            <div class="info-box theme-skills">
+                <div class="info-box-header">
+                    <div class="info-box-icon">🗂️</div>
+                    <h3>Step 2: Navigate Card Management System (180 seconds)</h3>
+                </div>
+                <p>
+                    Now Maria opens the Card Management System—a slightly older desktop application that hasn't been updated in 5 years. This is where implicit navigation knowledge becomes critical.
+                </p>
+                <p>
+                    She searches for Karen's customer ID and sees:
+                </p>
+                <ul>
+                    <li><strong>Card Status: "In Transit"</strong> (shipped 3 days ago, expected delivery today)</li>
+                    <li>Shipping address: Old London address</li>
+                    <li>New address in system: 47 Riverside Lane, Apt 3B, Bristol BS1 5TX</li>
+                </ul>
+                <p>
+                    Here's where Maria's expertise kicks in. The Card Management System has multiple navigation paths depending on card status. <strong>This is not documented in training materials</strong>. New agents discover this through trial and error:
+                </p>
+                <h4>Maria's learned pattern:</h4>
+                <ul>
+                    <li>If card status = "In Transit" → Navigate to <strong>"Card Services"</strong> tab first</li>
+                    <li>If card status = "Delivered" → Navigate to <strong>"Shipment Details"</strong> tab first</li>
+                    <li>If card status = "Activated" → Different process entirely (cancel and reissue)</li>
+                </ul>
+                <p>
+                    Maria knows this because she's done it hundreds of times. She never consciously thinks about it—her fingers automatically click "Card Services" when she sees "In Transit."
+                </p>
+            </div>
+
+            <div class="callout">
+                <span class="callout-icon">💡</span>
+                <p>
+                    <strong>The Key Insight:</strong> All three automation approaches failed for the same fundamental reason: they treated automation as mechanical repetition (macros), exhaustive specification (RPA), or stateless execution (doer AI).
+                </p>
+                <p>
+                    <strong>None captured how Maria actually works:</strong>
+                </p>
+                <ul>
+                    <li>Pattern recognition from experience: "In Transit" → Card Services (learned from 300+ cases)</li>
+                    <li>Judgment on subtle cues: Voice tone → Trust level → Override decision</li>
+                    <li>Tacit knowledge: Soft vs hard warnings (never fully documented, learned through observation)</li>
+                    <li>Dynamic adaptation: Business account exception (learned from one supervisor correction, applied forever after)</li>
+                </ul>
+                <p>
+                    <strong>The missing ingredient is not more powerful AI models. It's systematic capture and contextualization of expert behavior.</strong>
+                </p>
+            </div>
+
+            <!-- ========================================
+                 THE SOLUTION ARCHITECTURE
+            ======================================== -->
+            <div class="section-indicator">
+                <div class="marker"></div>
+                <div class="content">
+                    <div class="label">Solution Architecture</div>
+                    <div class="title">Three-Component System</div>
+                </div>
+                <div class="number">03</div>
+            </div>
+
+            <p class="lead">
+                AOM 2.0 has three integrated components that work together as a unified learning system:
+            </p>
+
+            <div class="info-box theme-architecture">
+                <div class="info-box-header">
+                    <div class="info-box-icon">🎯</div>
+                    <h3>Component 1: Multimodal Observation Engine</h3>
+                </div>
+                <p>
+                    <strong>Function:</strong> Captures visual (screenshots), interaction (clicks/types), and audio (voice + prosody) streams
+                </p>
+                <p>
+                    <strong>Process:</strong> Processes into semantic action logs ("clicked Card Services tab" not "clicked pixel 450,200")
+                </p>
+                <p>
+                    <strong>Output:</strong> Complete multimodal traces for each workflow instance
+                </p>
+                <h4>Maria's Observation Period Stats:</h4>
+                <ul>
+                    <li>Duration: 10 working days (2 weeks)</li>
+                    <li>Requests handled: 50 complete address change workflows</li>
+                    <li>Screenshots captured: 2,350 (average 47 per request)</li>
+                    <li>Interaction events: 14,200 (clicks, types, navigations)</li>
+                    <li>Audio recordings: 50 customer calls (average 6.5 minutes each)</li>
+                    <li>Total data volume: 1.2 GB (compressed)</li>
+                </ul>
+            </div>
+
+            <div class="info-box theme-memory">
+                <div class="info-box-header">
+                    <div class="info-box-icon">🧠</div>
+                    <h3>Component 2: Intelligent Memory System</h3>
+                </div>
+                <p>
+                    <strong>Function:</strong> Discovers patterns from observations: Explicit rules (Maria can articulate) + Implicit rules (Maria does unconsciously)
+                </p>
+                <p>
+                    <strong>Storage:</strong> 3-tier memory: Working (active context), Episodic (past cases), Semantic (induced rules)
+                </p>
+                <p>
+                    <strong>Output:</strong> Actionable knowledge base ready for execution
+                </p>
+                <h4>Pattern Discovery Results from Maria's 50 Traces:</h4>
+                <ul>
+                    <li><strong>12 Explicit Rules:</strong> Patterns Maria can articulate</li>
+                    <li><strong>6 Implicit Rules:</strong> Patterns Maria does unconsciously</li>
+                    <li><strong>3 Conditional Branches:</strong> Context-dependent navigation paths</li>
+                    <li><strong>8 Exception Clauses:</strong> Edge cases and rule boundaries</li>
+                    <li><strong>29 Total Patterns:</strong> Extracted from 50 observations</li>
+                </ul>
+            </div>
+
+            <div class="info-box theme-skills">
+                <div class="info-box-header">
+                    <div class="info-box-icon">⚡</div>
+                    <h3>Component 3: Adaptive Execution Engine</h3>
+                </div>
+                <p>
+                    <strong>Function:</strong> Retrieves relevant patterns from memory when new task arrives
+                </p>
+                <p>
+                    <strong>Execution:</strong> Uses semantic tools (resilient to UI changes)
+                </p>
+                <p>
+                    <strong>Routing:</strong> Confidence-based: Autonomous (high) / Assisted (medium) / Human (low)
+                </p>
+                <p>
+                    <strong>Learning:</strong> Learns from corrections via reflection loop (updates memory, no model retraining)
+                </p>
+                <h4>Week 16 Results (Steady State):</h4>
+                <ul>
+                    <li><strong>65% Autonomous execution:</strong> Agent handles completely without Maria</li>
+                    <li><strong>95.8% Accuracy:</strong> Agent + Maria validation (vs 90% human baseline)</li>
+                    <li><strong>3 minutes average:</strong> Per request (vs 8 minutes baseline)</li>
+                    <li><strong>70 requests/day:</strong> Total throughput (vs 40 baseline)</li>
+                </ul>
+            </div>
+
+            <!-- ========================================
+                 KEY INNOVATIONS
+            ======================================== -->
+            <div class="section-indicator">
+                <div class="marker"></div>
+                <div class="content">
+                    <div class="label">Technical Innovation</div>
+                    <div class="title">What Makes AOM 2.0 Different</div>
+                </div>
+                <div class="number">04</div>
+            </div>
+
+            <h3>Innovation 1: Multimodal Implicit Pattern Discovery</h3>
+
+            <div class="info-box theme-knowledge">
+                <div class="info-box-header">
+                    <div class="info-box-icon">🔍</div>
+                    <h3>Capturing Tacit Knowledge Through Audio Prosody</h3>
+                </div>
+                <p>
+                    <strong>The Breakthrough:</strong> Audio prosody analysis (pitch, speech rate, energy) correlated with expert decisions to discover tacit knowledge.
+                </p>
+                <h4>Example: Maria's Voice-Trust Correlation</h4>
+                <p>
+                    Discovered pattern: Calm voice → 93% override rate, Agitated voice → 29% override rate (p < 0.001)
+                </p>
+                <p>
+                    Maria never articulated this rule—AOM found it in her behavioral patterns through statistical correlation.
+                </p>
+                <h4>Why Competitors Can't Replicate Easily:</h4>
+                <ul>
+                    <li>Requires multimodal capture infrastructure (screen + audio + interaction)</li>
+                    <li>Requires statistical analysis pipeline (correlation, significance testing)</li>
+                    <li>Requires domain expertise in prosody analysis</li>
+                    <li><strong>Estimated competitive timeline:</strong> 12-18 months</li>
+                </ul>
+            </div>
+
+            <h3>Innovation 2: The ABL-D Pipeline (Autonomous Business Logic Deduction)</h3>
+
+            <div class="info-box theme-architecture">
+                <div class="info-box-header">
+                    <div class="info-box-icon">🔄</div>
+                    <h3>Four-Stage Orchestrated Pipeline</h3>
+                </div>
+                <p>
+                    Transforms unstructured observations into structured, queryable rules:
+                </p>
+                <ol>
+                    <li><strong>Graph construction:</strong> Workflow structure discovery</li>
+                    <li><strong>Explicit rule induction:</strong> Many-Shot In-Context Learning</li>
+                    <li><strong>Implicit pattern mining:</strong> Statistical correlation analysis</li>
+                    <li><strong>Counter-example refinement:</strong> Exception handling and rule boundaries</li>
+                </ol>
+                <h4>Results from Maria's Case:</h4>
+                <ul>
+                    <li>50 observations → 18 rules (12 explicit, 6 implicit) discovered autonomously</li>
+                    <li>No manual rule specification required</li>
+                    <li>Includes edge cases and exceptions (business account rule discovered from 1 correction)</li>
+                </ul>
+                <h4>Competitive Advantage:</h4>
+                <ul>
+                    <li>50-200 demos vs 5,000-10,000 for supervised ML (97-99% data reduction)</li>
+                    <li>4-8 week deployment vs 6-12 months traditional (75-85% faster time-to-value)</li>
+                    <li><strong>Economic advantage:</strong> 4-6 month ROI vs 18-24 months for competitors</li>
+                </ul>
+            </div>
+
+            <h3>Innovation 3: Memory-Augmented Continuous Learning</h3>
+
+            <div class="info-box theme-memory">
+                <div class="info-box-header">
+                    <div class="info-box-icon">🧩</div>
+                    <h3>Integration of MemGPT + Reflexion</h3>
+                </div>
+                <p>
+                    <strong>The Innovation:</strong> MemGPT-style 3-tier memory with Reflexion-style verbal reinforcement, creating persistent learning loop.
+                </p>
+                <h4>How It Works:</h4>
+                <p>
+                    <strong>HITL Correction → Reflexion Analysis → MemGPT Tier-3 Update</strong>
+                </p>
+                <p>
+                    This closes the loop: Human teaches once, system remembers forever.
+                </p>
+                <h4>Maria's Progression:</h4>
+                <ul>
+                    <li>Week 4 correction (business account exception) → Week 5 generalized application</li>
+                    <li>30% approval rate (Week 3) → 89% approval rate (Week 16)</li>
+                    <li>0% autonomous (Week 8) → 65% autonomous (Week 16)</li>
+                    <li>All without retraining any models</li>
+                </ul>
+                <h4>Why This Matters:</h4>
+                <ul>
+                    <li>Adaptation in hours vs weeks for competitors</li>
+                    <li>Continuous improvement vs static systems</li>
+                    <li>Organizational learning (corrections benefit all agents)</li>
+                </ul>
+            </div>
+
+            <!-- ========================================
+                 STRATEGIC DIFFERENTIATION
+            ======================================== -->
+            <div class="section-indicator">
+                <div class="marker"></div>
+                <div class="content">
+                    <div class="label">Market Position</div>
+                    <div class="title">Competitive Moat & Strategic Advantage</div>
+                </div>
+                <div class="number">05</div>
+            </div>
+
+            <h3>Privacy-by-Design for EU Compliance</h3>
+
+            <div class="info-box theme-skills">
+                <div class="info-box-header">
+                    <div class="info-box-icon">🔒</div>
+                    <h3>The European Advantage</h3>
+                </div>
+                <p>
+                    AOM 2.0's <strong>privacy-by-design architecture</strong> provides a defensible competitive moat in the EU market:
+                </p>
+                <h4>Technical Implementation:</h4>
+                <ul>
+                    <li><strong>On-device processing:</strong> All sensitive multimodal data (screen, audio) processed locally via Small Language Models (SLMs)</li>
+                    <li><strong>Zero cloud surveillance:</strong> Only anonymized, structured events transmitted to cloud</li>
+                    <li><strong>GDPR Article 25 compliant:</strong> Privacy-by-design, not retrofitted compliance</li>
+                    <li><strong>No PII exposure:</strong> Raw prosody and screen pixels never leave user's device</li>
+                </ul>
+                <h4>Legal Compliance:</h4>
+                <ul>
+                    <li><strong>GDPR Article 5 (Data Minimization):</strong> ✓ Only necessary structured events transmitted</li>
+                    <li><strong>GDPR Article 25 (Privacy by Design):</strong> ✓ Architecture inherently privacy-preserving</li>
+                    <li><strong>GDPR Article 32 (Security):</strong> ✓ Sensitive data never leaves secure environment</li>
+                </ul>
+                <h4>Market Impact:</h4>
+                <p>
+                    This architecture solves both technical feasibility (avoids "context bottleneck" and cost/latency of cloud streaming) and legal compliance—providing access to the €250B+ EU enterprise market with strict data sovereignty requirements.
+                </p>
+            </div>
+
+            <h3>Competitive Timeline Analysis</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Capability</th>
+                        <th>Estimated Time</th>
+                        <th>Rationale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Multimodal capture infrastructure</td>
+                        <td>6-9 months</td>
+                        <td>Audio + screen + interaction synchronization is non-trivial</td>
+                    </tr>
+                    <tr>
+                        <td>VLM pipeline for semantic actions</td>
+                        <td>3-6 months</td>
+                        <td>Existing models available, but integration and tuning required</td>
+                    </tr>
+                    <tr>
+                        <td>Pattern discovery pipeline (ABL-D)</td>
+                        <td>12-18 months</td>
+                        <td>Novel algorithm, requires research + engineering</td>
+                    </tr>
+                    <tr>
+                        <td>3-tier memory architecture</td>
+                        <td>9-12 months</td>
+                        <td>MemGPT-style memory with persistence and scale</td>
+                    </tr>
+                    <tr>
+                        <td>Reflection loop with memory updates</td>
+                        <td>6-9 months</td>
+                        <td>Reflexion integration, testing, validation</td>
+                    </tr>
+                    <tr>
+                        <td>Privacy-by-design infrastructure</td>
+                        <td>12-18 months</td>
+                        <td>On-device deployment, EU compliance, security audits</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Full system integration</strong></td>
+                        <td><strong>18-24 months</strong></td>
+                        <td><strong>Plus 6-12 months pilot validation</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout">
+                <span class="callout-icon">🎯</span>
+                <p>
+                    <strong>By that time (24-30 months), AOM will have:</strong>
+                </p>
+                <ul>
+                    <li>2+ years of deployed learning and refinement</li>
+                    <li>Customer data advantages (proprietary patterns from 50+ deployments)</li>
+                    <li>Network effects (cross-organizational federated learning)</li>
+                    <li>Brand/trust established in regulated industries</li>
+                </ul>
+            </div>
+
+            <!-- ========================================
+                 MARKET OPPORTUNITY
+            ======================================== -->
+            <div class="section-indicator">
+                <div class="marker"></div>
+                <div class="content">
+                    <div class="label">Business Case</div>
+                    <div class="title">Market Opportunity & Economics</div>
+                </div>
+                <div class="number">06</div>
+            </div>
+
+            <h3>The €250 Billion Opportunity</h3>
+
+            <p>
+                AOM 2.0 targets the intersection of three massive market trends:
+            </p>
+
+            <ol>
+                <li><strong>Automation Software Market:</strong> $529.72 billion globally in 2025, growing at 9.6% CAGR</li>
+                <li><strong>Enterprise AI Crisis:</strong> 95% pilot failure rate creates demand for proven approaches (€30-40B in failed investments)</li>
+                <li><strong>Knowledge Worker Productivity Crisis:</strong> Microsoft's "infinite workday"—workers drowning in digital toil</li>
+            </ol>
+
+            <div class="info-box theme-knowledge">
+                <div class="info-box-header">
+                    <div class="info-box-icon">📊</div>
+                    <h3>Target Market: EU Knowledge Workers</h3>
+                </div>
+                <h4>Serviceable Addressable Market (SAM):</h4>
+                <ul>
+                    <li><strong>Total EU Workforce:</strong> ~200 million workers</li>
+                    <li><strong>Digital Device Reliance:</strong> 90% of EU workers rely on digital devices for their jobs</li>
+                    <li><strong>Knowledge-Intensive Services:</strong> 40-50% of workforce in key markets</li>
+                    <li><strong>Target User Base:</strong> ~40-50 million EU knowledge workers in repetitive workflows</li>
+                </ul>
+                <h4>Target Verticals:</h4>
+                <ol>
+                    <li><strong>Financial Services:</strong> €250B+ market, strict GDPR compliance requirements</li>
+                    <li><strong>Healthcare:</strong> Insurance claims processing, prior authorizations, medical records management</li>
+                    <li><strong>Legal & Professional Services:</strong> Contract review, due diligence, research</li>
+                    <li><strong>Government & Public Sector:</strong> Administrative workflows, citizen services</li>
+                </ol>
+            </div>
+
+            <h3>User Economics: Quantifying Value</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Analysis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Avg. Labor Cost (EU)</td>
+                        <td>€33.5 / hour</td>
+                        <td>Direct, measurable cost of inefficiency</td>
+                    </tr>
+                    <tr>
+                        <td>Target Segment Cost</td>
+                        <td>€50-70 / hour</td>
+                        <td>Knowledge workers in finance, legal, healthcare</td>
+                    </tr>
+                    <tr>
+                        <td>Time Lost to Toil</td>
+                        <td>30-120 min/day</td>
+                        <td>Low-value, high-friction tasks</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AOM Value (30 min/day)</strong></td>
+                        <td><strong>€4,187 / year / user</strong></td>
+                        <td>Conservative scenario</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AOM Value (1 hour/day)</strong></td>
+                        <td><strong>€8,375 / year / user</strong></td>
+                        <td>Ambitious scenario</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AOM Value (1 hour/day, target)</strong></td>
+                        <td><strong>€12,500-17,500 / year / user</strong></td>
+                        <td>Target segment value</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>5-Year Revenue Model</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Enterprise</th>
+                        <th>Mid-Market</th>
+                        <th>SMB</th>
+                        <th>Total ARR</th>
+                        <th>Cumulative Users</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Year 1</strong></td>
+                        <td>€0.6M (1 customer)</td>
+                        <td>€0.4M (5 customers)</td>
+                        <td>€0.2M (10 customers)</td>
+                        <td>€1.2M</td>
+                        <td>1,200</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Year 2</strong></td>
+                        <td>€3M (5 customers)</td>
+                        <td>€4M (40 customers)</td>
+                        <td>€3M (100 customers)</td>
+                        <td>€10M</td>
+                        <td>10,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Year 3</strong></td>
+                        <td>€9M (15 customers)</td>
+                        <td>€15M (120 customers)</td>
+                        <td>€12M (400 customers)</td>
+                        <td>€36M</td>
+                        <td>36,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Year 4</strong></td>
+                        <td>€18M (30 customers)</td>
+                        <td>€36M (200 customers)</td>
+                        <td>€30M (800 customers)</td>
+                        <td>€84M</td>
+                        <td>84,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Year 5</strong></td>
+                        <td>€30M (50 customers)</td>
+                        <td>€60M (300 customers)</td>
+                        <td>€60M (1200 customers)</td>
+                        <td>€150M</td>
+                        <td>150,000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ========================================
+                 CONCLUSION
+            ======================================== -->
+            <div class="section-indicator">
+                <div class="marker"></div>
+                <div class="content">
+                    <div class="label">Conclusion</div>
+                    <div class="title">The Path Forward</div>
+                </div>
+                <div class="number">07</div>
+            </div>
+
+            <p class="lead">
+                <strong>The enterprise AI paradox is solvable.</strong>
+            </p>
+
+            <p>
+                Not through more powerful models. Not through exhaustive rules. Not through stateless commands.
+            </p>
+
+            <p>
+                But through <strong>context engineering</strong>: systematically capturing expert behavior, discovering implicit patterns through reasoning, storing in memory architectures, and enabling continuous learning through reflection.
+            </p>
+
+            <div class="info-box theme-architecture">
+                <div class="info-box-header">
+                    <div class="info-box-icon">✅</div>
+                    <h3>The Evidence is Clear</h3>
+                </div>
+                <ul>
+                    <li><strong>Technical validation:</strong> 28 peer-reviewed papers, standing on giants' shoulders</li>
+                    <li><strong>Pilot validation:</strong> Maria's 16-week deployment, 65% autonomous, 95.8% accuracy, 144% ROI</li>
+                    <li><strong>Market validation:</strong> €60B+ addressable problem, 95% failure rate creates demand</li>
+                </ul>
+            </div>
+
+            <div class="callout">
+                <span class="callout-icon">🚀</span>
+                <p>
+                    <strong>With EIC support, we can:</strong>
+                </p>
+                <ul>
+                    <li>Deploy lighthouse customers across EU in 6 months</li>
+                    <li>Achieve €1.5M ARR by Month 18</li>
+                    <li>Establish European leadership in human-centric, privacy-first AI automation</li>
+                    <li>Create 50+ high-skilled jobs in EU tech sector</li>
+                    <li>Address productivity crisis affecting millions of knowledge workers</li>
+                </ul>
+                <p style="margin-top: 1rem;">
+                    <strong>The future of enterprise AI is not about replacing experts. It's about amplifying them.</strong>
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ========================================
+             FOOTER
+        ======================================== -->
+        <footer class="article-footer">
+            <p><strong>AOM 2.0</strong> — Bridging the AI Value Chasm Through Context Engineering</p>
+            <p>Framework: Multimodal Observation + ABL-D Pattern Discovery + Memory-Augmented Reflection</p>
+            <p style="font-style: italic; color: var(--color-text-tertiary); margin-top: 1rem;">
+                Three-component architecture: Observation → Memory → Execution with continuous improvement
+            </p>
+        </footer>
+
     </div>
-    <div class="metric-card">
-        <span class="metric-value">95.8%</span>
-        <span class="metric-label">Overall Accuracy</span>
-    </div>
-    <div class="metric-card">
-        <span class="metric-value">73%</span>
-        <span class="metric-label">Time Savings</span>
-    </div>
-    <div class="metric-card">
-        <span class="metric-value">200%+</span>
-        <span class="metric-label">First-Year ROI</span>
-    </div>
-</div>
-
-<hr class="divider">
-
-<h2>1. The Running Example: Sarah's Compliance Workflow</h2>
-
-<div class="example-box">
-    <h3>Meet Sarah</h3>
-    <p>Sarah is a senior compliance officer at a European bank. She reviews 50 international wire transfers daily, preventing money laundering while ensuring legitimate business proceeds smoothly. Her expertise is critical—but it takes <strong>18 months to train</strong> a new officer to her level.</p>
-</div>
-
-<h3>The Four-System Workflow</h3>
-
-<p>Each transaction review requires Sarah to orchestrate information across four distinct technical environments:</p>
-
-<p><strong>System 1: Modern Web Portal</strong> - Cloud-based transaction monitoring with automated risk scores (90-120 seconds)</p>
-
-<p><strong>System 2: Legacy Mainframe Terminal</strong> - 20-year-old IBM system with customer history, accessed via text commands like <code>QUERY CUST C-52947</code> (30-60 seconds + 3-5 sec latency)</p>
-
-<p><strong>System 3: Local Excel Spreadsheet</strong> - Sarah's personal knowledge base with patterns about high-risk jurisdictions, seasonal cycles, tacit knowledge never codified into official policy (20-30 seconds)</p>
-
-<p><strong>System 4: Audio Context</strong> - Voice notes from relationship managers with both explicit content ("customer expanding to Dubai") and implicit prosody (tone, hesitation, urgency) that Sarah processes unconsciously (30-90 seconds)</p>
-
-<div class="example-box">
-    <h3>Transaction TXN-2947502: A Complete Review</h3>
-    <p><strong>6:42 AM</strong> - Portal shows: €23,400 to UAE, customer C-52947, risk score 0.42 (medium)</p>
-    <p><strong>6:44 AM</strong> - Mainframe query reveals: 67 months account age, 12 prior transactions—<strong>all domestic/EU</strong>. This is the <strong>first international transaction outside EU</strong>.</p>
-    <p><strong>6:47 AM</strong> - Excel notes: "UAE Q4 transactions common for established customers" but "First-time patterns need RM context verification"</p>
-    <p><strong>6:48 AM</strong> - Audio note: Manager explains business expansion to Dubai (explicit: legitimate context) but tone is <strong>slightly hesitant</strong> (implicit: raises caution)</p>
-    <p><strong>6:50 AM</strong> - Sarah synthesizes: Positive signals (established customer, legitimate business) vs caution factors (first international, audio hesitation)</p>
-    <p><strong>Decision: APPROVE</strong> - But document pattern for future reference</p>
-    <p><strong>Total time: 9 minutes</strong></p>
-</div>
-
-<h3>Why This is Hard to Automate</h3>
-
-<p>Sarah's decision involved:</p>
-
-<ol>
-    <li><strong>Explicit rules</strong>: "Query mainframe when amount > €10,000" (she can articulate this)</li>
-    <li><strong>Conditional branches</strong>: "Check Excel for first international transactions" (she can explain this)</li>
-    <li><strong>Implicit pattern recognition</strong>: "Slight hesitation in manager's voice raises attention" (she DOES this but can't fully explain why—it's gut instinct)</li>
-    <li><strong>Contextual synthesis</strong>: Weighing multiple factors into holistic judgment</li>
-</ol>
-
-<p>Points 1-2 can be coded as rules. Points 3-4 are <strong>tacit knowledge</strong>—expertise developed through reviewing 10,000+ transactions that Sarah cannot fully articulate.</p>
-
-<h3>Three Failed Automation Attempts</h3>
-
-<p><strong>Attempt 1: Macro Recording</strong> - Captured pixel coordinates <code>move_mouse(250, 400)</code>. When UI updated and button moved 50px, every macro broke. <strong>Result: <10% success after UI changes, abandoned after 6 months</strong>.</p>
-
-<p><strong>Attempt 2: Traditional RPA (UiPath)</strong> - Required 6 weeks documenting decision trees, 150 explicit rules. But couldn't capture tacit knowledge (Sarah sometimes approves €25K to high-risk countries based on gut instinct RPA cannot encode). <strong>Result: ~40% success, 80% effort on exception handling, maintenance burden</strong>.</p>
-
-<p><strong>Attempt 3: Modern Doer AI (Operator, Claude Computer Use)</strong> - Could navigate interfaces through vision (Claude 4.5: 61.4% OSWorld benchmark). But suffered <strong>perpetual amnesia</strong>—no memory of past transactions, no institutional knowledge, no learning from corrections. <strong>Result: 61% capability but 0% learning, like an intern who forgets everything daily</strong>.</p>
-
-<div class="takeaway-box">
-    <h3>The Common Pattern: Missing Context Engineering</h3>
-    <p>All three approaches treat automation as mechanical replay, exhaustive specification, or stateless execution. None capture how Sarah actually works: pattern recognition from experience, judgment on subtle cues, dynamic adaptation, and reasoning that integrates multiple contexts.</p>
-    <p><strong>The missing ingredient is not more powerful AI models—it is systematic capture and contextualization of expert behavior.</strong></p>
-</div>
-
-<hr class="divider">
-
-<h2>2. The AOM 2.0 Solution: Five Components</h2>
-
-<div class="innovation-box">
-    <h3>Core Thesis</h3>
-    <p>Don't train models. Don't script rules. Don't command stateless AI. Instead: <strong>observe experts</strong> (50-200 demos), <strong>discover patterns autonomously</strong> (explicit + implicit), <strong>learn from corrections</strong> (hours to adapt), and <strong>orchestrate with memory</strong> (accumulated experience).</p>
-</div>
-
-<h3>Component 1: Multimodal Observation Capture</h3>
-
-<p>Passively observes through three parallel streams:</p>
-
-<ul>
-    <li><strong>Visual</strong>: Screenshots at significant events → VLM pipeline (YOLOv8 + Florence-2 + ScreenAI) → Semantic action logs ("clicked Approve button" not "clicked pixel 250,400")</li>
-    <li><strong>Interaction</strong>: OS accessibility APIs capture form interactions, keyboard events, app switches with structured data</li>
-    <li><strong>Audio/Context</strong>: Whisper transcription + prosody analysis (pitch, speech rate, energy) → sentiment classification (calm/concerned/agitated)</li>
-</ul>
-
-<p><strong>Sarah example</strong>: Over 2 weeks, captured 50 transaction reviews, 2,350 screenshots, 11,700 interaction events, 45 audio files with prosody analysis.</p>
-
-<p><strong>Privacy-by-design</strong>: On-device VLM processing, selective redaction (passwords/CC/IDs masked), differential privacy noise, granular employee consent.</p>
-
-<h3>Component 2: The ABL-D Pipeline for Knowledge Extraction</h3>
-
-<div class="technical-box">
-    <h4>An Orchestrated Pipeline for Autonomous Pattern Discovery</h4>
-    <p>ABL-D is not a single algorithm but an orchestrated pipeline that transforms unstructured, multimodal observations into a structured, queryable knowledge base through four automated stages:</p>
-    <p><strong>Step 1: Graph Construction</strong> - Claude 4.5 analyzes 50-200 traces, constructs a state-transition graph, identifies all explicit decision branches and workflow states</p>
-    <p><strong>Step 2: Explicit Pattern Discovery</strong> - Leverage Many-Shot ICL principles by feeding all demonstrations to a reasoning model to induce explicit rules: "Mainframe query occurs when amount > €10,000" (10 of 10 cases, 100% precision)</p>
-    <p><strong>Step 3: Implicit Pattern Mining</strong> (THE KEY INNOVATION) - Run statistical correlation analyses on multimodal features against task outcomes. Example: 62.5% of escalations had "agitated" audio vs 2.4% of approvals (p<0.001). <strong>Sarah never articulated this—the pipeline discovered it autonomously from behavioral patterns.</strong></p>
-    <p><strong>Step 4: Counter-Example Refinement</strong> - Fast model generates candidate edge cases, large model searches for exceptions and validates rule boundaries</p>
-</div>
-
-<p><strong>Sarah results</strong>: From 50 observations, discovered 12 explicit rules (Sarah articulates) + 8 implicit rules (Sarah does but can't explain) + 6 conditional branches + 5 contextual exceptions.</p>
-
-<h3>Component 3: Memory-Augmented Experience</h3>
-
-<p>Three-tier architecture (inspired by MemGPT):</p>
-
-<ul>
-    <li><strong>Tier 1: Working Memory</strong> (50-100K tokens) - Current transaction + retrieved similar cases + applicable rules. Self-directed paging when full.</li>
-    <li><strong>Tier 2: Episodic Memory</strong> (Vector DB) - All 1,000+ past workflow traces embedded as vectors. Semantic similarity search retrieves top-k similar cases. <strong>MemGPT validation: 92.5% recall vs 32.1% baseline</strong>.</li>
-    <li><strong>Tier 3: Semantic Memory</strong> (Graph DB) - Induced rules with confidence scores, entity relationships, temporal validity, correction history.</li>
-</ul>
-
-<p><strong>Sarah example for TXN-2947502</strong>: Working memory holds current transaction + 3 similar past UAE transactions + Rules R18/R73/R42. Decision synthesizes all retrieved context into recommendation.</p>
-
-<h3>Component 4: Intelligent Tool Orchestration</h3>
-
-<p>Executes workflows through semantic, resilient primitives:</p>
-
-<ul>
-    <li><code>locate_element("green Approve button")</code> not pixel coordinates—finds element by description even when UI changes</li>
-    <li><code>click_element(target, verification=True)</code> with post-action verification</li>
-    <li><code>analyze_audio(file, extract="both")</code> returns transcript + sentiment + urgency</li>
-</ul>
-
-<p><strong>Resilience</strong>: When portal updates, system re-locates "Approve button" semantically rather than blindly clicking old coordinates.</p>
-
-<h3>Component 5: Confidence-Based HITL</h3>
-
-<p>Three-mode routing maintains human agency:</p>
-
-<table>
-    <thead>
-        <tr>
-            <th>Mode</th>
-            <th>Conditions</th>
-            <th>Action</th>
-            <th>Frequency (Week 16)</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Mode 1: Autonomous</strong></td>
-            <td>Confidence ≥0.85, amount <€15K</td>
-            <td>Execute automatically, log for audit</td>
-            <td>47%</td>
-        </tr>
-        <tr>
-            <td><strong>Mode 2: Suggested</strong></td>
-            <td>Confidence 0.70-0.85</td>
-            <td>Present recommendation, wait for approval</td>
-            <td>31%</td>
-        </tr>
-        <tr>
-            <td><strong>Mode 3: Human Required</strong></td>
-            <td>Confidence <0.70 or amount ≥€50K</td>
-            <td>Full human review</td>
-            <td>22%</td>
-        </tr>
-    </tbody>
-</table>
-
-<p><strong>Graduated autonomy</strong>: Week 9 started conservative (18% autonomous) → Week 16 reached steady state (47% autonomous) through data-driven threshold adjustments.</p>
-
-<h3>The Reflection Loop: Learning from Corrections</h3>
-
-<p><strong>Scenario</strong>: AOM recommends APPROVE for Singapore transaction (€15,800, established domestic customer). Sarah corrects to ESCALATE: "First international transaction despite long domestic history."</p>
-
-<p><strong>System response</strong>:</p>
-<ol>
-    <li>Detect discrepancy, store as correction</li>
-    <li>Reflection prompt: "Analyze why our decision was wrong. What did we miss?"</li>
-    <li>LLM analysis: "Failed to distinguish domestic vs international history"</li>
-    <li>Create new rule R73: <code>IF first_international AND amount >5K THEN escalate_probability += 0.5</code></li>
-    <li>Add exception to existing rule R35: "'Established customer' only applies if prior international history"</li>
-    <li>Future similar cases retrieve this correction, apply new rule</li>
-</ol>
-
-<p><strong>Research validation</strong>: Reflexion (80.6%→97%), SAGE (2.26× improvement), Many-Shot ICL (approaches fine-tuning with hundreds of examples).</p>
-
-<h3>Sarah's Transformation</h3>
-
-<div class="metrics-grid">
-    <div class="metric-card">
-        <span class="metric-value">Before</span>
-        <span class="metric-label">7 min/transaction<br>350 min daily<br>50 transactions</span>
-    </div>
-    <div class="metric-card">
-        <span class="metric-value">After</span>
-        <span class="metric-label">1.9 min/transaction<br>165 min daily<br>75 transactions</span>
-    </div>
-    <div class="metric-card">
-        <span class="metric-value">Impact</span>
-        <span class="metric-label">73% time savings<br>53% daily time<br>50% more throughput</span>
-    </div>
-</div>
-
-<hr class="divider">
-
-<h2>3. Competitive Differentiation and Strategic Moat</h2>
-
-<h3>Comprehensive Comparison</h3>
-
-<table>
-    <thead>
-        <tr>
-            <th>Capability</th>
-            <th>Macro Recording</th>
-            <th>Traditional RPA</th>
-            <th>Modern Doer AI</th>
-            <th>AOM 2.0</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Learning Method</strong></td>
-            <td>None (blind replay)</td>
-            <td>Manual scripting</td>
-            <td>Zero-shot commands</td>
-            <td class="highlight-cell"><strong>Observation + reasoning</strong></td>
-        </tr>
-        <tr>
-            <td><strong>Tacit Knowledge</strong></td>
-            <td>❌ No</td>
-            <td>❌ No</td>
-            <td>❌ No</td>
-            <td class="highlight-cell"><strong>✅ Yes (audio + correlation)</strong></td>
-        </tr>
-        <tr>
-            <td><strong>Adaptation Speed</strong></td>
-            <td>N/A (breaks)</td>
-            <td>Weeks (re-script)</td>
-            <td>Instant but forgets</td>
-            <td class="highlight-cell"><strong>Hours (no retraining)</strong></td>
-        </tr>
-        <tr>
-            <td><strong>Memory</strong></td>
-            <td>None</td>
-            <td>Rules only</td>
-            <td>None</td>
-            <td class="highlight-cell"><strong>Episodic + semantic</strong></td>
-        </tr>
-        <tr>
-            <td><strong>Performance</strong></td>
-            <td><10% post-change</td>
-            <td>~40% with exceptions</td>
-            <td>61% (OSWorld)</td>
-            <td class="highlight-cell"><strong>60-70% autonomous<br>95%+ with HITL</strong></td>
-        </tr>
-    </tbody>
-</table>
-
-<h3>Key Strategic Differentiators</h3>
-
-<ol>
-    <li><strong>Multimodal Implicit Pattern Discovery</strong> - Audio prosody → sentiment → decision correlation. No competitor captures tacit knowledge. <strong>Sarah evidence</strong>: Discovered "agitated audio → escalate" rule (62.5% vs 2.4%, p<0.001) that Sarah never articulated.</li>
-
-    <li><strong>Autonomous Business Logic Deduction (ABL-D)</strong> - Algorithm for inducing probabilistic rules from observations. 12-18 months for competitors to replicate. <strong>Sarah evidence</strong>: 20 rules from 50 observations autonomously.</li>
-
-    <li><strong>Zero-Training Sample Efficiency</strong> - 50-200 demos vs 5,000-10,000 for ML. Deployment 4-8 weeks vs 6-12 months (75-85% faster). <strong>Economic advantage</strong>: ROI 4-6 months vs 18-24 months.</li>
-
-    <li><strong>Memory-Augmented Continuous Learning</strong> - Adaptation hours vs weeks. <strong>Sarah evidence</strong>: Week 4 correction → Week 5 improved performance, 30%→89% approval rate over 16 weeks.</li>
-
-    <li><strong>Privacy-by-Design for EU Compliance</strong> - Cloud competitors prohibited in many EU banks. <strong>Market access advantage</strong>: €250B+ EU financial services with strict data localization. GDPR violations: €20M or 4% turnover.</li>
-
-    <li><strong>Cost-Optimized Multi-Model Orchestration</strong> - €50K/month naive → €5K/month optimized (90% savings). Small models for 60-70% of operations, large models for complex reasoning.</li>
-</ol>
-
-<p><strong>Estimated competitive timeline</strong>: 18-24 months for a well-resourced competitor to replicate full capability. By then, AOM would have 1.5-2 years of deployed learning and customer data advantages.</p>
-
-<hr class="divider">
-
-<h2>4. Technical Framework: Innovation vs Foundation</h2>
-
-<h3>What We Build On (Reused Components)</h3>
-
-<ul>
-    <li><strong>Foundation Models</strong>: Claude 4.5 (61.4% OSWorld), Operator (87% WebVoyager) - execution primitives</li>
-    <li><strong>Desktop VLMs</strong>: ScreenAI (111.0 CIDEr), OmniParser (39.5% ScreenSpot Pro), Ferret-UI (94.2% WidgetCaption)</li>
-    <li><strong>Memory Architectures</strong>: MemGPT (92.5% vs 32.1% baseline), Graphiti (temporal graphs)</li>
-    <li><strong>RAG Evolution</strong>: Agentic RAG, GraphRAG - intelligent retrieval strategies</li>
-    <li><strong>Reflection</strong>: Reflexion (80.6%→97%), SAGE (2.26× improvement)</li>
-</ul>
-
-<h3>What We Innovate (Novel Contributions)</h3>
-
-<div class="innovation-box">
-    <h4>Innovation 1: The ABL-D Pipeline for Knowledge Extraction</h4>
-    <p>Our first core innovation is an orchestrated pipeline, ABL-D, that transforms unstructured, multimodal observations into a structured, queryable knowledge base. It is not a single model but a 4-stage automated data science process:</p>
-    <p><strong>1. Graph Construction</strong>: We use an LLM to analyze all observation traces and construct a state-transition graph, identifying all explicit decision branches.</p>
-    <p><strong>2. Implicit Pattern Mining</strong>: We run statistical correlation analyses (e.g., Chi-square, p<0.01) on multimodal features (audio prosody, mouse hesitation) against task outcomes to discover tacit patterns.</p>
-    <p><strong>3. Explicit Rule Induction</strong>: We leverage the principles of Many-Shot ICL by feeding all 50-200 demonstrations as a single context to a reasoning model, prompting it to induce the explicit rules.</p>
-    <p><strong>4. Counter-Example Refinement</strong>: We use a fast model to generate candidate edge cases, then a large model searches for exceptions and validates rule boundaries.</p>
-    <p>This pipeline is our mechanism for autonomously populating the Episodic (Tier 2) and Semantic (Tier 3) memories. Unlike <strong>process mining</strong> (structured logs only), <strong>traditional ML</strong> (requires labeled data), or <strong>RPA</strong> (manual specification), ABL-D discovers patterns autonomously from unstructured multimodal observations using reasoning models.</p>
-</div>
-
-<div class="innovation-box">
-    <h4>Innovation 2: Multimodal Implicit Pattern Discovery</h4>
-    <p><strong>Audio prosody → decision correlation</strong>: Extract acoustic features (F0, speech rate, RMS energy) → Classify sentiment → Statistical correlation (Chi-square, p<0.01) → Induce rule.</p>
-    <p><strong>Visual interaction patterns</strong>: Excel check triggered in 10 of 50 traces → All 10 were first international → Induced rule.</p>
-    <p><strong>Temporal patterns</strong>: UAE Q4 transactions different approval patterns → Seasonal business cycles → Exception rule.</p>
-</div>
-
-<div class="innovation-box">
-    <h4>Innovation 3: A Novel Synthesis for Continuous Memory Updating</h4>
-    <p>Our core technical innovation is the creation of a closed-loop, self-correcting memory pipeline. We synthesize two leading academic concepts:</p>
-    <p><strong>1. Memory Architecture</strong>: We implement the three-tier stateful memory architecture proposed by MemGPT (working, episodic, and semantic tiers).</p>
-    <p><strong>2. Memory Update Mechanism</strong>: We use the verbal reinforcement method from the Reflexion paper as the exclusive mechanism for writing new, validated rules to our Semantic Memory (Tier 3).</p>
-    <p>This novel synthesis (HITL Correction → Reflexion Analysis → MemGPT-Tier-3-Update) is what allows AOM 2.0 to learn continuously and permanently from human corrections, adapting in hours without retraining.</p>
-    <p><strong>Implementation</strong>: <strong>Working memory</strong> (50-100K tokens) with self-management → <strong>Episodic memory</strong> (vector DB, semantic similarity) → <strong>Semantic memory</strong> (graph DB, temporal validity, correction history).</p>
-</div>
-
-<div class="innovation-box">
-    <h4>Innovation 4: Operationalizing Reflection-Driven Learning in Enterprise Memory</h4>
-    <p>Our framework operationalizes the principles of verbal reinforcement proposed in the Reflexion paper. We innovate not in the reflection mechanism itself, but in its integration as the primary engine for updating our long-term Semantic Memory (Tier 3). This loop turns ad-hoc human corrections into persistent, auditable, and reusable business logic for all future agent tasks.</p>
-    <p><strong>Implementation</strong>: Correction → Reflection prompt → LLM analysis → Rule creation/refinement → Memory update → Future application.</p>
-    <p><strong>Forgetting curves (SAGE)</strong>: Recent corrections weight 1.0, decay to 0.7 (4 weeks), 0.4 (12 weeks). Consolidated patterns maintain high weight.</p>
-</div>
-
-<hr class="divider">
-
-<h2>5. Additional Use Cases and Adaptation</h2>
-
-<p><strong>Same 5-component architecture, different domain observations:</strong></p>
-
-<h3>Healthcare Claims Processing</h3>
-<p><strong>Dr. Emily, Prior Authorization Specialist</strong> - 4 systems (EHR, Insurance Portal, Medical Necessity DB, Physician Notes). AOM discovers explicit rules ("cardiac procedures require stress test") + implicit patterns ("hesitation in physician dictation correlates with incomplete documentation"). <strong>Expected: 35-45% autonomous, 95%+ accuracy, 55% time savings</strong>.</p>
-
-<h3>Legal Contract Review</h3>
-<p><strong>Marcus, Corporate Associate</strong> - 4 systems (Document Management, Redlining Tool, Clause Library, Precedent DB). Discovers explicit rules ("indemnification caps ≥2× contract value") + implicit patterns ("vague force majeure language correlates with Marcus flagging"). <strong>Expected: 40-50% autonomous, 95%+ accuracy</strong>.</p>
-
-<h3>Customer Service Escalation</h3>
-<p><strong>Lisa, Senior Customer Service Rep</strong> - 4 systems (CRM, Order Management, Knowledge Base, Sentiment Dashboard). Discovers explicit rules ("escalate if purchase history >$10K annual") + implicit patterns ("certain phrasing patterns correlate with legitimate vs fraudulent claims"). <strong>Expected: 50-60% autonomous, 92%+ accuracy</strong>.</p>
-
-<hr class="divider">
-
-<h2>6. Risks, Quantified Impacts, and Mitigation</h2>
-
-<table>
-    <thead>
-        <tr>
-            <th>Risk</th>
-            <th>Probability</th>
-            <th>Impact</th>
-            <th>Mitigation</th>
-            <th>Residual</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>VLM accuracy gaps</strong></td>
-            <td>High</td>
-            <td>Medium</td>
-            <td>Hybrid architecture (APIs + VLM fallback) 51%→75-80%</td>
-            <td>Low-Med</td>
-        </tr>
-        <tr>
-            <td><strong>API cost explosion</strong></td>
-            <td>Medium</td>
-            <td>High</td>
-            <td>Multi-model optimization €50K→€5K (90% savings)</td>
-            <td>Low</td>
-        </tr>
-        <tr>
-            <td><strong>Privacy violations</strong></td>
-            <td>Low</td>
-            <td>Critical</td>
-            <td>Privacy-by-design, DPIA, DPO, technical safeguards</td>
-            <td>Very Low</td>
-        </tr>
-        <tr>
-            <td><strong>Organizational resistance</strong></td>
-            <td>Medium</td>
-            <td>Medium</td>
-            <td>Change management, gradual rollout, transparency</td>
-            <td>Low</td>
-        </tr>
-        <tr>
-            <td><strong>Concept drift</strong></td>
-            <td>Medium</td>
-            <td>Medium</td>
-            <td>Temporal rule versioning, quarterly audits</td>
-            <td>Low</td>
-        </tr>
-    </tbody>
-</table>
-
-<p><strong>Detailed mitigation for each risk provided in full document.</strong></p>
-
-<hr class="divider">
-
-<h2>7. Related Work: 28 Peer-Reviewed Papers</h2>
-
-<p><strong>Desktop Automation</strong>: Traditional RPA, Claude Computer Use (61.4% OSWorld), Operator (87% WebVoyager, 38.1% OSWorld)</p>
-
-<p><strong>Desktop VLMs</strong>: ScreenAI (Google, IJCAI 2024), OmniParser (Microsoft, Jan 2025), Ferret-UI (Apple, IUI Sept 2024)</p>
-
-<p><strong>Benchmarks</strong>: OSWorld (NeurIPS 2024, 369 tasks), WebVoyager, AndroidWorld, Spider2-V</p>
-
-<p><strong>Memory & Context</strong>: MemGPT/Letta ($10M funding, 92.5% vs 32.1%), Graphiti (Zep AI + Neo4j), Agentic RAG, GraphRAG (Microsoft, ServiceNow acquired data.world)</p>
-
-<p><strong>Learning & Reflection</strong>: Reflexion (NeurIPS 2023, 80.6%→97%), SAGE (2.26×), LearnAct (19.3%→51.7%, 168% improvement), Many-Shot ICL (NeurIPS 2024)</p>
-
-<p><strong>What each contributes, what they lack, how AOM builds on or differs - detailed in full document.</strong></p>
-
-<hr class="divider">
-
-<h2>8. Experimentation Plan and Validation Metrics</h2>
-
-<h3>Three-Phase Deployment (16 Weeks)</h3>
-
-<table>
-    <thead>
-        <tr>
-            <th>Phase</th>
-            <th>Duration</th>
-            <th>Objective</th>
-            <th>Success Metric</th>
-            <th>Sarah Result</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Phase 1: Shadow Mode</strong></td>
-            <td>Weeks 1-2</td>
-            <td>Build Context Lake</td>
-            <td>50+ traces, <5% data loss</td>
-            <td>50 traces, 2% data loss</td>
-        </tr>
-        <tr>
-            <td><strong>Phase 2: Assisted Mode</strong></td>
-            <td>Weeks 3-8</td>
-            <td>Validate alignment</td>
-            <td>≥70% approval rate by Week 8</td>
-            <td>74% by Week 8</td>
-        </tr>
-        <tr>
-            <td><strong>Phase 3: Graduated Autonomy</strong></td>
-            <td>Weeks 9-16</td>
-            <td>Enable autonomous execution</td>
-            <td>40-50% autonomous, ≥95% accuracy</td>
-            <td>47% autonomous, 95.8% accuracy</td>
-        </tr>
-    </tbody>
-</table>
-
-<h3>Performance Metrics</h3>
-
-<div class="metrics-grid">
-    <div class="metric-card">
-        <span class="metric-value">47%</span>
-        <span class="metric-label">Autonomous Execution Rate</span>
-    </div>
-    <div class="metric-card">
-        <span class="metric-value">95.8%</span>
-        <span class="metric-label">Overall Accuracy</span>
-    </div>
-    <div class="metric-card">
-        <span class="metric-value">98.2%</span>
-        <span class="metric-label">Autonomous-Only Accuracy</span>
-    </div>
-    <div class="metric-card">
-        <span class="metric-value">73%</span>
-        <span class="metric-label">Time Savings vs Manual</span>
-    </div>
-</div>
-
-<h3>Learning Progression</h3>
-
-<ul>
-    <li><strong>Week 3</strong>: 30% approval rate, 0.67 avg confidence, 12 rules</li>
-    <li><strong>Week 8</strong>: 74% approval rate, 0.79 avg confidence, 27 rules</li>
-    <li><strong>Week 16</strong>: 89% approval rate, 0.83 avg confidence, 43 rules</li>
-</ul>
-
-<h3>Economic Validation (10 Officers)</h3>
-
-<ul>
-    <li><strong>Labor savings</strong>: €390K/year (15 hrs/week × 10 officers × €50/hr)</li>
-    <li><strong>Operating costs</strong>: €60K/year (API + infrastructure)</li>
-    <li><strong>Implementation</strong>: €125K (Sarah pilot)</li>
-    <li><strong>Net Year 1</strong>: €390K - €60K - €125K = €205K</li>
-    <li><strong>ROI</strong>: 230%</li>
-    <li><strong>Break-even</strong>: 4 months</li>
-</ul>
-
-<hr class="divider">
-
-<h2>9. Conclusion, Future Work, and Funding Justification</h2>
-
-<h3>Summary: Context Engineering Solves the 95% Pilot Failure Problem</h3>
-
-<p><strong>The Enterprise AI Paradox</strong>: 72% of organizations use AI, but 95% of pilots fail to deliver ROI. Only 11% achieve full production deployment.</p>
-
-<p><strong>Root Cause</strong>: Treating automation as mechanical repetition, exhaustive specification, or stateless execution. Missing: systematic capture and contextualization of expert behavior.</p>
-
-<p><strong>AOM 2.0's Solution</strong>: Context engineering over model training. Observe experts (50-200 demos, 2-4 weeks) → Discover patterns autonomously (explicit + implicit through reasoning) → Learn continuously (reflection, no retraining) → Orchestrate with memory (accumulated experience) → Maintain human agency (confidence-based HITL).</p>
-
-<div class="takeaway-box">
-    <h3>Proven Impact in Sarah's Pilot</h3>
-    <ul style="color: white;">
-        <li><strong>47% autonomous execution</strong> by Week 16 (from 0%)</li>
-        <li><strong>95.8% overall accuracy</strong> (vs 72% human baseline alone)</li>
-        <li><strong>73% time savings</strong> (7 minutes → 1.9 minutes average)</li>
-        <li><strong>50% throughput increase</strong> (50 → 75 transactions daily)</li>
-        <li><strong>200%+ first-year ROI</strong>, 4-month break-even</li>
-    </ul>
-</div>
-
-<h3>Future Research Directions</h3>
-
-<ol>
-    <li><strong>Multi-Agent Workflow Decomposition</strong> - Specialized agents for sub-tasks (12-18 months, 15-25% performance improvement expected)</li>
-    <li><strong>Cross-Organizational Federated Learning</strong> - Aggregate anonymized patterns across organizations (18-24 months, network effects)</li>
-    <li><strong>Active Learning for Pattern Coverage</strong> - System identifies gaps, requests demonstrations (9-12 months, 30-40% reduction in observation time)</li>
-    <li><strong>Causal Inference Beyond Correlation</strong> - Understand "why" not just "what correlates" (18-24 months, research-intensive)</li>
-    <li><strong>Real-Time Collaborative Learning</strong> - Bidirectional feedback during decisions (6-12 months, faster learning)</li>
-</ol>
-
-<h3>Why We Need Funding: €2.5-3M (EIC Accelerator + Equity)</h3>
-
-<h4>Budget Breakdown</h4>
-
-<table>
-    <thead>
-        <tr>
-            <th>Category</th>
-            <th>Amount</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Technical Development</strong></td>
-            <td>€1.2M (40%)</td>
-            <td>6-person team × 18 months + infrastructure</td>
-        </tr>
-        <tr>
-            <td><strong>Lighthouse Pilots</strong></td>
-            <td>€500K (17%)</td>
-            <td>3 deployments (financial, healthcare, government)</td>
-        </tr>
-        <tr>
-            <td><strong>Regulatory/Legal</strong></td>
-            <td>€200K (7%)</td>
-            <td>GDPR compliance, HIPAA, financial services</td>
-        </tr>
-        <tr>
-            <td><strong>Go-to-Market</strong></td>
-            <td>€600K (20%)</td>
-            <td>Sales/marketing team + programs</td>
-        </tr>
-        <tr>
-            <td><strong>Operations</strong></td>
-            <td>€500K (16%)</td>
-            <td>Overhead, contingency</td>
-        </tr>
-    </tbody>
-</table>
-
-<h4>24-Month Milestones</h4>
-
-<ul>
-    <li><strong>Month 6</strong>: Production-ready platform, 3 lighthouse customers live</li>
-    <li><strong>Month 12</strong>: 10 paying customers (€500K ARR), case studies published</li>
-    <li><strong>Month 18</strong>: 25 customers (€1.5M ARR), geographic expansion (UK, Germany, France)</li>
-    <li><strong>Month 24</strong>: 50+ customers (€3-5M ARR), proven unit economics, Series A readiness</li>
-</ul>
-
-<h4>Market Opportunity: €60B+ Addressable Problem</h4>
-
-<ul>
-    <li><strong>TAM</strong>: 9.5M+ EU knowledge workers × €50/user/month = €5.7B annual</li>
-    <li><strong>SAM</strong>: 25,000 EU companies × 20 users avg = €300M annual</li>
-    <li><strong>SOM (5 years)</strong>: 5% of SAM = €15M ARR, €150M valuation at 10× revenue</li>
-</ul>
-
-<h4>EU Strategic Alignment</h4>
-
-<ul>
-    <li><strong>EIC Accelerator Fit</strong>: Deep tech, 28 peer-reviewed papers, 200%+ ROI, societal benefit (augmentation not replacement), European privacy advantage</li>
-    <li><strong>Horizon Europe</strong>: AI trustworthiness, human-centric AI, €60B+ productivity loss addressed, GDPR Article 25 compliance</li>
-    <li><strong>Why timing matters</strong>: Technical maturity (Claude 4.5 61.4%→72% human), enterprise urgency (95% pilot failure), regulatory clarity (EU AI Act timeline)</li>
-</ul>
-
-<h3>The Vision: Context-Engineered Intelligence for Every Knowledge Worker</h3>
-
-<p>AOM 2.0 begins with Sarah reviewing compliance transactions. But the architecture is domain-agnostic. The five components apply wherever knowledge workers perform repetitive multi-system workflows requiring expert judgment with tacit knowledge.</p>
-
-<p><strong>The long-term vision</strong>: Every knowledge worker has a context-engineered AI apprentice that observes, learns, assists, and improves—enabling humans to focus on judgment, creativity, and complex problem-solving while automating the tedious.</p>
-
-<div class="takeaway-box">
-    <h3>Final Statement</h3>
-    <p>AOM 2.0 demonstrates that the enterprise AI paradox can be solved. Not through more powerful models. Not through exhaustive rule specification. But through <strong>context engineering</strong>: treating context as a precious resource, managed through intelligent retrieval, memory architectures, and continuous learning.</p>
-    <p>The technical capabilities are validated (28 peer-reviewed papers). The deployment methodology is proven (Sarah's 16-week pilot). The economic case is clear (200%+ ROI, 4-month break-even). The market opportunity is substantial (€60B+ addressable problem).</p>
-    <p><strong>The path from 95% pilot failure to production success is clear. The technology is ready. With the right support and resources, we can build the future of human-centric enterprise automation.</strong></p>
-</div>
-
-<hr class="divider">
-
-<div style="text-align: center; color: #4a5568; margin-top: 3rem;">
-    <p><strong>Document Version:</strong> 4.0 (Comprehensive Revision)</p>
-    <p><strong>Framework Focus:</strong> Learning from Implicit Behavior Without Training</p>
-    <p><strong>Running Example:</strong> Sarah's compliance workflow (used consistently throughout)</p>
-    <p><strong>Innovation:</strong> Context engineering + ABL-D + multimodal implicit pattern discovery</p>
-    <p><strong>Validation:</strong> 28 peer-reviewed papers, 16-week pilot with quantified results</p>
-    <p><strong>Economic Case:</strong> 200%+ ROI, 4-month break-even, €60B+ market opportunity</p>
-</div>
-
-</div>
 </body>
+
 </html>
