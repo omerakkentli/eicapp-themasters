@@ -454,7 +454,7 @@ pre code {
     display: inline-block;
     margin-left: 8px;
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-border-dark);
     font-size: 8pt;
 }
 
@@ -904,5 +904,173 @@ pre code {
     
     .gantt-chart-table {
         font-size: 0.65em;
+    }
+}
+
+/* --- PRINT STYLES --- */
+@media print {
+    /* Ensure cards stay in 2-column layout */
+    .ace-diagram-content {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+        page-break-inside: avoid;
+    }
+    
+    .ace-card {
+        padding: 1rem !important;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+    }
+    
+    .ace-card-header {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+    
+    .ace-card-content p {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .ace-card-list {
+        margin: 0.3rem 0 0.5rem 1rem !important;
+    }
+    
+    .ace-card-list li {
+        margin: 0.3rem 0 !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .ace-card-footer {
+        margin-top: 0.8rem !important;
+        padding-top: 0.5rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    /* Architecture cards - 2 columns */
+    .architecture-cards {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+        page-break-inside: avoid;
+    }
+    
+    .architecture-card {
+        padding: 1rem !important;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+    }
+    
+    .architecture-card-icon {
+        font-size: 1.8rem !important;
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        line-height: 2.5rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .architecture-card-title {
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .architecture-card-description {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    /* Architecture knowledge cards - 2 columns */
+    .architecture-knowledge-cards {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.8rem !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .architecture-knowledge-card {
+        padding: 0.8rem !important;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+    }
+    
+    .architecture-knowledge-card-title {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.4rem !important;
+    }
+    
+    .architecture-knowledge-card-content {
+        font-size: 0.8rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    /* Compact spacing for print */
+    .architecture-section {
+        margin: 1rem 0 !important;
+    }
+    
+    .architecture-header {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.95rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .architecture-knowledge-section {
+        padding: 1.5rem 1rem !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .architecture-knowledge-header {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.95rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .architecture-knowledge-footer {
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+    }
+    
+    .architecture-knowledge-footer-title {
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .architecture-knowledge-footer-subtitle {
+        font-size: 0.85rem !important;
+    }
+    
+    .architecture-divider {
+        margin: 1.5rem 0 !important;
+        padding: 0.8rem 0 !important;
+    }
+    
+    .architecture-divider-text {
+        font-size: 0.8rem !important;
+        padding: 0.3rem 1rem !important;
+    }
+    
+    /* Disable hover effects in print */
+    .architecture-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* Compact diagram container */
+    .ace-architecture-diagram {
+        margin: 1rem 0 !important;
+    }
+    
+    .ace-diagram-header {
+        margin-bottom: 1rem !important;
+    }
+    
+    .ace-diagram-title {
+        font-size: 1.3rem !important;
+        margin-bottom: 0.3rem !important;
+    }
+    
+    .ace-diagram-subtitle {
+        font-size: 0.9rem !important;
     }
 }
