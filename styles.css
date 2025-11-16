@@ -1,0 +1,238 @@
+/*
+ * EIC Application Style (Azure Radiance)
+ * A clean, modern, and readable stylesheet for the Markdown document.
+ * Font: Times New Roman, 11pt
+ * Line Height: 1.15 (Single-spaced)
+ * Palette: Azure Radiance
+ */
+
+ :root {
+    /* Azure Radiance Palette */
+    --color-text-dark: #0E315D; /* 950 */
+    --color-text-medium: #0D519B; /* 900 */
+    --color-text-light: #0B5EC5; /* 800 */
+
+    --color-primary: #007BFF; /* 700 */
+    --color-primary-light: #068FFF; /* 600 */
+    --color-primary-lighter: #1EADFF; /* 500 */
+
+    --color-bg-light: #EDF4FF; /* 50 */
+    --color-bg-white: #FFFFFF;
+
+    --color-border-light: #D6F2FF; /* 100 */
+    --color-border-medium: #B5E4FF; /* 200 */
+
+    /* Document Font Settings */
+    --font-family-body: 'Times New Roman', Times, serif;
+    --font-size-body: 11pt;
+    --line-height-body: 1.15;
+}
+
+body {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-dark);
+    background-color: var(--color-bg-white);
+
+    /* Set a max-width for readability, matching A4 paper width */
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+/* --- TYPOGRAPHY --- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    line-height: 1.2;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-medium);
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: var(--color-text-light);
+    border-bottom: 2px solid var(--color-border-medium);
+    padding-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin-top: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--color-primary-light);
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: var(--color-primary-lighter);
+}
+
+h5 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-text-medium);
+}
+
+h6 {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--color-text-medium);
+}
+
+p {
+    margin: 0 0 0.75rem 0;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px dotted var(--color-primary);
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-text-light);
+    border-bottom: 1px solid var(--color-text-light);
+}
+
+strong {
+    color: var(--color-text-medium);
+}
+
+/* --- LISTS --- */
+
+ul,
+ol {
+    margin: 0 0 0.75rem 1.5rem;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 0.25rem;
+}
+
+/* --- TABLES --- */
+/* A clean, modern table style with row lines */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9em; /* Slightly smaller for dense data */
+}
+
+thead th {
+    color: var(--color-text-light);
+    border-bottom: 2px solid var(--color-primary);
+    padding: 0.75rem;
+    text-align: left;
+    vertical-align: top;
+    font-weight: bold;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody td {
+    padding: 0.75rem;
+    vertical-align: top;
+}
+
+/* --- BLOCKQUOTES --- */
+/* Used to replicate the styled info boxes */
+
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    background-color: var(--color-bg-light);
+    border-left: 5px solid var(--color-primary);
+    border-radius: 4px;
+}
+
+blockquote p {
+    margin-bottom: 0.5rem;
+    color: var(--color-text-medium);
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- IMAGES & CODE --- */
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+/* Inline Code */
+:not(pre) > code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-light);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Code Blocks (for Mermaid, etc.) */
+pre {
+    background-color: var(--color-text-dark);
+    color: var(--color-bg-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+pre code {
+    font-family: 'Courier New', Courier, monospace;
+    background: none;
+    color: inherit;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+/* --- DIAGRAM CONTAINER --- */
+
+.diagram-container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mermaid-diagram {
+    width: 100%;
+    max-width: 600px;
+}
+
+.mermaid-diagram object,
+.mermaid-diagram img {good
+    width: 100%;
+    height: auto;
+}
