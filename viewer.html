@@ -7,9 +7,95 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- ========================================
+         COVER PAGE
+    ======================================== -->
+    <section class="page cover-page" style="page-break-inside: avoid;">
+        <div class="cover-wrapper">
+            <div class="cover-emblem">
+                <img src="./images/eu_header.png" alt="European Commission emblem">
+            </div>
+            <div class="cover-flag">
+                <img src="./images/eu_flag.png" alt="European Union flag">
+            </div>
+            <div class="cover-title">
+                <h1>Horizon Europe Programme</h1>
+                <h2>Specific Application Form</h2>
+                <h3>(HORIZON-WIDERA-2025-02)</h3>
+                <p class="doc-label">Project proposal – Technical description (Part B)</p>
+            </div>
+            <div class="cover-separator"></div>
+            <div class="cover-meta">
+                <p style="margin-top: 0;"><strong>Version 1.0</strong></p>
+                <p id="cover-date">13 May 2025</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         HISTORY OF CHANGES, SEAL OF EXCELLENCE & PARTICIPANTS
+    ======================================== -->
+    <section class="page history-page" style="page-break-inside: avoid;">
+        <h2 class="section-heading text-center">History of Changes</h2>
+        <table class="table table--history">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-version">Version</th>
+                    <th scope="col" class="col-date">Publication date</th>
+                    <th scope="col">Changes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.0</td>
+                    <td>13.05.2025</td>
+                    <td>
+                        <ul class="list-basic">
+                            <li>Initial version</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="consent-section">
+            <h3 class="section-subheading">Seal of Excellence</h3>
+            <p class="text-justify"><strong>If my application is evaluated as meeting all the criteria and thresholds for funding but remains unfunded due to lack of budget:</strong></p>
+            <p class="text-justify">I, Ömer Akkentli, the coordinator of this proposal, consent to share with our relevant National Contact Point, EEN Member and other funding public organisations from the European Union, EU member states and Horizon Europe associate countries (including regional innovation organisations, European Structural and Investment Funds (ESIF) Managing authorities etc.), the following data:</p>
+            <ul class="consent-list" style="margin: 5px;">
+                <p class="text-justify" style="margin: 0px;">- basic information about my proposal (proposal acronym, title, abstract, amount requested and the evaluation result)</p>
+                <p class="text-justify" style="margin: 0px;">- personal data (applicant's contact details, e.g. email, name);</p>
+            </ul>
+            <p class="text-justify">Data will be made available subject to confidentiality obligations agreed with the NCPs, EEN members and relevant funding bodies. Please note that without this confirmation, no Seal of Excellence can be awarded.</p>
+        </div>
+        <div class="participants-section">
+            <p class="proposal-title text-center">THE MASTERS PLATFORM</p>
+            <p class="text-justify italic">The consortium members are listed in part A of the proposal (application forms). A summary list should also be provided in the table below. <span class="tag">#@APP-FORM-HECSA@#</span></p>
+
+            <h3 class="section-subheading">List of participants <span class="small-text text-muted">[e.g. 1 page]</span></h3>
+            <table class="table table--participants">
+                <thead>
+                    <tr>
+                        <th scope="col" class="col-number">Participant No. *</th>
+                        <th scope="col">Participant organisation name</th>
+                        <th scope="col" class="col-country">Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1 (Coordinator)</td>
+                        <td>GLOV BİLGİ TEKNOLOJİLERİ VE SERVİSLERİ YAZILIM DANIŞMANLIK TİCARET ANONİM ŞİRKETİ</td>
+                        <td>Türkiye</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <hr>
-    <h2>1. Excellence</h2>
-    <h3>1.1 Technological breakthrough</h3>
+    <h2>1. Excellence</h2> <span class="tag">#@REL-EVA-RE@#</span> 
+    <h3>1.1 Technological breakthrough</h3> <span class="tag">#@PRJ-OBJ-PO@#</span>
     <table>
         <thead>
             <tr>
@@ -44,14 +130,14 @@
     <hr>
     <p>The core technological breakthrough of <strong>The Masters Platform</strong> is a new AI architecture that enables small, efficient open-source models (7-13B parameters) to match or exceed the performance of 100B+ parameter frontier models on complex reasoning benchmarks. This approach yields profound gains in efficiency and sustainability, achieving comparable results to systems like GPT-4 while consuming <strong>95% less computational resources</strong>.</p>
     <p>This innovation delivers a validated <strong>10.6% performance improvement</strong> over baseline approaches at <strong>1/10th the cost</strong>.</p>
-    <h4>🏛️ How it is done today and the limit of the current practice</h4>
+    <h4><span class="section-marker">I.</span> How it is done today and the limit of the current practice</h4>
     <p>The current paradigm for enterprise AI relies on <strong>fine-tuning</strong>—an attempt to embed static domain expertise into a model's weights. This approach is the source of the documented <strong>95% failure rate of enterprise AI deployments</strong>. It fails for three primary reasons:</p>
     <ol>
         <li><strong>It is static:</strong> Fine-tuned models are a snapshot in time. They become obsolete as soon as the business context evolves.</li>
         <li><strong>It is fragile:</strong> The process suffers from <strong>"Context Collapse"</strong>. This is the progressive erosion of critical details as the AI system learns from successive interactions. Rich, actionable details are compressed into generic, useless summaries, destroying the very knowledge the system is meant to preserve.</li>
         <li><strong>It is cost-prohibitive:</strong> This process is extremely expensive, locking out SMEs and creating a significant barrier to innovation.</li>
     </ol>
-    <h4>💡 What is new in your approach and why do you think it will be successful?</h4>
+    <h4><span class="section-marker">II.</span> What is new in your approach and why do you think it will be successful?</h4>
     <p>Our breakthrough is <strong>Agentic Context Engineering (ACE)</strong>, a framework that fundamentally replaces the fine-tuning paradigm.</p>
     <p>Instead of embedding fragile knowledge into model weights, ACE builds an <strong>"ever-expanding knowledge infrastructure"</strong>—a dynamic, external knowledge base that evolves continuously. Our <strong>"Factored Agent Architecture"</strong> uses specialized agents (a Reflector and a Curator) to perform incremental updates, adding new hypotheses and insights in super-fine detail <em>without</em> compression or summarization.</p>
     <p>This system, based on Zettelkasten principles and called <strong>A-MEM (Agentic Memory)</strong>, preserves full-fidelity details from every interaction. This allows the system to:</p>
@@ -61,16 +147,58 @@
         <li><strong>Resolve contradictions</strong> and track how expert opinions <em>evolve</em> over time (e.g., learning <em>why</em> an expert's opinion on pricing changed after seeing a demo).</li>
     </ul>
     <p>This approach will be successful because it directly solves the root cause of AI failure. It creates a system that, like a human expert, gets progressively smarter with every interaction and never forgets critical details.</p>
-    <h4>📈 Describe the commercial potential of the technology.</h4>
+    <h4><span class="section-marker">III.</span> Describe the commercial potential of the technology.</h4>
     <p>The commercial potential of our technology is rooted in solving a critical, high-value market failure for European innovation.</p>
     <p>Every year, B2B startups lose millions building products for buyers they have never spoken to. A builder might spend 8 months and €200K on features, only to discover at launch that their core assumptions about the buyer were wrong. This waste is preventable through expert validation, but traditional engagements are prohibitively expensive (€5K-50K), pricing out the very startups and SMEs that need them most.</p>
-    <p><strong>The Masters Platform</strong> is designed to close this specific market gap. We will use our breakthrough AI to connect builders with enterprise decision-makers for AI-conducted validation interviews at a fraction of the cost. This unlocks a market previously confined to large enterprises, enabling EU SMEs to de-risk innovation and avoid costly R&D failures.</p>
+    <p><strong>The Masters Platform</strong> is designed to close this specific market gap. We will use our AI-conducted reserch interviews to connect start-up founders/builders with enterprise decision-makers for AI-conducted validation interviews at a fraction of the cost. This unlocks a market previously confined to large enterprises, enabling EU SMEs to de-risk innovation and avoid costly R&D failures.</p>
     <blockquote><p>This business model is only viable by solving an immense technical challenge: we need an AI that can conduct expert-level Socratic interviews, learn from every interaction, compound knowledge without "Context Collapse," and operate in real-time during voice calls.</p></blockquote>
     <p>Our <strong>Agentic Context Engineering (ACE)</strong> and <strong>Factored Agent Architecture</strong> are the enabling technologies that solve this challenge. By delivering expert-level validation at 1/10th the cost, our technology creates a new, scalable infrastructure for EU innovation. The "ever-expanding knowledge infrastructure" it builds becomes a proprietary, compounding asset, making our platform a highly defensible and attractive investment proposition. This leads directly to our project objectives.</p>
     <hr>
     <h3>1.2 Objectives</h3>
     <blockquote><p>Our vision is to create a <strong>European intelligence commons</strong> where every interview compounds into shared knowledge—turning buyer insights into a strategic asset that grows smarter with each conversation.</p></blockquote>
     <p>Our core objective is to bridge this technical innovation with tangible market impact. We will connect founders with enterprise decision-makers through AI-conducted interviews, delivering expert validation at <strong>€500 per session</strong> (versus €5K-50K for traditional consulting).</p>
+    
+    <div class="ace-architecture-diagram">
+        <div class="ace-diagram-header">
+            <h3 class="ace-diagram-title">ACE-Powered Voice Research Architecture</h3>
+            <p class="ace-diagram-subtitle">Small Models (7-13B) + Context Engineering = Expert-Level Performance</p>
+        </div>
+        <div class="ace-diagram-content">
+            <div class="ace-card">
+                <div class="ace-card-header">
+                    <span class="ace-card-icon">A</span>
+                    <span>Entrepreneurs</span>
+                </div>
+                <div class="ace-card-content">
+                    <p>Voice interviews capture:</p>
+                    <ul class="ace-card-list">
+                        <li>Business models in full detail</li>
+                        <li>Market positioning nuances</li>
+                        <li>Pain points &amp; hypotheses</li>
+                        <li>Pricing strategies</li>
+                    </ul>
+                </div>
+                <div class="ace-card-footer">NO compression applied</div>
+            </div>
+            <div class="ace-card">
+                <div class="ace-card-header">
+                    <span class="ace-card-icon">B</span>
+                    <span>Masters (Experts)</span>
+                </div>
+                <div class="ace-card-content">
+                    <p>Voice interviews capture:</p>
+                    <ul class="ace-card-list">
+                        <li>Domain expertise granularly</li>
+                        <li>Procurement patterns</li>
+                        <li>Evaluation criteria details</li>
+                        <li>Industry-specific insights</li>
+                    </ul>
+                </div>
+                <div class="ace-card-footer">Full-fidelity preserved</div>
+            </div>
+        </div>
+    </div>
+    
     <p>We are not starting from scratch. We have already validated our core technology and proven we have solved "Context Collapse." This grant will scale our platform from a validated prototype (<strong>TRL 4</strong>) to a fully automated, market-ready system (<strong>TRL 7</strong>).</p>
     <h4>Our North-Star Metrics: From TRL 4 to TRL 7</h4>
     <table>
@@ -83,27 +211,27 @@
         </thead>
         <tbody>
             <tr>
-                <td><strong>🧠 Context Retention</strong></td>
+                <td><strong>Context Retention</strong></td>
                 <td><strong>94.2%</strong> (vs 57.1% baseline)</td>
                 <td><strong>&gt;95%</strong> (at 1000s of interviews)</td>
             </tr>
             <tr>
-                <td><strong>🤖 System Automation</strong></td>
+                <td><strong>System Automation</strong></td>
                 <td><strong>85%</strong> (15% manual curation)</td>
                 <td><strong>100%</strong> (&lt;3% human-in-the-loop)</td>
             </tr>
             <tr>
-                <td><strong>📈 Commercial Viability</strong></td>
+                <td><strong>Commercial Viability</strong></td>
                 <td><strong>€12K ARR</strong> (from 8 pilots)</td>
                 <td><strong>&ge;€400K MRR</strong> (Market Ready)</td>
             </tr>
             <tr>
-                <td><strong>⚡️ System Speed</strong></td>
+                <td><strong>System Speed</strong></td>
                 <td><strong>~250ms</strong> response time</td>
                 <td><strong>&lt;150ms</strong> (on EU-hosted infra)</td>
             </tr>
             <tr>
-                <td><strong>🤝 User Satisfaction</strong></td>
+                <td><strong>User Satisfaction</strong></td>
                 <td><strong>NPS 67</strong> (from 85 users)</td>
                 <td><strong>NPS &ge;+50</strong> (at 100+ users)</td>
             </tr>
@@ -124,7 +252,7 @@
         <li><strong>Achieve Market &amp; Investment Readiness (by M24):</strong> We will prove the commercial viability of our new model by reaching <strong>&ge;€400K in Monthly Recurring Revenue (MRR)</strong> and securing strategic partners, making the platform ready for a full EU-wide rollout.</li>
     </ol>
 
-    <h2>1.3 Methodology</h2>
+    <h2>1.3 Methodology</h2><span class="tag">#@CON-MET-CM@# #@COM-PLE-CP@#</span>
     <p>Our methodology is designed to solve the two core challenges of production-grade conversational AI: the "Latency Paradox" (an AI cannot be both fast enough for real-time voice and deep enough for strategic learning) and "Context Collapse" (AI systems forgetting critical details as they learn over time).</p>
     
     <h3>1. The Core Problem: Context Collapse</h3>
@@ -150,13 +278,93 @@
     <p>By interview #500, the AI must remember the original, specific details (€5K, 90 days, ROI) to be useful. Our methodology is built to prevent this collapse.</p>
     
     <h3>2. Solution at a Glance: A Four-Part Architecture</h3>
-    <p>Our methodology is a four-part system designed to manage AI memory and learning across three dimensions:</p>
-    <ul>
-        <li><strong>Factored Agents (Conductor + Analyst):</strong> Separates real-time execution from deep, offline learning to solve the "Latency Paradox".</li>
-        <li><strong>Evolving Skills (ACE + GEPA):</strong> Manages procedural memory (how to interview) by evolving a "playbook" of strategies through surgical delta edits, not rewrites.</li>
-        <li><strong>Living Knowledge (A-MEM):</strong> Manages declarative memory (what we know) by storing insights as a "living" knowledge graph of "atomic notes," preventing compression.</li>
-        <li><strong>Long Conversation Handling (MDP):</strong> Manages within-interview memory to maintain coherence over thousands of conversational turns without performance degradation.</li>
-    </ul>
+    
+    <div class="architecture-visual">
+        <!-- Factored Agents Section -->
+        <div class="architecture-section">
+            <div class="architecture-header">
+                FACTORED AGENTS: REAL-TIME MEETS DEEP LEARNING
+            </div>
+            
+            <div class="architecture-cards">
+                <div class="architecture-card">
+                    <span class="architecture-card-icon">1</span>
+                    <div class="architecture-card-title">Conductor</div>
+                    <div class="architecture-card-description">
+                        Small Language Model running interviews in real-time (&lt;250ms), executing proven playbook strategies with zero latency
+                    </div>
+                </div>
+                
+                <div class="architecture-card">
+                    <span class="architecture-card-icon">2</span>
+                    <div class="architecture-card-title">Analyst</div>
+                    <div class="architecture-card-description">
+                        Powerful LLM working offline to analyze patterns, identify insights, and compile better strategies for future interviews
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="architecture-divider">
+            <span class="architecture-divider-text">Memory Management Across Three Dimensions</span>
+        </div>
+        
+        <!-- Knowledge Infrastructure Section -->
+        <div class="architecture-knowledge-section">
+            <div class="architecture-knowledge-header">
+                MULTI-DIMENSIONAL MEMORY SYSTEM
+            </div>
+            
+            <div class="architecture-knowledge-cards">
+                <div class="architecture-knowledge-card">
+                    <div class="architecture-knowledge-card-title">Evolving Skills (ACE)</div>
+                    <div class="architecture-knowledge-card-content">
+                        Manages procedural memory (how to interview) by evolving a "playbook" through surgical delta edits, not rewrites
+                    </div>
+                </div>
+                
+                <div class="architecture-knowledge-card">
+                    <div class="architecture-knowledge-card-title">Strategy Evolution (GEPA)</div>
+                    <div class="architecture-knowledge-card-content">
+                        Genetic-Pareto engine testing and validating new interview strategies before deployment to production
+                    </div>
+                </div>
+                
+                <div class="architecture-knowledge-card">
+                    <div class="architecture-knowledge-card-title">Living Knowledge (A-MEM)</div>
+                    <div class="architecture-knowledge-card-content">
+                        Stores insights as "atomic notes" in a knowledge graph—never summarizes, preventing context collapse
+                    </div>
+                </div>
+                
+                <div class="architecture-knowledge-card">
+                    <div class="architecture-knowledge-card-title">Pattern Recognition</div>
+                    <div class="architecture-knowledge-card-content">
+                        Identifies validation patterns, quality signals, and market intelligence across thousands of interviews
+                    </div>
+                </div>
+                
+                <div class="architecture-knowledge-card">
+                    <div class="architecture-knowledge-card-title">Long Conversations (MDP)</div>
+                    <div class="architecture-knowledge-card-content">
+                        Maintains coherence over thousands of conversational turns without performance degradation
+                    </div>
+                </div>
+                
+                <div class="architecture-knowledge-card">
+                    <div class="architecture-knowledge-card-title">Continuous Learning</div>
+                    <div class="architecture-knowledge-card-content">
+                        Every interview improves the system—new hypotheses compound without losing existing knowledge
+                    </div>
+                </div>
+            </div>
+            
+            <div class="architecture-knowledge-footer">
+                <div class="architecture-knowledge-footer-title">GROWS WITHOUT BOUNDS</div>
+                <div class="architecture-knowledge-footer-subtitle">No compression • No context collapse • No knowledge loss</div>
+            </div>
+        </div>
+    </div>
     
     <h3>3. The Factored Agent Architecture</h3>
     <p>This is the core of our methodology, solving the "Latency Paradox".</p>
@@ -177,14 +385,14 @@
     
     <h3>4. Methodology for Skills & Knowledge</h3>
     
-    <h4>🧠 Evolving Skills (ACE + GEPA):</h4>
+    <h4>Evolving Skills (ACE + GEPA):</h4>
     <p>Our AI must continuously learn how to interview better. We use a framework called ACE (Agentic Context Engineering) to manage this.</p>
     <h5>How it works:</h5>
     <p>Instead of "retraining" the AI, the Analyst agent applies tiny, surgical "delta edits" to the Conductor's playbook.</p>
     <h5>Example:</h5>
     <p>The Analyst reviews a failed interview and sees that a "Direct Challenge" question made the user defensive. It then tests new strategies using a GEPA (Genetic-Pareto) mutation engine. It discovers a "Socratic Discovery v2.0" strategy works 94% of the time. The Analyst surgically adds this new, proven rule to the playbook for the Conductor to use in the future.</p>
     
-    <h4>📚 Compounding Knowledge (A-MEM):</h4>
+    <h4>Compounding Knowledge (A-MEM):</h4>
     <p>Our AI must remember what it learns. This is our solution to "Context Collapse."</p>
     <h5>How it works:</h5>
     <p>We use A-MEM (Agentic Memory), a system based on Zettelkasten ("slip box") principles. The Analyst never summarizes. Instead, it stores every key insight as a tiny, perfect "atomic note" in a massive knowledge graph (PostgreSQL + pgvector).</p>
@@ -194,7 +402,7 @@
     <p>Note C: The expert says, "Ah, after the demo, €50 is reasonable."</p>
     <p>A-MEM connects these notes, learning a narrative: Opinion (C) evolves_from (A) and was triggered_by (B). The system learns why the opinion changed, a capability impossible with standard RAG.</p>
     
-    <h4>🛡️ AI Robustness, TRL, and USP</h4>
+    <h4>AI Robustness, TRL, and USP</h4>
     <h5>Handling Unknowns & AI Robustness:</h5>
     <p>This methodology is designed for resilience. Our entire architecture is a "Glass Box," not a "Black Box." Because we use A-MEM, every piece of knowledge is traceable to its source interview, providing full provenance. This transparency is foundational for complying with the EU AI Act. Furthermore, to de-risk the project, we use a production-ready fallback. If the experimental A-MEM system encounters issues, our methodology includes an automatic fallback to the proven MemGPT hierarchical memory system, ensuring no loss of service.</p>
     <h5>Current TRL:</h5>
@@ -204,21 +412,21 @@
     <h5>Unique Selling Point (USP):</h5>
     <p>Our methodology creates a compounding, proprietary knowledge asset. The A-MEM knowledge graph is an "ever-expanding knowledge infrastructure" that grows more valuable and defensible with every user interaction.</p>
     
-    <h4>젠 Gender dimension</h4>
+    <h4>Gender dimension</h4>
     <p>Our methodology will actively monitor and mitigate gender bias. The AI's insights are derived from human experts, making bias a critical risk.</p>
     <h5>Methodology:</h5>
     <p>The A-MEM "atomic note" system, which tags speaker profiles, is our primary tool for this. The Analyst agent will be programmed to audit the knowledge graph for bias.</p>
     <h5>Action:</h5>
     <p>We will track the sourcing of "validated patterns" to ensure, for example, that procurement insights sourced from male experts are not disproportionately weighted over those from female experts. This ensures the AI's "compiled intelligence" is equitable and representative.</p>
     
-    <h4>🔬 Open science practices</h4>
+    <h4>Open science practices</h4>
     <p>Our methodology is built on recent academic research (ACE, A-MEM). We are committed to contributing back to the European research community.</p>
     <h5>Methodology:</h5>
     <p>We will publish the findings of our novel integration of these frameworks.</p>
     <h5>Action:</h5>
     <p>We will publish a preprint paper in Q1 2025 detailing our architecture and findings, followed by a formal peer-review submission in Q2 2025.</p>
     
-    <h4>🗃️ Research data management</h4>
+    <h4>Research data management</h4>
     <h5>Data Types & Storage:</h5>
     <p>Our primary research outputs will be anonymized/aggregated interview patterns and the evolving A-MEM knowledge graph (stored as JSONB in a PostgreSQL database with pgvector extensions).</p>
     <h5>Findability & Access:</h5>
@@ -228,8 +436,9 @@
     <h5>Curation:</h5>
     <p>A dedicated data management team, led by the project coordinator, will be responsible for data quality, anonymization, and ensuring GDPR compliance throughout the project.</p>
 
-
-        <h2>2. Impact</h2>
+<span class="tag">#§PRJ-OBJ-PO§# #§REL-EVA-RE§# #@CON-MET-CM@# #@COM-PLE-CP@#
+</span>
+        <h2>2. Impact</h2><span class="tag">#@IMP-ACT-IA@#</span>
         
         <h3>2.1 Credibility of the impacts</h3>
         
@@ -247,17 +456,95 @@
         <li><strong>Technology Readiness:</strong> This grant funds the progression from a pilot-validated TRL 3-4 to a production-deployed TRL 6-7 system by M24. This includes full automation across healthcare, fintech, and energy sectors, and academic validation via peer-reviewed publications.</li>
         </ul>
         
-        <h4>🎯 Deep Tech Innovation: Context-Aware AI at Production Scale</h4>
+        <h4>Deep Tech Innovation: Context-Aware AI at Production Scale</h4>
         
-        <p>The platform establishes new market standards:</p>
+        <p>The platform establishes new market standards through a fundamental paradigm shift:</p>
         
-        <ul>
-        <li>Establishes the ACE framework as a European reference for context engineering.</li>
-        <li>Delivers production-ready AI that learns continuously without fine-tuning.</li>
-        <li>Provides an EU AI Act compliance benchmark via "Glass Box" explainability.</li>
-        <li>Enables sustainable economics through a 95% compute reduction.</li>
-        <li>Validates knowledge compounding through pattern discovery.</li>
-        </ul>
+        <h5 class="comparison-title">Technical &amp; Business Impact Comparison</h5>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th class="traditional-header">
+                        Traditional Approach
+                    </th>
+                    <th class="ace-header">
+                        ACE-Powered (Our Approach)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="traditional-cell">
+                        <div class="metric-label">Model Size:</div>
+                        <div class="metric-value">175B+ parameters</div>
+                    </td>
+                    <td class="ace-cell">
+                        <div class="metric-label">Model Size:</div>
+                        <div class="metric-value">7-13B parameters</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="traditional-cell">
+                        <div class="metric-label">Inference Cost:</div>
+                        <div class="metric-value">High (100x baseline)</div>
+                    </td>
+                    <td class="ace-cell">
+                        <div class="metric-label">Inference Cost:</div>
+                        <div class="metric-value">Low (1x baseline)</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="traditional-cell">
+                        <div class="metric-label">Context Handling:</div>
+                        <div class="metric-value">Compressed summaries</div>
+                    </td>
+                    <td class="ace-cell">
+                        <div class="metric-label">Context Handling:</div>
+                        <div class="metric-value">Full-fidelity preservation</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="traditional-cell">
+                        <div class="metric-label">Knowledge Loss:</div>
+                        <div class="metric-value">Context collapse (-9.6%)</div>
+                    </td>
+                    <td class="ace-cell">
+                        <div class="metric-label">Knowledge Growth:</div>
+                        <div class="metric-value">Continuous (+10.6%)</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="traditional-cell">
+                        <div class="metric-label">Adaptation:</div>
+                        <div class="metric-value">Requires fine-tuning (€€€)</div>
+                    </td>
+                    <td class="ace-cell">
+                        <div class="metric-label">Adaptation:</div>
+                        <div class="metric-value">Zero fine-tuning needed</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="traditional-cell">
+                        <div class="metric-label">Environmental:</div>
+                        <div class="metric-value">95% more compute</div>
+                    </td>
+                    <td class="ace-cell">
+                        <div class="metric-label">Environmental:</div>
+                        <div class="metric-value">95% less compute</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="traditional-cell">
+                        <div class="metric-label">&nbsp;</div>
+                    </td>
+                    <td class="result-cell">
+                        <div class="result-label">Result:</div>
+                        <div class="result-text">Expert-level interview performance at 1/10th the cost, enabling accessible validation for all EU SMEs while solving the 95% AI deployment failure rate</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         
         <p>Commercial impact scales across a substantial European addressable market, targeting 50,000 users by Year 3. This impact spans Healthcare, Fintech, Manufacturing, Energy, and Govtech, representing tens of thousands of startups across multi-billion euro markets.</p>
         
@@ -461,9 +748,10 @@
         
         <p><strong>European Dimension:</strong> Our project is fundamentally aligned with EU goals through 100% EU data sovereignty, policy alignment with Digital Decade SME targets, and AI Act compliance via our Glass Box. Our open-source ACE framework will reduce US AI dependency.</p>
 
-
+<span class="tag">#§IMP-ACT-IA§#
+</span>
         
-            <h2>3. Quality and Efficiency of the Implementation <span class="tag-text">#@QUA-LIT-QL@# #@CON-SOR-CS@# #@PRJ-MGT-PM@#</span></h2>
+            <h2>3. Quality and Efficiency of the Implementation</h2><span class="tag">#@QUA-LIT-QL@# #@CON-SOR-CS@# #@PRJ-MGT-PM@#</span>
         
             <h3>3.1 Quality and Motivation of the Team</h3>
         
@@ -639,7 +927,7 @@
                 </tbody>
             </table>
         
-            <h3>3.3 Work Plan and Resources <span class="inline-tag">#@WRK-PLA-WP@#</span></h3>
+            <h3>3.3 Work Plan and Resources </h3> <span class="tag">#@WRK-PLA-WP@#</span>
         
             <p>The project is organized into <strong>5 work packages</strong> over 24 months: (1) Project Management & Coordination; (2) Research & Development (ACE automation, A-MEM development); (3) System Integration & Validation (TRL 6-7); (4) Business Development & Go-to-Market; (5) Dissemination & Exploitation. You can find Gantt Chart below.</p>
         
@@ -676,29 +964,29 @@
                 <tbody>
                     <tr>
                         <td><strong>WP1: Project Management</strong></td>
-                        <td colspan="24" style="background-color: #b3d9ff; border: 1px solid #333;">&nbsp;</td>
+                        <td colspan="24" style="background-color: #E8E8E8; border: 1px solid #999;">&nbsp;</td>
                     </tr>
                     <tr>
                         <td><strong>WP2: Research &amp; Development</strong></td>
-                        <td colspan="18" style="background-color: #f5e6cc; border: 1px solid #333;">&nbsp;</td>
-                        <td colspan="6" style="background-color: transparent; border: 1px solid #333;">&nbsp;</td>
+                        <td colspan="18" style="background-color: #D4D4D4; border: 1px solid #999;">&nbsp;</td>
+                        <td colspan="6" style="background-color: transparent; border: 1px solid #999;">&nbsp;</td>
                     </tr>
                     <tr>
                         <td><strong>WP3: System Integration</strong></td>
-                        <td colspan="11" style="background-color: transparent; border: 1px solid #333;">&nbsp;</td>
-                        <td colspan="13" style="background-color: #d9f2d9; border: 1px solid #333;">&nbsp;</td>
+                        <td colspan="11" style="background-color: transparent; border: 1px solid #999;">&nbsp;</td>
+                        <td colspan="13" style="background-color: #C4C4C4; border: 1px solid #999;">&nbsp;</td>
                     </tr>
                     <tr>
                         <td><strong>WP4: Business Development</strong></td>
-                        <td colspan="24" style="background-color: #f2d9f5; border: 1px solid #333;">&nbsp;</td>
+                        <td colspan="24" style="background-color: #B8B8B8; border: 1px solid #999;">&nbsp;</td>
                     </tr>
                     <tr>
                         <td><strong>WP5: Dissemination</strong></td>
-                        <td colspan="24" style="background-color: #e6d9f5; border: 1px solid #333;">&nbsp;</td>
+                        <td colspan="24" style="background-color: #ACACAC; border: 1px solid #999;">&nbsp;</td>
                     </tr>
                 </tbody>
             </table>
-        
+        <span class="tag">#§CON-SOR-CS§# #§PRJ-MGT-PM§#</span>
             <h4>Table 3.3a: List of Work Packages</h4>
         
             <table>
@@ -980,7 +1268,7 @@
                 </tbody>
             </table>
         
-            <h4>Table 3.3e: Critical Risks for Implementation</h4>
+            <h4>Table 3.3e: Critical Risks for Implementation</h4> <span class="tag"> #@RSK-MGT-RM@#</span>
         
             <p><em>Note: Detailed risk descriptions and mitigation measures are provided in Section 3.2. This table provides summary reference.</em></p>
         
@@ -1020,7 +1308,8 @@
                     </tr>
                 </tbody>
             </table>
-        
+        <span class="tag">#§RSK-MGT-RM§#
+        </span>
             <h4>Table 3.3f: Summary of Staff Effort</h4>
         
             <table>
@@ -1160,7 +1449,8 @@
         
             <p><strong>Ethics: Ethics Self-Assessment:</strong> The project fully complies with <strong>GDPR</strong> and <strong>EU AI Act</strong>. Personal data processed with <strong>explicit consent</strong>, stored on <strong>EU-hosted infrastructure</strong>, encrypted in transit/at rest, subject to <strong>data minimization</strong> and regular audits. <strong>Transparency:</strong> ACE/GEPA loop and A-MEM provide explainable AI decisions with human validation. <strong>Bias mitigation:</strong> diverse expert networks, continuous monitoring, quarterly audits. <strong>Research integrity:</strong> open publication, documented methodologies, disclosed conflicts of interest. <strong>DNSH compliance:</strong> energy-efficient EU infrastructure, carbon footprint reduction via remote validation. <strong>Accessibility:</strong> democratized expert knowledge for European SMEs.</p>
         
-      
+      <span class="tag">#§QUA-LIT-QL§# #§WRK-PLA-WP§#
+    </span>
 
 </body>
 </html>

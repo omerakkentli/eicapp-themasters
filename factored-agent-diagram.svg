@@ -5,86 +5,86 @@
     </style>
     <g>
         <marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="flowchart-pointEnd">
-            <path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z" fill="#333333"></path>
+            <path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z" fill="#4A4A4A"></path>
         </marker>
         <g class="root">
             <g class="edgePaths">
-                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#333333;stroke-width:2px;" d="M199.355,39.363L177.334,46.266C155.313,53.169,111.27,66.975,89.248,86.092C67.227,105.208,67.227,129.635,67.227,154.063C67.227,178.49,67.227,202.917,67.227,220.679C67.227,238.442,67.227,249.54,67.227,255.089L67.227,260.638"></path>
-                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#333333;stroke-width:2px;" d="M67.227,335.313L67.227,341.745C67.227,348.177,67.227,361.042,67.227,373.023C67.227,385.004,67.227,396.102,67.227,401.651L67.227,407.2"></path>
-                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#333333;stroke-width:2px;" d="M134.148,317.889L170.34,327.225C206.533,336.561,278.917,355.234,319.514,370.302C360.112,385.37,368.923,396.834,373.329,402.566L377.734,408.298"></path>
-                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#333333;stroke-width:2px;" d="M290.738,42.188L300.832,48.62C310.926,55.052,331.113,67.917,341.207,79.898C351.301,91.879,351.301,102.977,351.301,108.526L351.301,114.075"></path>
-                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#333333;stroke-width:2px;" d="M397.095,188.75L405.587,195.182C414.079,201.615,431.063,214.479,439.555,226.46C448.047,238.442,448.047,249.54,448.047,255.089L448.047,260.638"></path>
-                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#333333;stroke-width:2px;" d="M305.506,188.75L297.014,195.182C288.522,201.615,271.539,214.479,263.047,226.46C254.555,238.442,254.555,249.54,254.555,255.089L254.555,260.638"></path>
-                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#333333;stroke-width:2px;" d="M448.047,335.313L448.047,341.745C448.047,348.177,448.047,361.042,444.925,373.133C441.804,385.224,435.561,396.542,432.44,402.2L429.318,407.859"></path>
-                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#333333;stroke-width:2px;" d="M254.555,335.313L254.555,341.745C254.555,348.177,254.555,361.042,235.36,374.983C216.166,388.924,177.777,403.941,158.583,411.45L139.389,418.958"></path>
+                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#6B6B6B;stroke-width:1.5px;" d="M199.355,39.363L177.334,46.266C155.313,53.169,111.27,66.975,89.248,86.092C67.227,105.208,67.227,129.635,67.227,154.063C67.227,178.49,67.227,202.917,67.227,220.679C67.227,238.442,67.227,249.54,67.227,255.089L67.227,260.638"></path>
+                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#6B6B6B;stroke-width:1.5px;" d="M67.227,335.313L67.227,341.745C67.227,348.177,67.227,361.042,67.227,373.023C67.227,385.004,67.227,396.102,67.227,401.651L67.227,407.2"></path>
+                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#6B6B6B;stroke-width:1.5px;" d="M134.148,317.889L170.34,327.225C206.533,336.561,278.917,355.234,319.514,370.302C360.112,385.37,368.923,396.834,373.329,402.566L377.734,408.298"></path>
+                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#6B6B6B;stroke-width:1.5px;" d="M290.738,42.188L300.832,48.62C310.926,55.052,331.113,67.917,341.207,79.898C351.301,91.879,351.301,102.977,351.301,108.526L351.301,114.075"></path>
+                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#6B6B6B;stroke-width:1.5px;" d="M397.095,188.75L405.587,195.182C414.079,201.615,431.063,214.479,439.555,226.46C448.047,238.442,448.047,249.54,448.047,255.089L448.047,260.638"></path>
+                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#6B6B6B;stroke-width:1.5px;" d="M305.506,188.75L297.014,195.182C288.522,201.615,271.539,214.479,263.047,226.46C254.555,238.442,254.555,249.54,254.555,255.089L254.555,260.638"></path>
+                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#6B6B6B;stroke-width:1.5px;" d="M448.047,335.313L448.047,341.745C448.047,348.177,448.047,361.042,444.925,373.133C441.804,385.224,435.561,396.542,432.44,402.2L429.318,407.859"></path>
+                <path marker-end="url(#flowchart-pointEnd)" style="fill:none;stroke:#6B6B6B;stroke-width:1.5px;" d="M254.555,335.313L254.555,341.745C254.555,348.177,254.555,361.042,235.36,374.983C216.166,388.924,177.777,403.941,158.583,411.45L139.389,418.958"></path>
             </g>
             <g class="edgeLabels">
                 <g transform="translate(67.2265625, 154.0625)" class="edgeLabel">
-                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: #333;">Real-time</text>
+                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 11px; fill: #4A4A4A;">Real-time</text>
                 </g>
                 <g transform="translate(67.2265625, 373.90625)" class="edgeLabel">
-                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: #333;">Queries 200ms</text>
+                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 11px; fill: #4A4A4A;">Queries 200ms</text>
                 </g>
                 <g transform="translate(351.30078125, 373.90625)" class="edgeLabel">
-                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: #333;">Executes</text>
+                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 11px; fill: #4A4A4A;">Executes</text>
                 </g>
                 <g transform="translate(351.30078125, 80.78125)" class="edgeLabel">
-                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: #333;">Transcript</text>
+                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 11px; fill: #4A4A4A;">Transcript</text>
                 </g>
                 <g transform="translate(448.046875, 227.34375)" class="edgeLabel">
-                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: #333;">Offline Learning</text>
+                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 11px; fill: #4A4A4A;">Offline Learning</text>
                 </g>
                 <g transform="translate(254.5546875, 227.34375)" class="edgeLabel">
-                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: #333;">Offline Learning</text>
+                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 11px; fill: #4A4A4A;">Offline Learning</text>
                 </g>
                 <g transform="translate(448.046875, 373.90625)" class="edgeLabel">
-                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: #333;">Updates</text>
+                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 11px; fill: #4A4A4A;">Updates</text>
                 </g>
                 <g transform="translate(254.5546875, 373.90625)" class="edgeLabel">
-                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: #333;">Updates</text>
+                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 11px; fill: #4A4A4A;">Updates</text>
                 </g>
             </g>
             <g class="nodes">
                 <!-- Live Interview -->
                 <g transform="translate(257.63671875, 21.09375)">
-                    <rect height="42.1875" width="116.5625" y="-21.09375" x="-58.28125" ry="5" rx="5" style="fill:#ECECFF;stroke:#9370DB;stroke-width:2px;"></rect>
-                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: bold; fill: #333;">Live Interview</text>
+                    <rect height="42.1875" width="116.5625" y="-21.09375" x="-58.28125" ry="3" rx="3" style="fill:#F5F5F5;stroke:#999999;stroke-width:2px;"></rect>
+                    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: 600; fill: #2C2C2C;">Live Interview</text>
                 </g>
                 <!-- Conductor Agent -->
                 <g transform="translate(67.2265625, 300.625)">
-                    <rect height="69.375" width="133.84375" y="-34.6875" x="-66.921875" ry="5" rx="5" style="fill:#4A90E2;stroke:#2563EB;stroke-width:2px;"></rect>
-                    <text x="0" y="-8" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: bold; fill: white;">Conductor Agent</text>
+                    <rect height="69.375" width="133.84375" y="-34.6875" x="-66.921875" ry="3" rx="3" style="fill:#0066CC;stroke:#004C99;stroke-width:2px;"></rect>
+                    <text x="0" y="-8" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: 600; fill: white;">Conductor Agent</text>
                     <text x="0" y="10" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: white;">SLM - Fast</text>
                 </g>
                 <!-- A-MEM Knowledge Store -->
                 <g transform="translate(67.2265625, 447.1875)">
-                    <rect height="69.375" width="134.453125" y="-34.6875" x="-67.2265625" ry="5" rx="5" style="fill:#50C878;stroke:#10B981;stroke-width:2px;"></rect>
-                    <text x="0" y="-8" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: bold; fill: white;">A-MEM</text>
+                    <rect height="69.375" width="134.453125" y="-34.6875" x="-67.2265625" ry="3" rx="3" style="fill:#6B6B6B;stroke:#4A4A4A;stroke-width:2px;"></rect>
+                    <text x="0" y="-8" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: 600; fill: white;">A-MEM</text>
                     <text x="0" y="10" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: white;">Knowledge Store</text>
                 </g>
                 <!-- Playbook -->
                 <g transform="translate(407.625, 447.1875)">
-                    <rect height="69.375" width="123.34375" y="-34.6875" x="-61.671875" ry="5" rx="5" style="fill:#F39C12;stroke:#F97316;stroke-width:2px;"></rect>
-                    <text x="0" y="-8" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: bold; fill: white;">Playbook v1.38</text>
+                    <rect height="69.375" width="123.34375" y="-34.6875" x="-61.671875" ry="3" rx="3" style="fill:#9B9B9B;stroke:#6B6B6B;stroke-width:2px;"></rect>
+                    <text x="0" y="-8" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: 600; fill: white;">Playbook v1.38</text>
                     <text x="0" y="10" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: white;">Compiled Skills</text>
                 </g>
                 <!-- Analyst Agent -->
                 <g transform="translate(351.30078125, 154.0625)">
-                    <rect height="69.375" width="112.234375" y="-34.6875" x="-56.1171875" ry="5" rx="5" style="fill:#E25C4A;stroke:#DC2626;stroke-width:2px;"></rect>
-                    <text x="0" y="-8" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: bold; fill: white;">Analyst Agent</text>
+                    <rect height="69.375" width="112.234375" y="-34.6875" x="-56.1171875" ry="3" rx="3" style="fill:#4A4A4A;stroke:#2C2C2C;stroke-width:2px;"></rect>
+                    <text x="0" y="-8" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: 600; fill: white;">Analyst Agent</text>
                     <text x="0" y="10" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: white;">LLM - Deep</text>
                 </g>
                 <!-- ACE/GEPA -->
                 <g transform="translate(448.046875, 300.625)">
-                    <rect height="69.375" width="146.171875" y="-34.6875" x="-73.0859375" ry="5" rx="5" style="fill:#ECECFF;stroke:#9370DB;stroke-width:2px;"></rect>
-                    <text x="0" y="-8" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: bold; fill: #333;">ACE/GEPA</text>
-                    <text x="0" y="10" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: #333;">Strategy Evolution</text>
+                    <rect height="69.375" width="146.171875" y="-34.6875" x="-73.0859375" ry="3" rx="3" style="fill:#F5F5F5;stroke:#CCCCCC;stroke-width:2px;"></rect>
+                    <text x="0" y="-8" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: 600; fill: #2C2C2C;">ACE/GEPA</text>
+                    <text x="0" y="10" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: #4A4A4A;">Strategy Evolution</text>
                 </g>
                 <!-- A-MEM Pattern Discovery -->
                 <g transform="translate(254.5546875, 300.625)">
-                    <rect height="69.375" width="140.8125" y="-34.6875" x="-70.40625" ry="5" rx="5" style="fill:#ECECFF;stroke:#9370DB;stroke-width:2px;"></rect>
-                    <text x="0" y="-8" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: bold; fill: #333;">A-MEM</text>
-                    <text x="0" y="10" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: #333;">Pattern Discovery</text>
+                    <rect height="69.375" width="140.8125" y="-34.6875" x="-70.40625" ry="3" rx="3" style="fill:#F5F5F5;stroke:#CCCCCC;stroke-width:2px;"></rect>
+                    <text x="0" y="-8" text-anchor="middle" dominant-baseline="middle" style="font-size: 14px; font-weight: 600; fill: #2C2C2C;">A-MEM</text>
+                    <text x="0" y="10" text-anchor="middle" dominant-baseline="middle" style="font-size: 12px; fill: #4A4A4A;">Pattern Discovery</text>
                 </g>
             </g>
         </g>
