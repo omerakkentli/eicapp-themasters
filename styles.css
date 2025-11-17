@@ -2958,3 +2958,654 @@ pre code {
         font-size: 1.2rem !important;
     }
 }
+
+/* --- HERO METRICS DASHBOARD --- */
+
+.metrics-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.metric-card {
+    background: white;
+    border: 2px solid var(--color-border-light);
+    border-left: 4px solid var(--color-accent);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.metric-card.highlight {
+    background: var(--color-bg-highlight);
+    border-left-color: #28a745;
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.metric-card.highlight .metric-value {
+    color: #28a745;
+}
+
+.metric-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.metric-sublabel {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.5rem;
+}
+
+.metric-comparison {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border-light);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.metric-arrow {
+    color: #28a745;
+    font-weight: 700;
+}
+
+/* --- INFOGRAPHIC FUNNEL --- */
+
+.infographic-funnel {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--color-bg-subtle);
+}
+
+.funnel-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.funnel-stage {
+    background: white;
+    border: 2px solid var(--color-border-light);
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.funnel-stage:nth-child(1) {
+    width: 100%;
+    border-left: 4px solid var(--color-accent);
+}
+
+.funnel-stage:nth-child(2) {
+    width: 90%;
+    margin: 0 auto;
+    border-left: 4px solid #ffc107;
+}
+
+.funnel-stage:nth-child(3) {
+    width: 80%;
+    margin: 0 auto;
+    border-left: 4px solid #dc3545;
+}
+
+.funnel-percentage {
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.funnel-stage:nth-child(1) .funnel-percentage {
+    color: var(--color-accent);
+}
+
+.funnel-stage:nth-child(2) .funnel-percentage {
+    color: #ffc107;
+}
+
+.funnel-stage:nth-child(3) .funnel-percentage {
+    color: #dc3545;
+}
+
+.funnel-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+/* --- SPLIT COMPARISON --- */
+
+.split-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.comparison-side {
+    background: white;
+    border: 2px solid var(--color-border-light);
+    padding: 2rem;
+}
+
+.comparison-side.problem {
+    border-left: 4px solid #dc3545;
+}
+
+.comparison-side.solution {
+    border-left: 4px solid #28a745;
+    background: var(--color-bg-highlight);
+}
+
+.comparison-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.comparison-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.comparison-side.problem .comparison-icon {
+    color: #dc3545;
+}
+
+.comparison-side.solution .comparison-icon {
+    color: #28a745;
+}
+
+.comparison-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.comparison-content {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+
+/* --- TRL JOURNEY MAP --- */
+
+.trl-journey {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--color-bg-subtle);
+}
+
+.journey-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.journey-timeline::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-border-medium);
+    z-index: 0;
+}
+
+.journey-point {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    flex: 1;
+}
+
+.journey-circle {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--color-border-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin: 0 auto 0.5rem;
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+}
+
+.journey-point.current .journey-circle {
+    border-color: #ffc107;
+    background: #fff3cd;
+    color: #ffc107;
+}
+
+.journey-point.target .journey-circle {
+    border-color: #28a745;
+    background: #d4edda;
+    color: #28a745;
+}
+
+.journey-point-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.journey-point-desc {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* --- THREE-COMPONENT SYSTEM DIAGRAM --- */
+
+.system-diagram {
+    margin: 2rem 0;
+}
+
+.component-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.component-box {
+    background: white;
+    border: 2px solid var(--color-border-light);
+    border-left: 4px solid var(--color-accent);
+    padding: 1.5rem;
+    position: relative;
+}
+
+.component-box::after {
+    content: "↓";
+    position: absolute;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: var(--color-accent);
+}
+
+.component-box:last-child::after {
+    display: none;
+}
+
+.component-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.component-icon {
+    font-size: 2rem;
+    color: var(--color-accent);
+}
+
+.component-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.component-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-tertiary);
+    font-style: italic;
+}
+
+.component-features {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.feature-badge {
+    background: var(--color-bg-subtle);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-light);
+}
+
+/* --- DECISION TREE --- */
+
+.decision-tree {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--color-bg-subtle);
+}
+
+.tree-branches {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tree-branch {
+    background: white;
+    border: 2px solid var(--color-border-light);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.tree-branch.autonomous {
+    border-left: 4px solid #28a745;
+}
+
+.tree-branch.assisted {
+    border-left: 4px solid #ffc107;
+}
+
+.tree-branch.human {
+    border-left: 4px solid #dc3545;
+}
+
+.tree-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.tree-branch.autonomous .tree-icon {
+    color: #28a745;
+}
+
+.tree-branch.assisted .tree-icon {
+    color: #ffc107;
+}
+
+.tree-branch.human .tree-icon {
+    color: #dc3545;
+}
+
+.tree-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tree-description {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+.tree-percentage {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border-light);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.tree-branch.autonomous .tree-percentage {
+    color: #28a745;
+}
+
+.tree-branch.assisted .tree-percentage {
+    color: #ffc107;
+}
+
+.tree-branch.human .tree-percentage {
+    color: #dc3545;
+}
+
+/* --- TIMELINE VISUALIZATION --- */
+
+.competitive-timeline {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--color-bg-subtle);
+}
+
+.timeline-axis {
+    position: relative;
+    margin: 2rem 0;
+    padding: 2rem 0;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-border-medium);
+}
+
+.timeline-markers {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.timeline-marker {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.timeline-dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    margin: 0 auto 0.5rem;
+}
+
+.timeline-marker.competitor .timeline-dot {
+    background: var(--color-border-dark);
+}
+
+.timeline-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.timeline-time {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+}
+
+/* --- REVENUE GRAPH --- */
+
+.revenue-graph {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--color-bg-subtle);
+}
+
+.graph-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    height: 300px;
+    margin-top: 2rem;
+}
+
+.graph-bar {
+    flex: 1;
+    background: var(--color-accent);
+    position: relative;
+    min-height: 20px;
+}
+
+.graph-bar-value {
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.graph-bar-label {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+/* --- EUROPEAN ADVANTAGE TRIANGLE --- */
+
+.advantage-triangle {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.advantage-pillar {
+    background: white;
+    border: 2px solid var(--color-border-light);
+    border-left: 4px solid var(--color-accent);
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.pillar-icon {
+    font-size: 3rem;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.pillar-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+.pillar-description {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+/* --- TWO-PHASE GTM --- */
+
+.gtm-phases {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+    align-items: center;
+}
+
+.gtm-phase {
+    background: white;
+    border: 2px solid var(--color-border-light);
+    border-left: 4px solid var(--color-accent);
+    padding: 2rem;
+}
+
+.gtm-arrow {
+    font-size: 3rem;
+    color: var(--color-accent);
+}
+
+.phase-number {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: white;
+    font-weight: 700;
+    line-height: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.phase-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+.phase-content {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+
+@media (max-width: 768px) {
+    .split-comparison,
+    .gtm-phases {
+        grid-template-columns: 1fr;
+    }
+    
+    .gtm-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .advantage-triangle,
+    .tree-branches {
+        grid-template-columns: 1fr;
+    }
+    
+    .graph-bars {
+        height: 200px;
+    }
+}
+
+/* --- PRINT STYLES FOR NEW COMPONENTS --- */
+
+@media print {
+    .metrics-dashboard {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.8rem !important;
+        page-break-inside: avoid;
+    }
+    
+    .metric-card {
+        padding: 1rem !important;
+        page-break-inside: avoid;
+    }
+    
+    .metric-value {
+        font-size: 1.8rem !important;
+    }
+    
+    .system-diagram,
+    .decision-tree,
+    .revenue-graph {
+        page-break-inside: avoid;
+    }
+}
