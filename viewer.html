@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EIC Application Section</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <!-- ========================================
@@ -131,12 +132,34 @@
     <p>The core technological breakthrough of <strong>The Masters Platform</strong> is a new AI architecture that enables small, efficient open-source models (7-13B parameters) to match or exceed the performance of 100B+ parameter frontier models on complex reasoning benchmarks. This approach yields profound gains in efficiency and sustainability, achieving comparable results to systems like GPT-4 while consuming <strong>95% less computational resources</strong>.</p>
     <p>This innovation delivers a validated <strong>10.6% performance improvement</strong> over baseline approaches at <strong>1/10th the cost</strong>.</p>
     <h4><span class="section-marker">I.</span> How it is done today and the limit of the current practice</h4>
-    <p>The current paradigm for enterprise AI relies on <strong>fine-tuning</strong>—an attempt to embed static domain expertise into a model's weights. This approach is the source of the documented <strong>95% failure rate of enterprise AI deployments</strong>. It fails for three primary reasons:</p>
-    <ol>
-        <li><strong>It is static:</strong> Fine-tuned models are a snapshot in time. They become obsolete as soon as the business context evolves.</li>
-        <li><strong>It is fragile:</strong> The process suffers from <strong>"Context Collapse"</strong>. This is the progressive erosion of critical details as the AI system learns from successive interactions. Rich, actionable details are compressed into generic, useless summaries, destroying the very knowledge the system is meant to preserve.</li>
-        <li><strong>It is cost-prohibitive:</strong> This process is extremely expensive, locking out SMEs and creating a significant barrier to innovation.</li>
-    </ol>
+    <p>The current paradigm for enterprise AI relies on <strong>fine-tuning</strong>—an attempt to embed static domain expertise into a model's weights. This approach is the source of the documented <strong>95% failure rate of enterprise AI deployments</strong>:</p>
+    
+    <div class="problem-triangle">
+        <div class="problem-triangle-header">
+            <i data-lucide="trending-down" class="problem-triangle-icon"></i>
+            <div class="problem-triangle-title">95% AI Failure Rate</div>
+        </div>
+        
+        <div class="problem-cards">
+            <div class="problem-card">
+                <i data-lucide="calendar" class="problem-card-icon"></i>
+                <div class="problem-card-title">Static</div>
+                <div class="problem-card-description">Fine-tuned models are a snapshot in time. They become obsolete as soon as the business context evolves.</div>
+            </div>
+            
+            <div class="problem-card">
+                <i data-lucide="zap" class="problem-card-icon"></i>
+                <div class="problem-card-title">Fragile</div>
+                <div class="problem-card-description">The process suffers from "Context Collapse"—the progressive erosion of critical details as the AI system learns from successive interactions.</div>
+            </div>
+            
+            <div class="problem-card">
+                <i data-lucide="dollar-sign" class="problem-card-icon"></i>
+                <div class="problem-card-title">Prohibitive</div>
+                <div class="problem-card-description">This process is extremely expensive, locking out SMEs and creating a significant barrier to innovation.</div>
+            </div>
+        </div>
+    </div>
     <h4><span class="section-marker">II.</span> What is new in your approach and why do you think it will be successful?</h4>
     <p>Our breakthrough is <strong>Agentic Context Engineering (ACE)</strong>, a framework that fundamentally replaces the fine-tuning paradigm.</p>
     <p>Instead of embedding fragile knowledge into model weights, ACE builds an <strong>"ever-expanding knowledge infrastructure"</strong>—a dynamic, external knowledge base that evolves continuously. Our <strong>"Factored Agent Architecture"</strong> uses specialized agents (a Reflector and a Curator) to perform incremental updates, adding new hypotheses and insights in super-fine detail <em>without</em> compression or summarization.</p>
@@ -201,42 +224,81 @@
     
     <p>We are not starting from scratch. We have already validated our core technology and proven we have solved "Context Collapse." This grant will scale our platform from a validated prototype (<strong>TRL 4</strong>) to a fully automated, market-ready system (<strong>TRL 7</strong>).</p>
     <h4>Our North-Star Metrics: From TRL 4 to TRL 7</h4>
-    <table>
-        <thead>
-            <tr>
-                <th>Metric</th>
-                <th>Current State (TRL 4)</th>
-                <th>Project Goal (TRL 7)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Context Retention</strong></td>
-                <td><strong>94.2%</strong> (vs 57.1% baseline)</td>
-                <td><strong>&gt;95%</strong> (at 1000s of interviews)</td>
-            </tr>
-            <tr>
-                <td><strong>System Automation</strong></td>
-                <td><strong>85%</strong> (15% manual curation)</td>
-                <td><strong>100%</strong> (&lt;3% human-in-the-loop)</td>
-            </tr>
-            <tr>
-                <td><strong>Commercial Viability</strong></td>
-                <td><strong>€12K ARR</strong> (from 8 pilots)</td>
-                <td><strong>&ge;€400K MRR</strong> (Market Ready)</td>
-            </tr>
-            <tr>
-                <td><strong>System Speed</strong></td>
-                <td><strong>~250ms</strong> response time</td>
-                <td><strong>&lt;150ms</strong> (on EU-hosted infra)</td>
-            </tr>
-            <tr>
-                <td><strong>User Satisfaction</strong></td>
-                <td><strong>NPS 67</strong> (from 85 users)</td>
-                <td><strong>NPS &ge;+50</strong> (at 100+ users)</td>
-            </tr>
-        </tbody>
-    </table>
+    
+    <div class="metric-row">
+        <div class="metric-header">
+            <i data-lucide="gauge" class="icon"></i>
+            <span class="metric-label">Context Retention</span>
+        </div>
+        <div class="metric-progress">
+            <span class="progress-current">94.2%</span>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 98.9%;"></div>
+            </div>
+            <span class="progress-arrow">→</span>
+            <span class="progress-goal">&gt;95%</span>
+        </div>
+    </div>
+    
+    <div class="metric-row">
+        <div class="metric-header">
+            <i data-lucide="cog" class="icon"></i>
+            <span class="metric-label">System Automation</span>
+        </div>
+        <div class="metric-progress">
+            <span class="progress-current">85%</span>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 85%;"></div>
+            </div>
+            <span class="progress-arrow">→</span>
+            <span class="progress-goal">100%</span>
+        </div>
+    </div>
+    
+    <div class="metric-row">
+        <div class="metric-header">
+            <i data-lucide="dollar-sign" class="icon"></i>
+            <span class="metric-label">Commercial Viability</span>
+        </div>
+        <div class="metric-progress">
+            <span class="progress-current">€12K ARR</span>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 3%;"></div>
+            </div>
+            <span class="progress-arrow">→</span>
+            <span class="progress-goal">€400K MRR</span>
+        </div>
+    </div>
+    
+    <div class="metric-row">
+        <div class="metric-header">
+            <i data-lucide="zap" class="icon"></i>
+            <span class="metric-label">System Speed</span>
+        </div>
+        <div class="metric-progress">
+            <span class="progress-current">~250ms</span>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 60%;"></div>
+            </div>
+            <span class="progress-arrow">→</span>
+            <span class="progress-goal">&lt;150ms</span>
+        </div>
+    </div>
+    
+    <div class="metric-row">
+        <div class="metric-header">
+            <i data-lucide="thumbs-up" class="icon"></i>
+            <span class="metric-label">User Satisfaction</span>
+        </div>
+        <div class="metric-progress">
+            <span class="progress-current">NPS 67</span>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 67%;"></div>
+            </div>
+            <span class="progress-arrow">→</span>
+            <span class="progress-goal">NPS ≥50</span>
+        </div>
+    </div>
     <hr>
     <p>To achieve this, we will focus on the following key objectives:</p>
     <h4>Technology Development Objectives</h4>
@@ -259,6 +321,31 @@
     <p>"Context Collapse" is the erosion of critical details as an AI system learns from successive interactions. It is the "telephone game" of AI, where rich, actionable details are compressed into generic, useless summaries. This is a primary driver of the 95% failure rate for enterprise AI.</p>
     
     <h4>Example: How Compression Destroys Knowledge</h4>
+    
+    <div class="context-collapse-visual">
+        <div class="collapse-stages">
+            <div class="collapse-stage success">
+                <i data-lucide="check-circle-2" class="collapse-stage-icon"></i>
+                <div class="collapse-stage-label">Rich Detail</div>
+            </div>
+            
+            <div class="collapse-stage warning">
+                <i data-lucide="alert-triangle" class="collapse-stage-icon"></i>
+                <div class="collapse-stage-label">Less Useful</div>
+            </div>
+            
+            <div class="collapse-stage danger">
+                <i data-lucide="x-circle" class="collapse-stage-icon"></i>
+                <div class="collapse-stage-label">Worthless</div>
+            </div>
+        </div>
+        
+        <div class="collapse-metric">
+            <i data-lucide="gauge" class="collapse-metric-icon"></i>
+            <div class="collapse-metric-text">Knowledge Quality: 100% → 50% → 10%</div>
+        </div>
+    </div>
+    
     <table>
         <thead>
             <tr>
@@ -368,6 +455,73 @@
     
     <h3>3. The Factored Agent Architecture</h3>
     <p>This is the core of our methodology, solving the "Latency Paradox".</p>
+    
+    <div class="factored-agent-enhanced">
+        <div class="agent-layers">
+            <div class="agent-layer">
+                <div class="agent-layer-title">
+                    <i data-lucide="zap"></i>
+                    Conductor (Real-Time)
+                </div>
+                <div class="agent-layer-content">
+                    Small Language Model optimized for speed, running interviews in real-time by executing proven playbook strategies.
+                </div>
+                <div class="agent-layer-metrics">
+                    <div class="agent-metric">
+                        <i data-lucide="timer" class="icon-sm"></i>
+                        Response time: &lt;250ms
+                    </div>
+                    <div class="agent-metric">
+                        <i data-lucide="cpu" class="icon-sm"></i>
+                        Model: Llama 3 8B
+                    </div>
+                </div>
+            </div>
+            
+            <div class="agent-layer">
+                <div class="agent-layer-title">
+                    <i data-lucide="brain"></i>
+                    Analyst (Deep Learning)
+                </div>
+                <div class="agent-layer-content">
+                    Powerful Large Language Model working offline to analyze patterns, identify insights, and compile better strategies.
+                </div>
+                <div class="agent-layer-metrics">
+                    <div class="agent-metric">
+                        <i data-lucide="clock" class="icon-sm"></i>
+                        Processing: Offline/async
+                    </div>
+                    <div class="agent-metric">
+                        <i data-lucide="brain" class="icon-sm"></i>
+                        Model: GPT-4/GPT-5
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="agent-connection">⟷</div>
+        
+        <div class="memory-systems">
+            <div class="memory-systems-title">
+                <i data-lucide="database"></i>
+                Memory Systems
+            </div>
+            <div class="memory-grid">
+                <div class="memory-item">
+                    <i data-lucide="blocks" class="memory-item-icon"></i>
+                    <div class="memory-item-label">ACE/GEPA<br/>(Skills)</div>
+                </div>
+                <div class="memory-item">
+                    <i data-lucide="network" class="memory-item-icon"></i>
+                    <div class="memory-item-label">A-MEM<br/>(Knowledge)</div>
+                </div>
+                <div class="memory-item">
+                    <i data-lucide="message-square" class="memory-item-icon"></i>
+                    <div class="memory-item-label">MDP<br/>(Conversations)</div>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <div class="diagram-container">
         <div class="mermaid-diagram">
@@ -566,54 +720,123 @@
         
         <p><strong>Competitive Landscape Analysis</strong></p>
         
-        <table>
-        <thead>
-        <tr>
-        <th>Competitor</th>
-        <th>Offering</th>
-        <th>Price Point</th>
-        <th>Our Advantage</th>
-        <th>Our Risk/Mitigation</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td><strong>McKinsey, BCG, Bain</strong></td>
-        <td>Strategic consulting, market validation reports</td>
-        <td>€50K-500K</td>
-        <td>90% cheaper (€500), 10x faster, AI-driven continuous learning</td>
-        <td>Brand weakness → Mitigated via verified CIO/CFO experts + case studies</td>
-        </tr>
-        <tr>
-        <td><strong>GLG, AlphaSights</strong></td>
-        <td>Expert networks, human-facilitated calls</td>
-        <td>€5K-50K</td>
-        <td>AI conducts interviews, A-MEM compounds insights, 70% cost reduction</td>
-        <td>GLG serves enterprises → Complementary, not competitive</td>
-        </tr>
-        <tr>
-        <td><strong>Gartner, Forrester</strong></td>
-        <td>Industry research, analyst access</td>
-        <td>€15K-100K subs.</td>
-        <td>Tailored validation (not generic reports), direct buyer access, startup-focused</td>
-        <td>Data depth → Mitigated via 247+ interviews, pattern discovery (N=47)</td>
-        </tr>
-        <tr>
-        <td><strong>Generic AI (ChatGPT)</strong></td>
-        <td>Q&A, brainstorming</td>
-        <td>€20-200/month</td>
-        <td>Domain expertise (hospital procurement), validation authority (real CIOs), Glass Box traceability</td>
-        <td>Commoditization → Moat = knowledge graph (18,500+ atomic notes)</td>
-        </tr>
-        <tr>
-        <td><strong>Agentic AI (AutoGPT)</strong></td>
-        <td>Research prototypes</td>
-        <td>Open-source</td>
-        <td>Production-validated (247 interviews, 94.2% retention), TRL 4-5 vs TRL 2-3</td>
-        <td>Open-source ACE → Moat = proprietary A-MEM patterns, GEPA fitness functions</td>
-        </tr>
-        </tbody>
-        </table>
+        <div class="competitive-landscape">
+            <div class="value-gap-diagram">
+                <div class="diagram-title">The Market Gap: Where The Masters Fits</div>
+                
+                <div class="market-spectrum">
+                    <div class="market-tier premium">
+                        <div class="tier-header">
+                            <i data-lucide="building-2"></i>
+                            <h4>PREMIUM SOLUTIONS</h4>
+                            <span class="tier-badge red">Inaccessible to Startups</span>
+                        </div>
+                        <div class="tier-price">€5K - €500K</div>
+                        <div class="tier-solutions">
+                            <div class="solution-item">
+                                <i data-lucide="briefcase"></i>
+                                <span>McKinsey, BCG, Bain</span>
+                                <span class="price-tag">€50K-€500K</span>
+                            </div>
+                            <div class="solution-item">
+                                <i data-lucide="file-text"></i>
+                                <span>Gartner, Forrester</span>
+                                <span class="price-tag">€15K-€100K</span>
+                            </div>
+                            <div class="solution-item">
+                                <i data-lucide="users"></i>
+                                <span>GLG, AlphaSights</span>
+                                <span class="price-tag">€5K-€50K</span>
+                            </div>
+                            <div class="solution-item">
+                                <i data-lucide="calendar"></i>
+                                <span>Conferences & Expos</span>
+                                <span class="price-tag">€10K+ each</span>
+                            </div>
+                        </div>
+                        <div class="tier-verdict">
+                            <i data-lucide="x-circle"></i>
+                            <strong>Problem:</strong> High quality insights, but pricing locks out 95% of European startups
+                        </div>
+                    </div>
+                    
+                    <div class="market-tier sweet-spot">
+                        <div class="tier-header">
+                            <i data-lucide="star"></i>
+                            <h4>THE MASTERS PLATFORM</h4>
+                            <span class="tier-badge green">The Sweet Spot</span>
+                        </div>
+                        <div class="tier-price highlight">€500/session</div>
+                        <div class="tier-value-prop">
+                            <div class="value-item">
+                                <i data-lucide="check-circle-2"></i>
+                                <span><strong>Premium Quality:</strong> Real CIOs, CTOs, procurement heads</span>
+                            </div>
+                            <div class="value-item">
+                                <i data-lucide="check-circle-2"></i>
+                                <span><strong>Accessible Pricing:</strong> 90% cheaper than consultancies</span>
+                            </div>
+                            <div class="value-item">
+                                <i data-lucide="check-circle-2"></i>
+                                <span><strong>AI-Powered Scale:</strong> Compounds learning across 1000s of interviews</span>
+                            </div>
+                            <div class="value-item">
+                                <i data-lucide="check-circle-2"></i>
+                                <span><strong>Fast Execution:</strong> Days not months</span>
+                            </div>
+                        </div>
+                        <div class="tier-verdict success">
+                            <i data-lucide="zap"></i>
+                            <strong>The Solution:</strong> Enterprise-grade validation at startup-friendly prices
+                        </div>
+                    </div>
+                    
+                    <div class="market-tier low-end">
+                        <div class="tier-header">
+                            <i data-lucide="tool"></i>
+                            <h4>DIY / LOW-END SOLUTIONS</h4>
+                            <span class="tier-badge amber">Time-Consuming & Ineffective</span>
+                        </div>
+                        <div class="tier-price">€0 - €2K/month</div>
+                        <div class="tier-solutions">
+                            <div class="solution-item">
+                                <i data-lucide="mail"></i>
+                                <span>Cold Email / Spam</span>
+                                <span class="effectiveness">~0.1% response</span>
+                            </div>
+                            <div class="solution-item">
+                                <i data-lucide="phone"></i>
+                                <span>Cold Calling</span>
+                                <span class="effectiveness">~2% connect rate</span>
+                            </div>
+                            <div class="solution-item">
+                                <i data-lucide="megaphone"></i>
+                                <span>LinkedIn/Google Ads</span>
+                                <span class="effectiveness">Wrong audience</span>
+                            </div>
+                            <div class="solution-item">
+                                <i data-lucide="users-round"></i>
+                                <span>BD Agencies</span>
+                                <span class="effectiveness">Cold-call results</span>
+                            </div>
+                            <div class="solution-item">
+                                <i data-lucide="message-circle"></i>
+                                <span>Generic AI (ChatGPT)</span>
+                                <span class="effectiveness">No domain depth</span>
+                            </div>
+                        </div>
+                        <div class="tier-verdict">
+                            <i data-lucide="alert-triangle"></i>
+                            <strong>Problem:</strong> Cheap but burns founder time with minimal quality feedback
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            
+
+        </div>
         
         <p><strong>Defensibility:</strong> Our defensibility is built on:</p>
         
@@ -759,25 +982,251 @@
         
             <h4>Management Team</h4>
         
-            <p><strong>Ömer Akkentli, CEO/Coordinator:</strong> Serial founder (Glov, Lojika). Ex-Afiniti, eBay, McKinsey. MBA Stanford. Managed €4M+ R&amp;D. Expertise: product, AI strategy, GTM, EU grants.</p>
-        
-            <p><strong>Mustafa Kıraç, CTO:</strong> PhD AI (Case Western). 12 peer-reviewed papers. Ex-Oracle, Afiniti R&amp;D lead. EPO patent holder (EP3425541B1: adaptive context management). Guest lecturer Sabancı U. (ML 2022-24). Responsible: ACE, A-MEM, system integration, academic partnerships.</p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <div class="team-card-avatar">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <div class="team-card-name-role">
+                            <div class="team-card-name">Ömer Akkentli</div>
+                            <div class="team-card-role">
+                                <i data-lucide="briefcase" class="icon-sm"></i>
+                                CEO/Coordinator
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card-attributes">
+                        <div class="team-attribute">
+                            <i data-lucide="graduation-cap"></i>
+                            MBA Stanford | Ex-McKinsey, eBay, Afiniti
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="rocket"></i>
+                            Serial Founder (Glov, Lojika)
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="trending-up"></i>
+                            Managed €4M+ R&D
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="target"></i>
+                            Product, AI Strategy, GTM, EU Grants
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <div class="team-card-avatar">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <div class="team-card-name-role">
+                            <div class="team-card-name">Mustafa Kıraç</div>
+                            <div class="team-card-role">
+                                <i data-lucide="code" class="icon-sm"></i>
+                                CTO
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card-attributes">
+                        <div class="team-attribute">
+                            <i data-lucide="graduation-cap"></i>
+                            PhD AI (Case Western) | 12 Papers, h-index 9
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="award"></i>
+                            EPO Patent Holder (EP3425541B1)
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="building-2"></i>
+                            Ex-Oracle, Afiniti R&D Lead
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="cpu"></i>
+                            ACE, A-MEM, System Integration
+                        </div>
+                    </div>
+                </div>
+            </div>
         
             <h4>Core Team Members</h4>
         
-            <p><strong>Alper Gürel, Full-Stack Engineer:</strong> Web, gaming, e-commerce experience. Stack: React, Next.js, Unity, C#. Responsible: platform frontend/backend, AI integration.</p>
-        
-            <p><strong>Buse Çelik, Operations Lead:</strong></p>
-        
-            <p><strong>Buse Çelik, Business Analyst:</strong> Business-tech translation. Expertise: market research, stakeholder management, GTM.</p>
-        
-            <p><strong>Doğukan Kıralı, Senior Engineer:</strong> Data-rich web apps. Ex-Glov, TEA Networks. Stack: React, TypeScript, Go. Responsible: platform development.</p>
-        
-            <p><strong>Said Ahkemin Kılınç, UI/UX Designer:</strong> UI/UX, graphic design. Gaming, legal, wellness experience. Responsible: platform UI/UX.</p>
-        
-            <p><strong>Tuğçe Çelik, AI Engineer:</strong> LLM workloads, backend. Ex-Gengage, Etiya. Stack: Python, FastAPI, Google Cloud. CV research (PyTorch).</p>
-        
-            <p><strong>Aslı Nur Ayan, Business Analyst:</strong> UX validation at Gengage. AI product QA. Computer Engineering student.</p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <div class="team-card-avatar">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <div class="team-card-name-role">
+                            <div class="team-card-name">Alper Gürel</div>
+                            <div class="team-card-role">
+                                <i data-lucide="code" class="icon-sm"></i>
+                                Full-Stack Engineer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card-attributes">
+                        <div class="team-attribute">
+                            <i data-lucide="layers"></i>
+                            React, Next.js, Unity, C#
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="gamepad-2"></i>
+                            Web, Gaming, E-commerce Experience
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="puzzle"></i>
+                            Platform Frontend/Backend, AI Integration
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <div class="team-card-avatar">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <div class="team-card-name-role">
+                            <div class="team-card-name">Buse Çelik</div>
+                            <div class="team-card-role">
+                                <i data-lucide="briefcase" class="icon-sm"></i>
+                                Business Analyst
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card-attributes">
+                        <div class="team-attribute">
+                            <i data-lucide="trending-up"></i>
+                            Business-Tech Translation
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="search"></i>
+                            Market Research & Stakeholder Management
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="target"></i>
+                            GTM Strategy
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <div class="team-card-avatar">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <div class="team-card-name-role">
+                            <div class="team-card-name">Doğukan Kıralı</div>
+                            <div class="team-card-role">
+                                <i data-lucide="code" class="icon-sm"></i>
+                                Senior Engineer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card-attributes">
+                        <div class="team-attribute">
+                            <i data-lucide="layers"></i>
+                            React, TypeScript, Go
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="building-2"></i>
+                            Ex-Glov, TEA Networks
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="database"></i>
+                            Data-rich Web Applications
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <div class="team-card-avatar">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <div class="team-card-name-role">
+                            <div class="team-card-name">Said Ahkemin Kılınç</div>
+                            <div class="team-card-role">
+                                <i data-lucide="palette" class="icon-sm"></i>
+                                UI/UX Designer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card-attributes">
+                        <div class="team-attribute">
+                            <i data-lucide="pen-tool"></i>
+                            UI/UX & Graphic Design
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="gamepad-2"></i>
+                            Gaming, Legal, Wellness Experience
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="layout"></i>
+                            Platform UI/UX
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <div class="team-card-avatar">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <div class="team-card-name-role">
+                            <div class="team-card-name">Tuğçe Çelik</div>
+                            <div class="team-card-role">
+                                <i data-lucide="code" class="icon-sm"></i>
+                                AI Engineer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card-attributes">
+                        <div class="team-attribute">
+                            <i data-lucide="cpu"></i>
+                            Python, FastAPI, Google Cloud
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="building-2"></i>
+                            Ex-Gengage, Etiya
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="brain"></i>
+                            LLM Workloads, CV Research (PyTorch)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <div class="team-card-avatar">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <div class="team-card-name-role">
+                            <div class="team-card-name">Aslı Nur Ayan</div>
+                            <div class="team-card-role">
+                                <i data-lucide="briefcase" class="icon-sm"></i>
+                                Business Analyst
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card-attributes">
+                        <div class="team-attribute">
+                            <i data-lucide="check-square"></i>
+                            UX Validation & AI Product QA
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="building-2"></i>
+                            Gengage Experience
+                        </div>
+                        <div class="team-attribute">
+                            <i data-lucide="graduation-cap"></i>
+                            Computer Engineering Student
+                        </div>
+                    </div>
+                </div>
+            </div>
         
             <h4>Future Hires</h4>
         
@@ -878,6 +1327,97 @@
         
             <h4>Critical Risks and Mitigation Measures</h4>
         
+            <div class="risk-matrix">
+                <div class="risk-matrix-grid">
+                    <div class="risk-cell high-impact">
+                        <div>
+                            <i data-lucide="alert-circle" style="font-size: 2rem; color: #dc3545;"></i>
+                            <div style="margin-top: 0.5rem; font-weight: 600;">ACE Loop Fails</div>
+                            <div style="font-size: 0.85rem; color: #6B6B6B;">Medium | High</div>
+                        </div>
+                    </div>
+                    <div class="risk-cell high-impact">
+                        <div>
+                            <i data-lucide="alert-circle" style="font-size: 2rem; color: #dc3545;"></i>
+                            <div style="margin-top: 0.5rem; font-weight: 600;">A-MEM Unreliable</div>
+                            <div style="font-size: 0.85rem; color: #6B6B6B;">Medium | High</div>
+                        </div>
+                    </div>
+                    <div class="risk-cell high-impact">
+                        <div>
+                            <i data-lucide="alert-circle" style="font-size: 2rem; color: #dc3545;"></i>
+                            <div style="margin-top: 0.5rem; font-weight: 600;">Expert Network Stalls</div>
+                            <div style="font-size: 0.85rem; color: #6B6B6B;">Medium | High</div>
+                        </div>
+                    </div>
+                    <div class="risk-cell low-impact">
+                        <div>
+                            <i data-lucide="info" style="font-size: 2rem; color: #ffc107;"></i>
+                            <div style="margin-top: 0.5rem; font-weight: 600;">GDPR Compliance</div>
+                            <div style="font-size: 0.85rem; color: #6B6B6B;">Low | High</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="risk-detail-cards">
+                <div class="risk-card">
+                    <div class="risk-card-header">
+                        <i data-lucide="alert-circle" class="risk-card-icon"></i>
+                        <div class="risk-card-title">ACE Loop Fails Autonomous Operation</div>
+                    </div>
+                    <div class="risk-card-meta">
+                        <div class="risk-meta-item">
+                            <i data-lucide="activity" class="icon-sm"></i>
+                            Medium Likelihood
+                        </div>
+                        <div class="risk-meta-item">
+                            <i data-lucide="alert-triangle" class="icon-sm"></i>
+                            High Impact
+                        </div>
+                    </div>
+                    <div class="risk-card-mitigation">
+                        <div class="risk-mitigation-title">
+                            <i data-lucide="shield" class="icon-sm"></i>
+                            Mitigation
+                        </div>
+                        <ul class="risk-mitigation-list">
+                            <li><i data-lucide="arrow-right" class="icon-sm"></i> Progressive deployment: semi → fully automated</li>
+                            <li><i data-lucide="life-buoy" class="icon-sm"></i> Fallback: 3-person curation team</li>
+                            <li><i data-lucide="graduation-cap" class="icon-sm"></i> Academic collaboration with ACE originators</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="risk-card">
+                    <div class="risk-card-header">
+                        <i data-lucide="alert-circle" class="risk-card-icon"></i>
+                        <div class="risk-card-title">A-MEM Retroactive Memory Unreliable</div>
+                    </div>
+                    <div class="risk-card-meta">
+                        <div class="risk-meta-item">
+                            <i data-lucide="activity" class="icon-sm"></i>
+                            Medium Likelihood
+                        </div>
+                        <div class="risk-meta-item">
+                            <i data-lucide="alert-triangle" class="icon-sm"></i>
+                            High Impact
+                        </div>
+                    </div>
+                    <div class="risk-card-mitigation">
+                        <div class="risk-mitigation-title">
+                            <i data-lucide="shield" class="icon-sm"></i>
+                            Mitigation
+                        </div>
+                        <ul class="risk-mitigation-list">
+                            <li><i data-lucide="arrow-right" class="icon-sm"></i> MemGPT fallback in parallel during rollout</li>
+                            <li><i data-lucide="arrow-right" class="icon-sm"></i> Progressive A/B: 20% → 50% → 100%</li>
+                            <li><i data-lucide="eye" class="icon-sm"></i> Human-in-loop: expert dashboard flags patterns</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
             <table>
                 <thead>
                     <tr>
@@ -931,6 +1471,14 @@
         
             <p>The project is organized into <strong>5 work packages</strong> over 24 months: (1) Project Management & Coordination; (2) Research & Development (ACE automation, A-MEM development); (3) System Integration & Validation (TRL 6-7); (4) Business Development & Go-to-Market; (5) Dissemination & Exploitation. You can find Gantt Chart below.</p>
         
+            <div class="gantt-header">
+                <div class="gantt-phases">
+                    <div class="gantt-phase">Phase 1: BUILD (M1-M12)</div>
+                    <div class="gantt-phase">Phase 2: SCALE (M13-M18)</div>
+                    <div class="gantt-phase">Phase 3: MARKET (M19-M24)</div>
+                </div>
+            </div>
+        
             <table class="gantt-chart-table">
                 <thead>
                     <tr>
@@ -963,29 +1511,48 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>WP1: Mgmt</td>
+                        <td><span class="gantt-wp-label"><i data-lucide="settings" class="icon-sm"></i> WP1: Mgmt</span></td>
                         <td colspan="24" style="background-color: #E8E8E8;">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>WP2: R&amp;D</td>
+                        <td><span class="gantt-wp-label"><i data-lucide="cpu" class="icon-sm"></i> WP2: R&amp;D</span></td>
                         <td colspan="18" style="background-color: #D4D4D4;">&nbsp;</td>
                         <td colspan="6" style="background-color: transparent;">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>WP3: Integration</td>
+                        <td><span class="gantt-wp-label"><i data-lucide="puzzle" class="icon-sm"></i> WP3: Integration</span></td>
                         <td colspan="11" style="background-color: transparent;">&nbsp;</td>
                         <td colspan="13" style="background-color: #C4C4C4;">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>WP4: Business</td>
+                        <td><span class="gantt-wp-label"><i data-lucide="trending-up" class="icon-sm"></i> WP4: Business</span></td>
                         <td colspan="24" style="background-color: #B8B8B8;">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>WP5: Dissem.</td>
+                        <td><span class="gantt-wp-label"><i data-lucide="megaphone" class="icon-sm"></i> WP5: Dissem.</span></td>
                         <td colspan="24" style="background-color: #ACACAC;">&nbsp;</td>
                     </tr>
                 </tbody>
             </table>
+            
+            <div class="gantt-milestones">
+                <div class="gantt-milestone">
+                    <i data-lucide="flag" class="icon-sm"></i>
+                    <strong>M6:</strong> <i data-lucide="package" class="icon-sm"></i> DMP delivered
+                </div>
+                <div class="gantt-milestone">
+                    <i data-lucide="flag" class="icon-sm"></i>
+                    <strong>M12:</strong> <i data-lucide="check-circle" class="icon-sm"></i> ACE operational
+                </div>
+                <div class="gantt-milestone">
+                    <i data-lucide="flag" class="icon-sm"></i>
+                    <strong>M18:</strong> <i data-lucide="database" class="icon-sm"></i> A-MEM production + <i data-lucide="target" class="icon-sm"></i> 300 customers
+                </div>
+                <div class="gantt-milestone">
+                    <i data-lucide="flag" class="icon-sm"></i>
+                    <strong>M24:</strong> <i data-lucide="award" class="icon-sm"></i> TRL 6-7 achieved
+                </div>
+            </div>
         <span class="tag">#§CON-SOR-CS§# #§PRJ-MGT-PM§#</span>
             <h4>Table 3.3a: List of Work Packages</h4>
         
@@ -1398,52 +1965,111 @@
         
             <p>Total requested funding: €500,000 over 24 months, allocated across personnel costs, infrastructure, AI compute expenses, expert network compensation, and compliance support.</p>
         
-            <table>
-                <thead>
-                    <tr>
-                        <th>Cost Category</th>
-                        <th>Amount (€)</th>
-                        <th>Description and Justification</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Personnel Costs</strong></td>
-                        <td>320,000</td>
-                        <td>Core team of 7 positions (125 person-months total over 24 months). Average rate of €2,560 per person-month. Personnel costs represent 64% of total budget, reflecting deep-tech project balance between human resources and R&amp;D infrastructure.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Infrastructure &amp; Cloud Services</strong></td>
-                        <td>60,000</td>
-                        <td>EU-hosted infrastructure (AWS EU regions) ensuring data sovereignty and GDPR/AI Act compliance. Includes cloud hosting, storage, network infrastructure, database services, and monitoring systems for real-time voice interviews with sub-150ms latency. Scales progressively with user growth.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>AI Compute &amp; Model Development</strong></td>
-                        <td>50,000</td>
-                        <td>AI compute expenses including GPT-4 API costs for Analyst agent, Llama 3 inference, fine-tuning experiments, and model evaluation. Supports ACE/GEPA loop automation, A-MEM pattern discovery, and continuous learning operations. Includes research cloud credits and GPU instances.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Expert Network &amp; User Acquisition</strong></td>
-                        <td>40,000</td>
-                        <td>Expert compensation: €100-€150/interview (competitive vs €200-€400/h consulting). 300 experts, 3,600 interviews/24mo (€36K). User acquisition €3K, research €1K. <strong>Retention:</strong> Tiered pay (€100→€150 after 10), quarterly awards, knowledge-sharing, co-authorship. Network effects reduce acquisition cost (40% referrals).</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Compliance, Legal &amp; IP Protection</strong></td>
-                        <td>15,000</td>
-                        <td>GDPR compliance audits, AI Act certification, IP protection (patent filings), DNSH certification, legal consultation, data privacy assessments, third-party security audits, and compliance documentation.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>R&amp;D Equipment &amp; Testing</strong></td>
-                        <td>15,000</td>
-                        <td>Development workstations, testing equipment, software licenses, developer tools, voice processing equipment, and quality assurance infrastructure. Supports ACE/A-MEM development and validation.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Total</strong></td>
-                        <td><strong>500,000</strong></td>
-                        <td><strong>Total project budget over 24 months</strong></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="budget-integrated">
+                <div class="budget-item">
+                    <div class="budget-item-header">
+                        <div class="budget-item-label">
+                            <i data-lucide="users"></i>
+                            <strong>Personnel Costs</strong>
+                        </div>
+                        <div class="budget-item-amount">€320,000 <span class="budget-percentage">(64%)</span></div>
+                    </div>
+                    <div class="budget-bar">
+                        <div class="budget-bar-fill" style="width: 64%;"></div>
+                    </div>
+                    <div class="budget-item-description">
+                        Core team of 7 positions (125 person-months total over 24 months). Average rate of €2,560 per person-month. Personnel costs represent 64% of total budget, reflecting deep-tech project balance between human resources and R&amp;D infrastructure.
+                    </div>
+                </div>
+                
+                <div class="budget-item">
+                    <div class="budget-item-header">
+                        <div class="budget-item-label">
+                            <i data-lucide="server"></i>
+                            <strong>Infrastructure &amp; Cloud Services</strong>
+                        </div>
+                        <div class="budget-item-amount">€60,000 <span class="budget-percentage">(12%)</span></div>
+                    </div>
+                    <div class="budget-bar">
+                        <div class="budget-bar-fill" style="width: 12%;"></div>
+                    </div>
+                    <div class="budget-item-description">
+                        EU-hosted infrastructure (AWS EU regions) ensuring data sovereignty and GDPR/AI Act compliance. Includes cloud hosting, storage, network infrastructure, database services, and monitoring systems for real-time voice interviews with sub-150ms latency. Scales progressively with user growth.
+                    </div>
+                </div>
+                
+                <div class="budget-item">
+                    <div class="budget-item-header">
+                        <div class="budget-item-label">
+                            <i data-lucide="cpu"></i>
+                            <strong>AI Compute &amp; Model Development</strong>
+                        </div>
+                        <div class="budget-item-amount">€50,000 <span class="budget-percentage">(10%)</span></div>
+                    </div>
+                    <div class="budget-bar">
+                        <div class="budget-bar-fill" style="width: 10%;"></div>
+                    </div>
+                    <div class="budget-item-description">
+                        AI compute expenses including GPT-4 API costs for Analyst agent, Llama 3 inference, fine-tuning experiments, and model evaluation. Supports ACE/GEPA loop automation, A-MEM pattern discovery, and continuous learning operations. Includes research cloud credits and GPU instances.
+                    </div>
+                </div>
+                
+                <div class="budget-item">
+                    <div class="budget-item-header">
+                        <div class="budget-item-label">
+                            <i data-lucide="user-check"></i>
+                            <strong>Expert Network &amp; User Acquisition</strong>
+                        </div>
+                        <div class="budget-item-amount">€40,000 <span class="budget-percentage">(8%)</span></div>
+                    </div>
+                    <div class="budget-bar">
+                        <div class="budget-bar-fill" style="width: 8%;"></div>
+                    </div>
+                    <div class="budget-item-description">
+                        Expert compensation: €100-€150/interview (competitive vs €200-€400/h consulting). 300 experts, 3,600 interviews/24mo (€36K). User acquisition €3K, research €1K. <strong>Retention:</strong> Tiered pay (€100→€150 after 10), quarterly awards, knowledge-sharing, co-authorship. Network effects reduce acquisition cost (40% referrals).
+                    </div>
+                </div>
+                
+                <div class="budget-item">
+                    <div class="budget-item-header">
+                        <div class="budget-item-label">
+                            <i data-lucide="shield-check"></i>
+                            <strong>Compliance, Legal &amp; IP Protection</strong>
+                        </div>
+                        <div class="budget-item-amount">€15,000 <span class="budget-percentage">(3%)</span></div>
+                    </div>
+                    <div class="budget-bar">
+                        <div class="budget-bar-fill" style="width: 3%;"></div>
+                    </div>
+                    <div class="budget-item-description">
+                        GDPR compliance audits, AI Act certification, IP protection (patent filings), DNSH certification, legal consultation, data privacy assessments, third-party security audits, and compliance documentation.
+                    </div>
+                </div>
+                
+                <div class="budget-item">
+                    <div class="budget-item-header">
+                        <div class="budget-item-label">
+                            <i data-lucide="wrench"></i>
+                            <strong>R&amp;D Equipment &amp; Testing</strong>
+                        </div>
+                        <div class="budget-item-amount">€15,000 <span class="budget-percentage">(3%)</span></div>
+                    </div>
+                    <div class="budget-bar">
+                        <div class="budget-bar-fill" style="width: 3%;"></div>
+                    </div>
+                    <div class="budget-item-description">
+                        Development workstations, testing equipment, software licenses, developer tools, voice processing equipment, and quality assurance infrastructure. Supports ACE/A-MEM development and validation.
+                    </div>
+                </div>
+                
+                <div class="budget-total">
+                    <div class="budget-total-label">
+                        <i data-lucide="calculator"></i>
+                        <strong>Total Project Budget</strong>
+                    </div>
+                    <div class="budget-total-amount">€500,000</div>
+                </div>
+            </div>
         
             <p><strong>Clinical Trials: Annex with Information on Clinical Trials:</strong> <strong>Not Applicable.</strong> This project does not involve clinical trials.</p>
         
@@ -1452,5 +2078,9 @@
       <span class="tag">#§QUA-LIT-QL§# #§WRK-PLA-WP§#
     </span>
 
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+</script>
 </body>
 </html>
