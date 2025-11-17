@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIC Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+   <!-- ========================================
+         COVER PAGE
+    ======================================== -->
+    <section class="page cover-page" style="page-break-inside: avoid;">
+        <div class="cover-wrapper">
+            <div class="cover-emblem">
+                <img src="./images/eu_header.png" alt="European Commission emblem">
+            </div>
+            <div class="cover-flag">
+                <img src="./images/eu_flag.png" alt="European Union flag">
+            </div>
+            <div class="cover-title">
+                <h1>Horizon Europe Programme</h1>
+                <h2>Specific Application Form</h2>
+                <h3>(HORIZON-WIDERA-2025-02)</h3>
+                <p class="doc-label">Project proposal – Technical description (Part B)</p>
+            </div>
+            <div class="cover-separator"></div>
+            <div class="cover-meta">
+                <p style="margin-top: 0;"><strong>Version 1.0</strong></p>
+                <p id="cover-date">13 May 2025</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         HISTORY OF CHANGES, SEAL OF EXCELLENCE & PARTICIPANTS
+    ======================================== -->
+    <section class="page history-page" style="page-break-inside: avoid;">
+        <h2 class="section-heading text-center">History of Changes</h2>
+        <table class="table table--history">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-version">Version</th>
+                    <th scope="col" class="col-date">Publication date</th>
+                    <th scope="col">Changes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.0</td>
+                    <td>13.05.2025</td>
+                    <td>
+                        <ul class="list-basic">
+                            <li>Initial version</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="consent-section">
+            <h3 class="section-subheading">Seal of Excellence</h3>
+            <p class="text-justify"><strong>If my application is evaluated as meeting all the criteria and thresholds for funding but remains unfunded due to lack of budget:</strong></p>
+            <p class="text-justify">I, Ömer Akkentli, the coordinator of this proposal, consent to share with our relevant National Contact Point, EEN Member and other funding public organisations from the European Union, EU member states and Horizon Europe associate countries (including regional innovation organisations, European Structural and Investment Funds (ESIF) Managing authorities etc.), the following data:</p>
+            <ul class="consent-list" style="margin: 5px;">
+                <p class="text-justify" style="margin: 0px;">- basic information about my proposal (proposal acronym, title, abstract, amount requested and the evaluation result)</p>
+                <p class="text-justify" style="margin: 0px;">- personal data (applicant's contact details, e.g. email, name);</p>
+            </ul>
+            <p class="text-justify">Data will be made available subject to confidentiality obligations agreed with the NCPs, EEN members and relevant funding bodies. Please note that without this confirmation, no Seal of Excellence can be awarded.</p>
+        </div>
+        <div class="participants-section">
+            <p class="proposal-title text-center">Agentic Operational Mimicry: A Paradigm for Trustworthy, UI-Grounded Enterprise Automation</p>
+            <p class="text-justify italic">The consortium members are listed in part A of the proposal (application forms). A summary list should also be provided in the table below. <span class="tag">#@APP-FORM-HECSA@#</span></p>
+
+            <h3 class="section-subheading">List of participants <span class="small-text text-muted">[e.g. 1 page]</span></h3>
+            <table class="table table--participants">
+                <thead>
+                    <tr>
+                        <th scope="col" class="col-number">Participant No. *</th>
+                        <th scope="col">Participant organisation name</th>
+                        <th scope="col" class="col-country">Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1 (Coordinator)</td>
+                        <td>GLOV BİLGİ TEKNOLOJİLERİ VE SERVİSLERİ YAZILIM DANIŞMANLIK TİCARET ANONİM ŞİRKETİ</td>
+                        <td>Türkiye</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <div class="page">
+
+        <h2>1. Excellence</h2>
+
+        <h3>1.1 Technological breakthrough</h3>
+
+        <h4>The €250 Billion Paradox: Enterprise AI's Catastrophic Failure to Deliver Value</h4>
+
+        <p>Enterprise AI faces a fundamental crisis. Three years into the generative AI revolution, widespread adoption has produced a catastrophic failure to generate value. Despite 78% of organizations using AI and 92% planning to increase spending, the returns are non-existent.</p>
+
+        <p>This is not a minor gap; it is a <strong>Value Chasm</strong>. The evidence is overwhelming:</p>
+
+        <ul>
+            <li><strong>95% Failure Rate:</strong> 95% of enterprise AI organizations are "getting zero return" from their investments (MIT Project NANDA, 2025). This is corroborated by a 95% AI pilot failure rate in general.</li>
+            <li><strong>No Tangible Value:</strong> 74% of companies show no tangible value from their AI initiatives, and only 4% create "substantial value" (Boston Consulting Group, 2024).</li>
+            <li><strong>Mass Abandonment:</strong> 42% of companies abandoned most of their AI initiatives in 2025, a massive increase from 17% in 2024 (S&P Global Market Intelligence, 2025).</li>
+        </ul>
+
+        <h4>The Root Cause: An Architectural Misalignment</h4>
+
+        <p>The failure is not in the intelligence of modern LLMs. The failure is <strong>architectural</strong>. Current-generation AI agents are deployed as <strong>"stateless tools"</strong> when enterprises require <strong>"stateful partners"</strong>.</p>
+
+        <p>This architectural flaw creates three critical barriers:</p>
+
+        <ol>
+            <li><strong>Statelessness:</strong> Agents have no memory between sessions, starting from zero every time.</li>
+            <li><strong>Context-Blindness:</strong> Agents cannot perceive non-textual context, such as workflow friction or user affective state.</li>
+            <li><strong>Brittleness:</strong> The current API-centric paradigm demands extensive backend reconfiguration and specialized engineers, creating insurmountable barriers for EU enterprises.</li>
+        </ol>
+
+        <h4>The Breakthrough: Agentic Operational Mimicry (AOM)</h4>
+
+        <p>The breakthrough of <strong>Agentic Operational Mimicry (AOM)</strong> is a new paradigm that transforms "stateless tools" into "stateful partners".</p>
+
+        <blockquote>
+            <p><strong>What if AI agents could learn by simply watching human workers—no API integration, no backend overhaul, no disruption?</strong></p>
+        </blockquote>
+
+        <p>AOM 2.0 bridges the Value Chasm by enabling AI agents to learn complex workflows by observing expert behavior. It shifts the integration burden from the enterprise backend to the AI agent itself, allowing the AI to adapt to existing systems, not the other way around.</p>
+
+        <h4>Core Innovation: Pilot-Validated Autonomous Execution</h4>
+
+        <p>The AOM breakthrough is not theoretical; it has been validated in "Maria's 16-Week Pilot," a real-world test case involving a complex customer support workflow.</p>
+
+        <p>By observing the expert (Maria) for 2-4 weeks, the system autonomously learned the complex, multi-system workflow, including tacit knowledge that was never documented. The system then achieved a steady state of performance, demonstrating a clear technological breakthrough:</p>
+
+        <ul>
+            <li><strong>65% Autonomous Execution:</strong> The agent handled 65% of all requests from start to finish with no human intervention (up from a 0% baseline).</li>
+            <li><strong>95.8% Accuracy:</strong> The combined agent + human-in-the-loop (HITL) validation achieved a 95.8% accuracy rate, surpassing the 90% human-only baseline.</li>
+            <li><strong>62% Time Savings:</strong> Average time per request dropped from 8 minutes to 3 minutes.</li>
+            <li><strong>144% Year 1 ROI:</strong> The pilot demonstrated a clear path to a 144% return on investment in the first year and a break-even point of 4.9 months.</li>
+        </ul>
+
+        <p>This performance is achieved by capturing <strong>tacit knowledge</strong>—the implicit, high-value patterns that experts cannot articulate. This positions the agent as a <strong>Digital Twin of operational talent</strong>, a stateful partner that learns and improves, rather than a brittle, stateless tool.</p>
+
+        
+            <h3>1.2 Objectives</h3>
+        
+            <p>The primary objective of this project is to advance Agentic Operational Mimicry (AOM) from its current <strong>TRL 3</strong> (proof-of-concept) to a <strong>TRL 6</strong> (system demonstration in a relevant operational environment).</p>
+            
+            <p>The project's objectives are designed to be specific, measurable, achievable, relevant, and time-bound (SMART), directly addressing the technological and commercial challenges of enterprise AI adoption. We will validate these objectives by replicating and scaling the successful results from "Maria's 16-Week Pilot".</p>
+            
+            <hr>
+            
+            <h4>Technology Development Objectives</h4>
+            
+            <p>The core technological goal is to demonstrate that AOM can autonomously learn and execute complex, multi-system workflows with high reliability, directly from observation.</p>
+            
+            <p><strong>KPIs for Technology Development:</strong></p>
+            <ul>
+                <li><strong>Objective 1 (Autonomy):</strong> Achieve a <strong>60-70% autonomous execution rate</strong> for complex workflows that previously required 100% human intervention.</li>
+                <li><strong>Objective 2 (Accuracy):</strong> Attain a <strong>95%+ accuracy rate</strong> for all processed tasks (combining autonomous execution with Human-in-the-Loop validation), surpassing the 90% human-only baseline.</li>
+                <li><strong>Objective 3 (Efficiency):</strong> Demonstrate a <strong>60-70% reduction in time-per-task</strong> (e.g., reduce average request time from 8 minutes to 3 minutes).</li>
+                <li><strong>Objective 4 (Throughput):</strong> Enable a <strong>75% increase in operational throughput</strong> for the targeted expert or team (e.g., increase requests handled from 40 to 70 per day).</li>
+                <li><strong>Objective 5 (Learning):</strong> Successfully demonstrate the <strong>Autonomous Business Logic Deduction (ABL-D) pipeline</strong> by autonomously discovering all explicit (e.g., 12) and implicit (e.g., 6) rules from a small set of 50-200 expert demonstrations.</li>
+            </ul>
+            
+            <hr>
+            
+            <h4>Business Validation &amp; Development Objectives</h4>
+            
+            <p>The core business goal is to prove that AOM is not just a technical novelty but a commercially viable solution that breaks the 95% AI failure paradigm by offering rapid, non-disruptive deployment and a clear, immediate ROI.</p>
+            
+            <p><strong>KPIs for Business Validation &amp; Development:</strong></p>
+            <ul>
+                <li><strong>Objective 1 (Deployment):</strong> Achieve a <strong>4-8 week deployment time-to-value</strong> (from initial observation to autonomous execution), a 75-85% reduction compared to the 6-12 month standard for traditional AI projects.</li>
+                <li><strong>Objective 2 (ROI):</strong> Validate the economic model demonstrating a <strong>144% Year-1 ROI</strong> for a 10-agent deployment.</li>
+                <li><strong>Objective 3 (Payback):</strong> Confirm a <strong>break-even point of &lt;5 months</strong> (4.9 months in pilot), proving immediate financial viability.</li>
+                <li><strong>Objective 4 (Market Entry):</strong> Secure lighthouse customers in target EU verticals (Finance, Healthcare, Legal) to validate the <strong>€1.2M Year-1 ARR</strong> model.</li>
+                <li><strong>Objective 5 (Compliance):</strong> Legally and technically validate the <strong>"European Advantage"</strong> architecture, proving GDPR Article 25 (Privacy-by-Design) compliance through on-device processing and zero cloud surveillance, thereby opening the €250B+ EU enterprise market.</li>
+            </ul>
+
+            
+                <main class="page">
+                    <!-- Section 1.3 Methodology -->
+                    <h3><span class="section-marker">1.3</span> Methodology</h3>
+            
+                    <h4>The Three-Component System: From Observation to Autonomy</h4>
+                    <p>Our methodology is a <strong>Three-Component System</strong> designed to transform "stateless tools" into "stateful partners" by capturing, understanding, and executing expert workflows. The entire approach is built on the concept of "context engineering" and is designed to move our technology from <strong>TRL 3 (proof-of-concept)</strong> to <strong>TRL 6 (system demonstration in a relevant operational environment)</strong>.</p>
+                    <p>We will follow the "Meet Maria" running example to present this methodology as a narrative.</p>
+            
+                    <hr>
+            
+                    <!-- Component 1 -->
+                    <h4>Component 1: Multimodal Observation Engine (The "Eyes and Ears")</h4>
+                    <p>The project begins by deploying the Observation Engine to capture expert behavior in its natural environment. This component is not a simple screen recorder; it is a multimodal data-gathering tool.</p>
+                    <ul>
+                        <li><strong>Approach:</strong> We will observe a set of experts (like "Maria," a customer support expert) for a short period (e.g., 10 working days).</li>
+                        <li><strong>Concepts &amp; Models:</strong> The engine captures three parallel streams:
+                            <ol>
+                                <li><strong>Visual:</strong> Screenshots of the user interface.</li>
+                                <li><strong>Interaction:</strong> Clicks, types, and navigations.</li>
+                                <li><strong>Audio:</strong> Voice streams (customer and agent) and, crucially, <strong>audio prosody</strong> (tone, pitch, hesitation).</li>
+                            </ol>
+                        </li>
+                        <li><strong>Assumptions:</strong> We assume that by correlating these streams, we can discover "tacit knowledge" that experts cannot articulate. In Maria's pilot, this methodology captured 50 complete workflows, generating 2,350 screenshots and 14,200 interaction events (1.2 GB total).</li>
+                    </ul>
+            
+                    <hr>
+            
+                    <!-- Component 2 -->
+                    <h4>Component 2: Intelligent Memory System (The "Brain")</h4>
+                    <p>This is the core R&D component where raw observations are transformed into actionable knowledge. The methodology for this is our proprietary <strong>ABL-D (Autonomous Business Logic Deduction) Pipeline</strong>.</p>
+                    <ul>
+                        <li><strong>Approach:</strong> The ABL-D pipeline is a four-stage process that ingests the 50-200 observed demonstrations and autonomously deduces the complete business logic.</li>
+                        <li><strong>Concepts &amp; Models (The ABL-D Pipeline):</strong>
+                            <ol>
+                                <li><strong>Graph Construction:</strong> Discovers the workflow structure (e.g., Maria navigates CRM <em>then</em> Card System).</li>
+                                <li><strong>Explicit Rule Induction:</strong> Uses Many-Shot In-Context Learning to find the rules Maria <em>can</em> articulate (e.g., "If card status = 'In Transit', click 'Card Services' tab").</li>
+                                <li><strong>Implicit Pattern Mining:</strong> This is the breakthrough. It uses statistical correlation to find rules Maria <em>cannot</em> articulate. For example, it discovered Maria’s unconscious pattern: <strong>Calm voice &rarr; 93% override rate</strong>, while <strong>Agitated voice &rarr; 29% override rate</strong> (p &lt; 0.001).</li>
+                                <li><strong>Counter-example Refinement:</strong> Handles exceptions and rule boundaries (e.g., "business account" exception).</li>
+                            </ol>
+                        </li>
+                        <li><strong>Outcome:</strong> This process transforms 50 unstructured observations into 29 total patterns, including 12 explicit rules and 6 implicit rules, all stored in a 3-tier memory (Working, Episodic, Semantic).</li>
+                    </ul>
+            
+                    <hr>
+            
+                    <!-- Component 3 -->
+                    <h4>Component 3: Adaptive Execution Engine (The "Hands")</h4>
+                    <p>The final component uses the knowledge from the Memory System to perform work. This methodology is designed for robustness and continuous improvement.</p>
+                    <ul>
+                        <li><strong>Approach:</strong> When a new task (a new call for Maria) arrives, the engine retrieves relevant patterns from memory to execute the workflow.</li>
+                        <li><strong>Concepts &amp; Models:</strong>
+                            <ul>
+                                <li><strong>Confidence-Based Routing:</strong> The engine routes tasks based on its confidence level: <strong>Autonomous</strong> (high confidence, 65% of cases in pilot), <strong>Assisted</strong> (medium confidence, agent suggests next step), or <strong>Human</strong> (low confidence, passes to Maria). This design inherently manages risk and allows for alternative directions.</li>
+                                <li><strong>Memory-Augmented Continuous Learning:</strong> The system learns from corrections. Its methodology is a <strong>HITL Correction &rarr; Reflexion Analysis &rarr; MemGPT Tier-3 Update</strong> loop. When Maria corrects the agent (e.g., for the business account exception), the agent reflects on the correction and updates its permanent "Semantic" memory. The human teaches once, and the system remembers forever <em>without</em> retraining any models.</li>
+                            </ul>
+                        </li>
+                    </ul>
+            
+                    <hr>
+            
+                    <!-- Key Methodological Innovations -->
+                    <h4>Key Methodological Innovations &amp; Competitive Advantage</h4>
+                    <p>Our methodology's breakthrough nature is defined by three core innovations that are defensible and difficult to replicate.</p>
+            
+                    <p><strong>Innovation 1: Multimodal Implicit Pattern Discovery</strong></p>
+                    <ul>
+                        <li><strong>Methodology:</strong> The breakthrough is capturing <strong>tacit knowledge</strong> by correlating audio prosody (pitch, speech rate, energy) with expert decisions. As proven in Maria's pilot, the system discovered a pattern she never articulated (Calm voice &rarr; 93% override rate) through statistical correlation.</li>
+                        <li><strong>Competitive Barrier:</strong> This requires a non-trivial infrastructure for synchronized multimodal capture (screen + audio + interaction) and a domain-specific statistical analysis pipeline. <strong>Estimated competitor timeline: 12-18 months</strong>.</li>
+                    </ul>
+            
+                    <p><strong>Innovation 2: The ABL-D (Autonomous Business Logic Deduction) Pipeline</strong></p>
+                    <ul>
+                        <li><strong>Methodology:</strong> This is our four-stage orchestrated pipeline (Graph construction &rarr; Explicit rule induction &rarr; Implicit pattern mining &rarr; Counter-example refinement). It transforms unstructured observations (50-200 demos) into a structured, queryable rule base (e.g., 18 rules) <em>without</em> manual specification.</li>
+                        <li><strong>Competitive Barrier:</strong> This methodology provides a 97-99% data reduction compared to supervised ML (50 demos vs. 5,000) and enables a 75-85% faster time-to-value (4-8 weeks vs. 6-12 months). This novel algorithmic approach provides a 4-6 month ROI vs. 18-24 months for competitors.</li>
+                    </ul>
+            
+                    <p><strong>Innovation 3: Memory-Augmented Continuous Learning</strong></p>
+                    <ul>
+                        <li><strong>Methodology:</strong> We integrate a MemGPT-style 3-tier memory with a Reflexion-style verbal reinforcement loop. The learning process is: <strong>HITL Correction &rarr; Reflexion Analysis &rarr; MemGPT Tier-3 Update</strong>. This closes the loop, allowing the system to learn from a single human correction and remember it forever (e.g., the "business account exception") without retraining any models.</li>
+                        <li><strong>Competitive Barrier:</strong> This enables adaptation in hours versus weeks for competitors. It creates a system that continuously improves rather than remaining static, building organizational learning that benefits all agents.</li>
+                    </ul>
+            
+                    <h5>Competitive Timeline Analysis</h5>
+                    <p>Our methodology creates a significant competitive moat. Replicating the full, integrated system is a complex, multi-stage R&amp;D effort.</p>
+            
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Capability</th>
+                                <th>Estimated Time</th>
+                                <th>Rationale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Multimodal capture infrastructure</td>
+                                <td>6-9 months</td>
+                                <td>Audio + screen + interaction synchronization is non-trivial.</td>
+                            </tr>
+                            <tr>
+                                <td>VLM pipeline for semantic actions</td>
+                                <td>3-6 months</td>
+                                <td>Existing models available, but integration and tuning required.</td>
+                            </tr>
+                            <tr>
+                                <td>Pattern discovery pipeline (ABL-D)</td>
+                                <td>12-18 months</td>
+                                <td>Novel algorithm, requires research + engineering.</td>
+                            </tr>
+                            <tr>
+                                <td>3-tier memory architecture</td>
+                                <td>9-12 months</td>
+                                <td>MemGPT-style memory with persistence and scale.</td>
+                            </tr>
+                            <tr>
+                                <td>Reflection loop with memory updates</td>
+                                <td>6-9 months</td>
+                                <td>Reflexion integration, testing, validation.</td>
+                            </tr>
+                            <tr>
+                                <td>Privacy-by-design infrastructure</td>
+                                <td>12-18 months</td>
+                                <td>On-device deployment, EU compliance, security audits.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Full system integration</strong></td>
+                                <td><strong>18-24 months</strong></td>
+                                <td><strong>Plus 6-12 months pilot validation</strong>.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            
+                    <hr>
+            
+                    <!-- TRL -->
+                    <p><strong>Technology Readiness Level (TRL):</strong></p>
+                    <ul>
+                        <li><strong>Current TRL:</strong> The innovation is at <strong>TRL 3</strong>. We have a proof-of-concept validated in a single, controlled pilot ("Maria's 16-Week Pilot").</li>
+                        <li><strong>End-of-Project TRL:</strong> The objective of this project is to achieve <strong>TRL 6</strong>, demonstrating the full three-component system in a relevant operational environment with multiple lighthouse customers.</li>
+                    </ul>
+            
+                    <hr>
+            
+                    <!-- Gender Dimension -->
+                    <h4>Gender dimension</h4>
+                    <p>This project's methodology incorporates sex and/or gender analysis in its application context. While the core AI technology is content-neutral, its intended application domain—knowledge-intensive administrative and support roles (personified by "Maria")—is a sector where women are significantly represented. Our methodology directly addresses the "digital toil" and high cognitive load of these roles. By successfully automating the most repetitive, high-friction tasks, the AOM methodology is aimed at improving the quality of work and enabling a focus on high-value, complex human interaction, which will have a direct and positive impact on this demographic.</p>
+            
+                    <!-- Open Science Practices -->
+                    <h4>Open science practices</h4>
+                    <p>As an R&D-driven SME, we are committed to open science principles as a means of validating our approach and contributing to the EU's R&I ecosystem.</p>
+                    <ul>
+                        <li><strong>Early Sharing:</strong> We will publish the core architectural principles of the AOM framework (e.g., the ABL-D pipeline and the Memory-Augmented Continuous Learning loop) in high-impact, open-access journals and present them at major AI conferences (e.g., NeurIPS, ICML).</li>
+                        <li><strong>Co-creation:</strong> The methodology is inherently co-creative, as it is built <em>with</em> end-users like "Maria" rather than for them.</li>
+                        <li><strong>Reproducibility:</strong> While the data itself cannot be shared (see below), the <em>methodology</em> for privacy-by-design multimodal capture will be published to ensure reproducibility by other researchers.</li>
+                    </ul>
+            
+                    <!-- Data Management -->
+                    <h4>Research data management and management of other research outputs</h4>
+                    <p>This project's data management plan is central to its "European Advantage" and Privacy-by-Design architecture.</p>
+                    <ul>
+                        <li><strong>Types of data:</strong> We will generate highly sensitive multimodal data: visual (screenshots of enterprise systems), interaction (clicks/types), and audio (customer/agent voice and prosody). The estimated size is ~1.2 GB (compressed) per 50 workflows.</li>
+                        <li><strong>Findability &amp; Interoperability:</strong> Data is not stored in raw format. It is processed on-device into <strong>anonymized, structured events</strong> and <strong>semantic action logs</strong>. These structured logs are stored in the 3-tier memory system (Working, Episodic, Semantic) using persistent identifiers.</li>
+                        <li><strong>Accessibility:</strong> <strong>Data will NOT be made open access.</strong> This is a deliberate methodological choice critical to our compliance and commercial strategy. To comply with <strong>GDPR Article 25 (Privacy by Design)</strong>, all sensitive data (screen pixels, raw audio) is processed on-device using Small Language Models (SLMs). <strong>Zero cloud surveillance</strong> occurs; only the anonymized, structured event logs are transmitted. This is our key differentiator and essential for operating in EU-regulated verticals like finance and healthcare.</li>
+                        <li><strong>Reusability:</strong> The anonymized, structured logs will be reused internally to improve the ABL-D pipeline. The licenses for data sharing will be strictly proprietary to protect participant IPR and customer confidentiality.</li>
+                        <li><strong>Curation:</strong> The project coordinator (Gengage) will be responsible for data management and quality assurance.</li>
+                    </ul>
+                </main>
+    
+                <main class="page">
+                    <!-- Section 2. Impact -->
+                    <h2><span class="section-marker">2.</span> Impact</h2>
+            
+                    <!-- Section 2.1 Credibility -->
+                    <h3><span class="section-marker">2.1</span> Credibility of the impacts</h3>
+            
+                    <h4>Validation of Problem/Solution Fit: "Maria's 16-Week Pilot"</h4>
+                    <p>The credibility of this project's impact is not theoretical. It is based on the quantitative, real-world results from <strong>"Maria's 16-Week Pilot,"</strong> a TRL 3 proof-of-concept that validated the core problem/solution fit. This pilot demonstrated that AOM can break the 95% AI failure paradigm by delivering immediate, measurable value.</p>
+                    <p>The key performance indicators achieved in this pilot directly validate our impact claims:</p>
+                    <ul>
+                        <li><strong>65% Autonomous Execution:</strong> The agent handled 65% of all complex requests from start to finish with no human intervention (up from a 0% baseline).</li>
+                        <li><strong>95.8% Accuracy:</strong> The combined agent + human-in-the-loop (HITL) validation achieved a 95.8% accuracy rate, significantly surpassing the 90% human-only baseline.</li>
+                        <li><strong>62% Time Savings:</strong> Average time per request dropped from 8 minutes to 3 minutes.</li>
+                        <li><strong>75% Throughput Increase:</strong> The expert's daily throughput increased from 40 to 70 requests per day.</li>
+                    </ul>
+            
+                    <hr>
+            
+                    <h4>Business Model Validation & Commercial Strategy</h4>
+                    <p>The pilot's economic data provides the foundation for our business model:</p>
+                    <ul>
+                        <li><strong>144% Year 1 ROI:</strong> The pilot proved a 144% return on investment in the first year.</li>
+                        <li><strong>4.9 Month Break-even:</strong> The economic model demonstrated a break-even point of just 4.9 months.</li>
+                    </ul>
+                    <p>Crucially, AOM is not a theoretical endeavor; it is a core R&D initiative for us at <strong>Gengage</strong>, an established AI assistant platform. Our market exploration is our daily operations.</p>
+                    
+                    <blockquote>
+                        <p><strong>💡 From Practice to Research</strong></p>
+                        <p>"Through Gengage, our AI assistant platform serving hundreds of thousands of daily visitors for major European brands (Beko, Yataş, Koçtaş, Kingfisher, Otokoç, Setur)... we face a persistent challenge... This operational friction—experienced firsthand at scale—is the catalyst for AOM."</p>
+                    </blockquote>
+            
+                    <p>Our existing, paying clients (Beko, Kingfisher) are the source of the problem and our intended first customers for the solution. This provides a direct, low-friction path to commercialisation.</p>
+            
+                    <hr>
+            
+                    <h4>Intellectual Property & Competitive Moat</h4>
+                    <p>Our IP strategy creates a defensible "Competitive Moat" that is central to our commercialisation plan. This strategy is built on two pillars:</p>
+                    <ol>
+                        <li><strong>Proprietary Technology:</strong> The core IP is our <strong>ABL-D (Autonomous Business Logic Deduction) pipeline</strong> and the <strong>Memory-Augmented Continuous Learning</strong> loop. This methodology is what allows us to achieve results in 4-8 weeks, versus the 6-12 months of competitors.</li>
+                        <li><strong>Architectural "European Advantage":</strong> Our most significant strategic IP is our <strong>Privacy-by-Design</strong> architecture. By using on-device Small Language Models (SLMs) for processing, we ensure <strong>zero cloud surveillance</strong> of sensitive user data (screen pixels, audio). This makes our system fully compliant with <strong>GDPR Article 25 (Privacy by Design)</strong> from the ground up.</li>
+                    </ol>
+                    <p>This compliance-first architecture is not a feature; it is the key. It unlocks regulated EU verticals (Finance, Healthcare, Legal) and creates an estimated <strong>18-24 month replication barrier</strong> for competitors who would need to re-architect their entire cloud-based platforms.</p>
+            
+                    <hr>
+            
+                    <h4>Plan for Dissemination and Exploitation</h4>
+                    <p>Our plan to maximise impact is clear, actionable, and integrated with our existing business.</p>
+                    <ul>
+                        <li><strong>Target Group (Exploitation):</strong> Our primary target is our existing network of enterprise clients (e.g., Kingfisher, Beko, Koçtaş), followed by expansion into the high-value, highly-regulated EU verticals of <strong>Financial Services, Healthcare, and Legal</strong>.</li>
+                        <li><strong>Measures (Exploitation):</strong> The coordinator (Gengage) will directly exploit the innovation. We will convert our existing clients into lighthouse customers for the TRL 6 demonstration, validating our 5-Year, €1.2M Year-1 ARR model.</li>
+                        <li><strong>Measures (Dissemination):</strong> We will pursue a dual-track strategy:
+                            <ol>
+                                <li><strong>Commercial:</strong> Targeted dissemination (white papers, case studies based on the TRL 6 pilot) to C-level executives in our target verticals.</li>
+                                <li><strong>Scientific:</strong> Publishing the non-proprietary architectural principles (like the ABL-D pipeline and memory-augmented reflection loop) in high-impact, open-access journals to contribute to the EU's R&I community.</li>
+                            </ol>
+                        </li>
+                    </ul>
+            
+                    <h3>Economic and/or societal benefits</h3>
+
+                    <h4>📈 Scale-up Potential: The €250 Billion+ EU Opportunity</h4>
+                
+                    <p>The proposed innovation targets the <strong>€250 Billion+ EU enterprise market</strong> for automation, AI, and IT services. Our Serviceable Addressable Market (SAM) consists of <strong>40-50 million EU knowledge workers</strong> in repetitive, high-friction workflows.</p>
+                
+                    <p>Unlike generic AI tools, AOM's non-invasive, UI-grounded approach is specifically designed to penetrate the EU's most valuable and protected sectors:</p>
+                    <ul>
+                        <li><strong>Financial Services:</strong> A €250B+ market with strict GDPR compliance needs.</li>
+                        <li><strong>Healthcare:</strong> Processing claims, authorizations, and managing records.</li>
+                        <li><strong>Legal & Professional Services:</strong> Contract review and due diligence.</li>
+                    </ul>
+                
+                    <p>Our 5-Year Revenue Model projects a clear, scalable path, starting with <strong>€1.2M in Year 1 ARR</strong> and growing to <strong>€150M in Year 5 ARR</strong> by capturing a modest base of 150,000 cumulative users.</p>
+                
+                    <h4>🇪🇺 Strategic Impact: The "European Advantage"</h4>
+                
+                    <p>The most significant impact of this project is the creation of a <strong>sovereign, EU-compliant automation paradigm</strong>.</p>
+                
+                    <ul>
+                        <li><strong>Supports EU Digital Sovereignty:</strong> Our <strong>Privacy-by-Design</strong> architecture is our key strategic differentiator. By using on-device Small Language Models (SLMs) for processing sensitive data (screen pixels, audio), we guarantee <strong>zero cloud surveillance</strong>. This makes AOM one of the first agentic systems built for compliance with <strong>GDPR Article 25 (Privacy by Design)</strong> and the EU AI Act, unlocking regulated markets that are closed to US-based, cloud-first competitors.</li>
+                        <li><strong>Solves the 95% Failure Rate:</strong> AOM directly addresses the 95% AI pilot failure rate by eliminating the primary cause: friction with legacy systems. By adapting to existing UIs, AOM empowers EU enterprises (especially SMBs) to automate without costly, high-risk backend overhauls.</li>
+                        <li><strong>Addresses Productivity Crisis:</strong> For knowledge workers (like "Maria"), AOM automates "digital toil," reducing burnout and improving the quality of work. The pilot's 75% throughput increase and 62% time savings per task translate directly into massive productivity gains, enhancing European competitiveness.</li>
+                    </ul>
+                
+                    <hr>
+                
+                    <h3>2.3 Investment readiness</h3>
+                
+                    <h4>🎯 Go-to-Market Strategy: From Client Pain to Lighthouse Customer</h4>
+                
+                    <p>Our go-to-market strategy is not theoretical; it stems from our "Origin Story". The project coordinator, <strong>Gengage</strong>, is an established AI company serving major EU brands like Beko, Kingfisher, and Koçtaş.</p>
+                
+                    <p>Our strategy is a direct, two-phase expansion:</p>
+                    <ol>
+                        <li><strong>Phase 1 (TRL 6 Pilot):</strong> We will convert our existing enterprise clients (Beko, etc.) into <strong>lighthouse customers</strong>. The problem we are solving is one they <em>already have</em> and that we <em>already experience</em> with them, guaranteeing a perfect-fit validation environment.</li>
+                        <li><strong>Phase 2 (Commercial Scale-up):</strong> We will leverage the pilot data and our "European Advantage" (GDPR compliance) to execute a "land-and-expand" strategy into our target verticals: <strong>Finance, Healthcare, and Legal</strong>.</li>
+                    </ol>
+                
+                    <h4>💰 Business & Revenue Model: Validated ROI</h4>
+                
+                    <p>We have validated our value proposition with the "Maria's 16-Week Pilot," which serves as the blueprint for our investment readiness.</p>
+                
+                    <ul>
+                        <li><strong>Customer Value Proposition:</strong> We offer a <strong>4-8 week deployment time-to-value</strong>, a 75-85% reduction compared to the 6-12 months for traditional AI projects.</li>
+                        <li><strong>Validated Economics:</strong> Our model is not based on estimates but on achieved pilot metrics: a <strong>144% Year 1 ROI</strong> and a <strong>4.9-month break-even point</strong> for the customer.</li>
+                        <li><strong>Revenue Model:</strong> Our 5-Year financial forecast (targeting €1.2M Y1 ARR) is built on a tiered SaaS model for Enterprise, Mid-Market, and SMB clients.</li>
+                    </ul>
+                
+                    <h4>🛡️ Path to Market & IP Management</h4>
+                
+                    <p>Our path to market is protected by a defensible <strong>"Competitive Moat"</strong>.</p>
+                
+                    <ul>
+                        <li><strong>Coordinator Exploitation:</strong> The coordinator, <strong>Gengage</strong>, will directly exploit this innovation as a new, high-margin product line. This eliminates the risk of a startup "valley of death" and provides an immediate channel to market through existing clients.</li>
+                        <li><strong>IP Strategy:</strong> Our IP is not just a single patent but a complex, integrated system that is difficult to replicate. The core IP includes:
+                            <ol>
+                                <li>The <strong>ABL-D (Autonomous Business Logic Deduction) pipeline</strong>.</li>
+                                <li>The <strong>Privacy-by-Design architecture</strong> (on-device SLMs, zero cloud surveillance).</li>
+                            </ol>
+                        </li>
+                        <li><strong>Replication Barrier:</strong> We estimate it would take competitors <strong>18-24 months</strong> to replicate this privacy-first, multimodal architecture, giving us a significant first-mover advantage in the EU.</li>
+                    </ul>
+
+
+
+                </main>
+            
+
+                
+                    <div class="page">
+                        <h2>3. Quality and efficiency of the implementation</h2>
+                
+                        <span class="tag">#@QUA-LIT-QL@# #@CON-SOR-CS@# #@PRJ-MGT-PM@#</span>
+                        
+                        <h3>3.1 Quality and motivation of the team</h3>
+                        
+                        <p>The project will be executed by <strong>Gengage</strong>, the coordinator and sole applicant. This is not a new team assembled for a grant; it is a commercially successful AI company with an established platform serving hundreds of thousands of daily visitors for major European brands, including <strong>Beko, Yataş, Koçtaş, and Kingfisher</strong>.</p>
+                        
+                        <p>The team's motivation is exceptionally high as this project is not an abstract research problem. It is a direct response to a <strong>persistent, daily operational pain point</strong> Gengage experiences while serving its enterprise clients. The "origin story" of this proposal is our own operational friction, which provides a powerful, intrinsic drive to create a viable solution. We are our own first customer.</p>
+                        
+                        <p>This commercial experience provides a unique advantage, ensuring the team has the necessary high-quality expertise not only in AI development but also in creating, deploying, and supporting an attractive business and investment proposition for the EU market.</p>
+                        
+                        <h4>Management Team</h4>
+                        
+                        <div class="team-grid">
+                            <div class="team-card">
+                                <div class="team-card-header">
+                                    <div class="team-card-avatar">
+                                        <i data-lucide="user"></i>
+                                    </div>
+                                    <div class="team-card-name-role">
+                                        <div class="team-card-name">Ömer Akkentli</div>
+                                        <div class="team-card-role">
+                                            <i data-lucide="briefcase" class="icon-sm"></i>
+                                            CEO/Coordinator
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-card-attributes">
+                                    <div class="team-attribute">
+                                        <i data-lucide="graduation-cap"></i>
+                                        MBA Stanford | Ex-McKinsey, eBay, Afiniti
+                                    </div>
+                                    <div class="team-attribute">
+                                        <i data-lucide="rocket"></i>
+                                        Serial Founder (Glov, Lojika)
+                                    </div>
+                                    <div class="team-attribute">
+                                        <i data-lucide="target"></i>
+                                        Role: Product Strategy, GTM, "European Advantage" (GDPR), 5-Year Revenue Model
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="team-card">
+                                <div class="team-card-header">
+                                    <div class="team-card-avatar">
+                                        <i data-lucide="user"></i>
+                                    </div>
+                                    <div class="team-card-name-role">
+                                        <div class="team-card-name">Mustafa Kıraç</div>
+                                        <div class="team-card-role">
+                                            <i data-lucide="code" class="icon-sm"></i>
+                                            CTO
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-card-attributes">
+                                    <div class="team-attribute">
+                                        <i data-lucide="graduation-cap"></i>
+                                        PhD AI (Case Western) | 12 Papers, h-index 9
+                                    </div>
+                                    <div class="team-attribute">
+                                        <i data-lucide="building-2"></i>
+                                        Ex-Oracle, Afiniti R&D Lead
+                                    </div>
+                                    <div class="team-attribute">
+                                        <i data-lucide="cpu"></i>
+                                        Role: Lead on ABL-D Pipeline, Memory-Augmented Learning, 3-Component System Architecture
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h4>Core Team Members</h4>
+                        
+                        <div class="team-grid">
+                            <div class="team-card">
+                                <div class="team-card-header">
+                                    <div class="team-card-avatar">
+                                        <i data-lucide="user"></i>
+                                    </div>
+                                    <div class="team-card-name-role">
+                                        <div class="team-card-name">Alper Gürel</div>
+                                        <div class="team-card-role">
+                                            <i data-lucide="code" class="icon-sm"></i>
+                                            Full-Stack Engineer
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-card-attributes">
+                                    <div class="team-attribute">
+                                        <i data-lucide="layers"></i>
+                                        React, Next.js, Unity, C#
+                                    </div>
+                                    <div class="team-attribute">
+                                        <i data-lucide="puzzle"></i>
+                                        Role: Adaptive Execution Engine (HITL Interface), On-device SLM integration
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="team-card">
+                                <div class="team-card-header">
+                                    <div class="team-card-avatar">
+                                        <i data-lucide="user"></i>
+                                    </div>
+                                    <div class="team-card-name-role">
+                                        <div class="team-card-name">Buse Çelik</div>
+                                        <div class="team-card-role">
+                                            <i data-lucide="briefcase" class="icon-sm"></i>
+                                            Business Analyst
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-card-attributes">
+                                    <div class="team-attribute">
+                                        <i data-lucide="trending-up"></i>
+                                        Business-Tech Translation
+                                    </div>
+                                    <div class="team-attribute">
+                                        <i data-lucide="target"></i>
+                                        Role: TRL 6 Pilot Management, Metric Validation (144% ROI, 4.9mo break-even)
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="team-card">
+                                <div class="team-card-header">
+                                    <div class="team-card-avatar">
+                                        <i data-lucide="user"></i>
+                                    </div>
+                                    <div class="team-card-name-role">
+                                        <div class="team-card-name">Doğukan Kıralı</div>
+                                        <div class="team-card-role">
+                                            <i data-lucide="code" class="icon-sm"></i>
+                                            Senior Engineer
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-card-attributes">
+                                    <div class="team-attribute">
+                                        <i data-lucide="layers"></i>
+                                        React, TypeScript, Go
+                                    </div>
+                                    <div class="team-attribute">
+                                        <i data-lucide="database"></i>
+                                        Role: Multimodal Observation Engine (Data Capture, Prosody Sync), Privacy-by-Design pipeline
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="team-card">
+                                <div class="team-card-header">
+                                    <div class="team-card-avatar">
+                                        <i data-lucide="user"></i>
+                                    </div>
+                                    <div class="team-card-name-role">
+                                        <div class="team-card-name">Said Ahkemin Kılınç</div>
+                                        <div class="team-card-role">
+                                            <i data-lucide="palette" class="icon-sm"></i>
+                                            UI/UX Designer
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-card-attributes">
+                                    <div class="team-attribute">
+                                        <i data-lucide="pen-tool"></i>
+                                        UI/UX & Graphic Design
+                                    </div>
+                                    <div class="team-attribute">
+                                        <i data-lucide="layout"></i>
+                                        Role: Design of HITL Interface, Confidence-Based Routing (Autonomous/Assisted)
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="team-card">
+                                <div class="team-card-header">
+                                    <div class="team-card-avatar">
+                                        <i data-lucide="user"></i>
+                                    </div>
+                                    <div class="team-card-name-role">
+                                        <div class="team-card-name">Tuğçe Çelik</div>
+                                        <div class="team-card-role">
+                                            <i data-lucide="code" class="icon-sm"></i>
+                                            AI Engineer
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-card-attributes">
+                                    <div class="team-attribute">
+                                        <i data-lucide="cpu"></i>
+                                        Python, FastAPI, Google Cloud
+                                    </div>
+                                    <div class="team-attribute">
+                                        <i data-lucide="brain"></i>
+                                        Role: ABL-D Pipeline development, Implicit Pattern Mining (Audio/Action Correlation)
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="team-card">
+                                <div class="team-card-header">
+                                    <div class="team-card-avatar">
+                                        <i data-lucide="user"></i>
+                                    </div>
+                                    <div class="team-card-name-role">
+                                        <div class="team-card-name">Aslı Nur Ayan</div>
+                                        <div class="team-card-role">
+                                            <i data-lucide="briefcase" class="icon-sm"></i>
+                                            Business Analyst
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-card-attributes">
+                                    <div class="team-attribute">
+                                        <i data-lucide="check-square"></i>
+                                        UX Validation & AI Product QA
+                                    </div>
+                                    <div class="team-attribute">
+                                        <i data-lucide="target"></i>
+                                        Role: Pilot workflow documentation ("Meet Maria"), KPI validation (65% autonomous exec)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h4>Future Hires</h4>
+                        
+                        <blockquote>
+                            <p><strong>Neslihan Neşe Aldıkaçtı, Project Manager:</strong> Tech entrepreneur (Spotlighter, CocoSphere). EU Commission Expert (50+ evaluations). Ex-lecturer IT PM (Bahçeşehir U.). Expertise: EU grants, compliance. <strong>Hired before project start.</strong></p>
+                            <p>Role: Manages TRL 3 -> TRL 6 roadmap, ensures all deliverables and compliance reports (GDPR, AI Act) are met.</p>
+                        </blockquote>
+                        
+                        <p><strong>Affiliated Entities:</strong> Not applicable. All core work will be performed by the coordinator, Gengage. <strong>Pilot Partnerships:</strong> The project's validation will be conducted with existing and future enterprise clients of Gengage, starting with our current network (Beko, Kingfisher, etc.). This provides a direct, commercially relevant environment for the TRL 6 demonstration.</p>
+                        <p><strong>Eligibility:</strong> GLOV is eligible as the coordinator, established in Türkiye, a Widening country under the EIC Pre-Accelerator / WIDERA programme.</p>
+                        <p><strong>IP Strategy:</strong> Our intellectual property is not a single patent but a "Competitive Moat" built on integrated, difficult-to-replicate systems. The core IP, protected as trade secrets and proprietary methodology, includes: (1) The <strong>ABL-D (Autonomous Business Logic Deduction) pipeline</strong> and (2) The <strong>Privacy-by-Design architecture</strong> using on-device SLMs, which provides an estimated 18-24 month barrier to competitors.</p>
+                    </div>
+                
+                    <script>
+                        lucide.createIcons();
+                    </script>
+     
+
+
+
+    </div></body>
+</html>
