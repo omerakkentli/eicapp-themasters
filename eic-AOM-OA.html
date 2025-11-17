@@ -724,12 +724,717 @@
                         <p><strong>IP Strategy:</strong> Our intellectual property is not a single patent but a "Competitive Moat" built on integrated, difficult-to-replicate systems. The core IP, protected as trade secrets and proprietary methodology, includes: (1) The <strong>ABL-D (Autonomous Business Logic Deduction) pipeline</strong> and (2) The <strong>Privacy-by-Design architecture</strong> using on-device SLMs, which provides an estimated 18-24 month barrier to competitors.</p>
                     </div>
                 
-                    <script>
-                        lucide.createIcons();
-                    </script>
+
      
+     
+         <h3>3.2 KPIs, Milestones and Risks</h3>
+     
+         <p>The project's progress is measured by a clear set of pilot-validated technical and go-to-market milestones.</p>
+         
+         <h4>Key Milestones</h4>
+         
+         <table>
+             <thead>
+                 <tr>
+                     <th>M</th>
+                     <th>Due Date</th>
+                     <th>Description</th>
+                     <th>Means of Verification (KPI)</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr>
+                     <td><strong>M1</strong></td>
+                     <td>Month 12</td>
+                     <td>ABL-D Pipeline Validated (TRL 4-5)</td>
+                     <td>ABL-D pipeline autonomously deduces all explicit (e.g., 12) and implicit (e.g., 6) rules from a 50-200 demonstration dataset. System logs verify 97-99% data reduction vs. supervised ML.</td>
+                 </tr>
+                 <tr>
+                     <td><strong>M2</strong></td>
+                     <td>Month 18</td>
+                     <td>Memory-Augmented Learning Deployed</td>
+                     <td>System demonstrates continuous learning from HITL corrections (e.g., "business account exception"). Logs show generalized updates to Tier-3 Semantic Memory, proving persistent learning.</td>
+                 </tr>
+                 <tr>
+                     <td><strong>M3</strong></td>
+                     <td>Month 18</td>
+                     <td>Lighthouse Pilots Secured & Y1 Model Validated</td>
+                     <td>Signed agreements with 1-5 lighthouse customers (per Y1 model). Pilot achieves 4-8 week deployment time-to-value. Validate €1.2M Y1 ARR model.</td>
+                 </tr>
+                 <tr>
+                     <td><strong>M4</strong></td>
+                     <td>Month 24</td>
+                     <td>TRL 6: System Demonstrated in Operational Environment</td>
+                     <td>Full 3-component system deployed with lighthouse customers. Final pilot report confirms KPIs (60-70% autonomy, 95%+ accuracy) and 4.9-month ROI. Privacy-by-Design architecture audit passed.</td>
+                 </tr>
+             </tbody>
+         </table>
+         
+         <h4>Key Performance Indicators (KPIs)</h4>
+         
+         <p>These KPIs are derived directly from the successful "Maria's 16-Week Pilot".</p>
+         
+         <table>
+             <thead>
+                 <tr>
+                     <th>KPI</th>
+                     <th>Target</th>
+                     <th>Measurement Method</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr>
+                     <td>Autonomous Execution Rate</td>
+                     <td>60-70%</td>
+                     <td><strong>System Logs:</strong> Measured by the Adaptive Execution Engine, tracking the percentage of tasks routed as "Autonomous" vs. "Assisted" or "Human". Baseline is 0%.</td>
+                 </tr>
+                 <tr>
+                     <td>Accuracy (with HITL)</td>
+                     <td>&ge;95%</td>
+                     <td><strong>Pilot Validation:</strong> Comparison of final task outcomes (autonomous + HITL corrections) against the 90% human-only baseline.</td>
+                 </tr>
+                 <tr>
+                     <td>Deployment Time-to-Value</td>
+                     <td>4-8 Weeks</td>
+                     <td><strong>Project Logs:</strong> Time measured from start of Observation Engine deployment (Day 1) to the agent achieving steady-state autonomous execution (Week 4-8).</td>
+                 </tr>
+                 <tr>
+                     <td>Return on Investment (ROI)</td>
+                     <td>144% Year 1 ROI; 4.9 Month Break-even</td>
+                     <td><strong>Validated Financial Model:</strong> Calculated based on direct time savings (e.g., 8 min -> 3 min per task) and throughput increase (e.g., 40 -> 70 tasks/day) from pilot data.</td>
+                 </tr>
+                 <tr>
+                     <td>Market Acquisition (Y1)</td>
+                     <td>Secure 1-5 Lighthouse Customers; Validate €1.2M Y1 ARR</td>
+                     <td><strong>Commercial Agreements:</strong> Signed pilot agreements, LOIs, and subscription contracts aligning with the 5-year revenue model.</td>
+                 </tr>
+                 <tr>
+                     <td>Compliance & IP Barrier</td>
+                     <td>18-24 Month Competitive Moat</td>
+                     <td><strong>Third-Party Audit:</strong> Legal and technical audit confirming GDPR Article 25 (Privacy-by-Design) compliance via on-device SLMs and zero cloud surveillance.</td>
+                 </tr>
+             </tbody>
+         </table>
+         
+         <h4>Critical Risks and Mitigation Measures</h4>
+         
+         <table>
+             <thead>
+                 <tr>
+                     <th>Description of Risk</th>
+                     <th>Likelihood</th>
+                     <th>Severity</th>
+                     <th>WP(s)</th>
+                     <th>Proposed Risk-Mitigation Measures</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr>
+                     <td><strong>Risk 1: ABL-D Fails to Discover Tacit Knowledge</strong><br>The 4-stage ABL-D pipeline may fail to discover non-obvious, implicit patterns (like audio prosody correlation).</td>
+                     <td>Medium</td>
+                     <td>High</td>
+                     <td>WP2</td>
+                     <td>&bull; The pipeline is staged; failure of implicit mining (Stage 3) is mitigated by explicit rules (Stage 2).<br>&bull; Multimodal data (audio + screen + clicks) provides redundant signals for correlation.<br>&bull; Fallback to "Assisted" routing for low-confidence workflows.</td>
+                 </tr>
+                 <tr>
+                     <td><strong>Risk 2: Memory-Augmented Learning Fails to Generalize</strong><br>The system learns a correction (e.g., "business account exception") but fails to apply it to new, similar cases.</td>
+                     <td>Medium</td>
+                     <td>High</td>
+                     <td>WP2, WP3</td>
+                     <td>&bull; The HITL &rightarrow; Reflexion &rightarrow; MemGPT Tier-3 Update loop is designed specifically to solve this by updating the permanent Semantic memory.<br>&bull; System will flag low-confidence generalizations for human (HITL) review before full autonomy.<br>&bull; Progressive A/B testing of learned rules.</td>
+                 </tr>
+                 <tr>
+                     <td><strong>Risk 3: Pilot Failure (The 95% AI Failure Rate)</strong><br>The TRL 6 lighthouse pilot fails to deliver value, reinforcing the 95% failure rate we aim to solve.</td>
+                     <td>Low</td>
+                     <td>High</td>
+                     <td>WP3, WP4</td>
+                     <td>&bull; The entire AOM methodology is the mitigation. It avoids the #1 cause of failure (API/backend friction) by being UI-grounded.<br>&bull; The 4-8 week time-to-value identifies and de-risks potential failures early, not after 12 months.</td>
+                 </tr>
+                 <tr>
+                     <td><strong>Risk 4: GDPR & Data Privacy Compliance Failure</strong><br>Observation of screens and audio violates GDPR, making the "European Advantage" a liability.</td>
+                     <td>Low</td>
+                     <td>High</td>
+                     <td>WP1, WP3</td>
+                     <td>&bull; This is a core R&D pillar, not an afterthought. The **Privacy-by-Design** architecture *is* the mitigation.<br>&bull; **On-device SLMs** process all PII (screen pixels, raw audio) locally.<br>&bull; **Zero cloud surveillance:** Only anonymized, structured events ("clicked button X") are transmitted.<br>&bull; We will conduct a third-party audit to certify GDPR Art. 25 compliance.</td>
+                 </tr>
+             </tbody>
+         </table>
+    
 
-
+         
+             <h3>3.3 Work Plan and Resources</h3>
+         
+             <span class="tag">#@WRK-PLA-WP@#</span>
+             
+             <p>The project is organized into <strong>5 work packages</strong> over 24 months, designed to advance the AOM system from TRL 3 to TRL 6: (1) Project Management & Coordination; (2) R&D: AOM Core Components; (3) System Integration & TRL 6 Pilot Validation; (4) Business Development & Go-to-Market; (5) Dissemination & Exploitation.</p>
+             
+             <div class="gantt-header">
+                 <div class="gantt-phases">
+                     <div class="gantt-phase">Phase 1: BUILD (M1-M12)</div>
+                     <div class="gantt-phase">Phase 2: SCALE (M13-M18)</div>
+                     <div class="gantt-phase">Phase 3: MARKET (M19-M24)</div>
+                 </div>
+             </div>
+             
+             <table class="gantt-chart-table">
+                 <thead>
+                     <tr>
+                         <th>WP</th>
+                         <th>1</th>
+                         <th>2</th>
+                         <th>3</th>
+                         <th>4</th>
+                         <th>5</th>
+                         <th>6</th>
+                         <th>7</th>
+                         <th>8</th>
+                         <th>9</th>
+                         <th>10</th>
+                         <th>11</th>
+                         <th>12</th>
+                         <th>13</th>
+                         <th>14</th>
+                         <th>15</th>
+                         <th>16</th>
+                         <th>17</th>
+                         <th>18</th>
+                         <th>19</th>
+                         <th>20</th>
+                         <th>21</th>
+                         <th>22</th>
+                         <th>23</th>
+                         <th>24</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <td><span class="gantt-wp-label"><i data-lucide="settings" class="icon-sm"></i> WP1: Mgmt</span></td>
+                         <td colspan="24" style="background-color: #E8E8E8;">&nbsp;</td>
+                     </tr>
+                     <tr>
+                         <td><span class="gantt-wp-label"><i data-lucide="cpu" class="icon-sm"></i> WP2: R&amp;D</span></td>
+                         <td colspan="18" style="background-color: #D4D4D4;">&nbsp;</td>
+                         <td colspan="6" style="background-color: transparent;">&nbsp;</td>
+                     </tr>
+                     <tr>
+                         <td><span class="gantt-wp-label"><i data-lucide="puzzle" class="icon-sm"></i> WP3: Integration</span></td>
+                         <td colspan="18" style="background-color: transparent;">&nbsp;</td>
+                         <td colspan="6" style="background-color: #C4C4C4;">&nbsp;</td>
+                     </tr>
+                     <tr>
+                         <td><span class="gantt-wp-label"><i data-lucide="trending-up" class="icon-sm"></i> WP4: Business</span></td>
+                         <td colspan="24" style="background-color: #B8B8B8;">&nbsp;</td>
+                     </tr>
+                     <tr>
+                         <td><span class="gantt-wp-label"><i data-lucide="megaphone" class="icon-sm"></i> WP5: Dissem.</span></td>
+                         <td colspan="24" style="background-color: #ACACAC;">&nbsp;</td>
+                     </tr>
+                 </tbody>
+             </table>
+             
+             <div class="gantt-milestones">
+                 <div class="gantt-milestone">
+                     <i data-lucide="flag" class="icon-sm"></i>
+                     <strong>M6:</strong> <i data-lucide="package" class="icon-sm"></i> DMP delivered
+                 </div>
+                 <div class="gantt-milestone">
+                     <i data-lucide="flag" class="icon-sm"></i>
+                     <strong>M12:</strong> <i data-lucide="check-circle" class="icon-sm"></i> ABL-D Pipeline Validated (M1)
+                 </div>
+                 <div class="gantt-milestone">
+                     <i data-lucide="flag" class="icon-sm"></i>
+                     <strong>M18:</strong> <i data-lucide="database" class="icon-sm"></i> Memory Engine Deployed (M2) + <i data-lucide="target" class="icon-sm"></i> Pilots Secured (M3)
+                 </div>
+                 <div class="gantt-milestone">
+                     <i data-lucide="flag" class="icon-sm"></i>
+                     <strong>M24:</strong> <i data-lucide="award" class="icon-sm"></i> TRL 6 Demonstrated (M4)
+                 </div>
+             </div>
+             <span class="tag">#§CON-SOR-CS§# #§PRJ-MGT-PM§#</span>
+             <h4>Table 3.3a: List of Work Packages</h4>
+             
+             <table>
+                 <thead>
+                     <tr>
+                         <th>Work Package No</th>
+                         <th>Work Package Title</th>
+                         <th>Lead Participant No</th>
+                         <th>Lead Participant Short Name</th>
+                         <th>Work Package Leader</th>
+                         <th>Gender of Leader</th>
+                         <th>Person-Months</th>
+                         <th>Start Month</th>
+                         <th>End Month</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <td>1</td>
+                         <td>Project Management &amp; Coordination</td>
+                         <td>1</td>
+                         <td>Gengage</td>
+                         <td>Ömer Akkentli</td>
+                         <td>M</td>
+                         <td>15</td>
+                         <td>1</td>
+                         <td>24</td>
+                     </tr>
+                     <tr>
+                         <td>2</td>
+                         <td>R&amp;D: AOM Core Components</td>
+                         <td>1</td>
+                         <td>Gengage</td>
+                         <td>Mustafa Kıraç</td>
+                         <td>M</td>
+                         <td>70</td>
+                         <td>1</td>
+                         <td>18</td>
+                     </tr>
+                     <tr>
+                         <td>3</td>
+                         <td>System Integration &amp; TRL 6 Pilot Validation</td>
+                         <td>1</td>
+                         <td>Gengage</td>
+                         <td>Mustafa Kıraç</td>
+                         <td>M</td>
+                         <td>20</td>
+                         <td>19</td>
+                         <td>24</td>
+                     </tr>
+                     <tr>
+                         <td>4</td>
+                         <td>Business Development &amp; Go-to-Market</td>
+                         <td>1</td>
+                         <td>Gengage</td>
+                         <td>Ömer Akkentli</td>
+                         <td>M</td>
+                         <td>15</td>
+                         <td>1</td>
+                         <td>24</td>
+                     </tr>
+                     <tr>
+                         <td>5</td>
+                         <td>Dissemination &amp; Exploitation</td>
+                         
+                         <td>1</td>
+                         <td>Gengage</td>
+                         <td>Tuğçe Çelik</td>
+                         <td>F</td>
+                         <td>5</td>
+                         <td>1</td>
+                         <td>24</td>
+                     </tr>
+                     <tr>
+                         <td><strong>Total person-months</strong></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td><strong>125</strong></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                 </tbody>
+             </table>
+             
+             <h4>Table 3.3b: Work Package Description</h4>
+             
+             <blockquote>
+                 <h5>Work Package 1: Project Management &amp; Coordination</h5>
+                 <p><strong>Objectives:</strong> Ensure effective project planning, monitoring, coordination, and compliance with EU regulations throughout the 24-month duration.</p>
+                 <p><strong>Description of work:</strong></p>
+                 <ul>
+                     <li><strong>Task 1.1 (6 PM, lead: Aldıkaçtı):</strong> Project planning and coordination—develop project plan, coordinate WPs, manage resources/timelines, track progress against TRL 3 -> TRL 6 roadmap. <em>Deliverables:</em> Monthly reports, quarterly reviews.</li>
+                     <li><strong>Task 1.2 (5 PM, lead: Akkentli):</strong> Data Management Plan and compliance—create comprehensive DMP, ensure <strong>GDPR Art. 25 (Privacy-by-Design)</strong> compliance for the AOM architecture, DNSH compliance, EU data sovereignty. <em>Deliverables:</em> DMP (M6), compliance audit (M12).</li>
+                     <li><strong>Task 1.3 (4 PM, lead: B. Çelik):</strong> Risk management and EIC reporting—monitor risks (technical, market, compliance), implement mitigation, prepare periodic reports. <em>Deliverables:</em> Risk register, quarterly reports.</li>
+                 </ul>
+                 <p><strong>Participants:</strong> Neslihan N. Aldıkaçtı (6 PM), Ömer Akkentli (5 PM), Buse Çelik (4 PM). <strong>Total: 15 PM.</strong></p>
+             </blockquote>
+             
+             <blockquote>
+                 <h5>Work Package 2: Research &amp; Development: AOM Core Components</h5>
+                 <p><strong>Objectives:</strong> Develop and validate the three core components of the AOM 2.0 system: (1) Observation, (2) Memory (ABL-D), and (3) Execution.</p>
+                 <p><strong>Description of work:</strong></p>
+                 <ul>
+                     <li><strong>Task 2.1 (M1-M12, 30 PM, lead: T. Çelik):</strong> Component 1: Multimodal Observation Engine. Develop the capture module for visual (screen), interaction (clicks), and audio (prosody) streams. Build the <strong>Privacy-by-Design</strong> pipeline using on-device SLMs for local data processing. <em>Deliverables:</em> Operational Observation Engine (M12), 1.2GB/50 workflow data capture.</li>
+                     <li><strong>Task 2.2 (M1-M18, 25 PM, lead: Kıraç):</strong> Component 2: Intelligent Memory System (ABL-D). Develop the 4-stage ABL-D pipeline (Graph, Explicit, Implicit, Refinement). Implement the 3-tier memory (Working, Episodic, Semantic) to store discovered patterns. <em>Deliverables:</em> ABL-D pipeline validated (M12, M1), 97%+ data reduction.</li>
+                     <li><strong>Task 2.3 (M6-M18, 15 PM, lead: Kıraç):</strong> Component 3: Adaptive Execution Engine. Develop the <strong>MemGPT + Reflexion</strong> continuous learning loop (HITL Correction $\rightarrow$ Reflexion $\rightarrow$ MemGPT Update). Build the Confidence-Based Routing (Autonomous, Assisted, Human). <em>Deliverables:</em> Production-ready Execution Engine (M18, M2), >95% accuracy in tests.</li>
+                 </ul>
+                 <p><strong>Participants:</strong> Mustafa Kıraç (18 PM), Tuğçe Çelik (30 PM), Alper Gürel (9 PM), Doğukan Kıralı (9 PM), Buse Çelik (4 PM). <strong>Total: 70 PM.</strong></p>
+             </blockquote>
+             
+             <blockquote>
+                 <h5>Work Package 3: System Integration &amp; TRL 6 Pilot Validation</h5>
+                 <p><strong>Objectives:</strong> Integrate all three AOM components into a unified system and achieve TRL 6 by demonstrating the system in a relevant operational environment with lighthouse customers.</p>
+                 <p><strong>Description of work:</strong></p>
+                 <ul>
+                     <li><strong>Task 3.1 (M19-M22, 10 PM, lead: Kıraç):</strong> Full system integration—integrate Observation (WP2.1) + Memory/ABL-D (WP2.2) + Execution (WP2.3). Deploy on Gengage's secure EU infrastructure. <em>Deliverables:</em> Integrated system, performance benchmarks met.</li>
+                     <li><strong>Task 3.2 (M23-M24, 10 PM, lead: Gürel):</strong> TRL 6 Pilot Validation—deploy with lighthouse customers (e.g., Beko, Kingfisher). Replicate and validate "Maria's Pilot" KPIs (60-70% autonomy, 95%+ accuracy, 4-8 week deployment). <em>Deliverables:</em> TRL 6 achieved (M4), Final Pilot Report with 144% ROI case study.</li>
+                 </ul>
+                 <p><strong>Participants:</strong> Mustafa Kıraç (6 PM), Alper Gürel (5 PM), Doğukan Kıralı (5 PM), Tuğçe Çelik (4 PM). <strong>Total: 20 PM.</strong></p>
+             </blockquote>
+             
+             <blockquote>
+                 <h5>Work Package 4: Business Development &amp; Go-to-Market</h5>
+                 <p><strong>Objectives:</strong> Validate the business model, secure lighthouse customers (starting with Gengage's network), and validate the 5-year revenue model.</p>
+                 <p><strong>Description of work:</strong></p>
+                 <ul>
+                     <li><strong>Task 4.1 (M1-M24, 8 PM, lead: Akkentli):</strong> Lighthouse customer acquisition—execute GTM strategy, convert existing Gengage clients (Beko, etc.) to pilots. Target new verticals (Finance, Health, Legal). <em>Deliverables:</em> 1-5 lighthouse customers (M18, M3), validate €1.2M Y1 ARR model.</li>
+                     <li><strong>Task 4.2 (M1-M24, 5 PM, lead: Akkentli):</strong> Strategic GTM ("European Advantage")—Develop marketing based on our GDPR/Privacy-by-Design moat (18-24mo barrier).</li>
+                     <li><strong>Task 4.3 (M1-M24, 2 PM, lead: A.N. Ayan):</strong> Business plan development—draft (M12) and final (M24) business plans based on validated pilot ROI data (144% ROI, 4.9mo break-even). <em>Deliverables:</em> Draft plan (M12), final plan (M24).</li>
+                 </ul>
+                 <p><strong>Participants:</strong> Ömer Akkentli (8 PM), Buse Çelik (4 PM), Aslı Nur Ayan (3 PM). <strong>Total: 15 PM.</strong></p>
+             </blockquote>
+             
+             <blockquote>
+                 <h5>Work Package 5: Dissemination &amp; Exploitation</h5>
+                 <p><strong>Objectives:</strong> Disseminate research findings to the scientific community and ensure the commercial exploitation of the AOM framework by the coordinator, Gengage.</p>
+                 <p><strong>Description of work:</strong></p>
+                 <ul>
+                     <li><strong>Task 5.1 (M1-M24, 3 PM, lead: T. Çelik):</strong> Dissemination planning and activities—dissemination plan (M6), publish papers on ABL-D pipeline and Memory-Augmented Learning loop at top-tier conferences (e.g., NeurIPS, ICML). <em>Deliverables:</em> Plan (M6), 2+ papers, 5+ presentations.</li>
+                     <li><strong>Task 5.2 (M19-M24, 2 PM, lead: Kıraç):</strong> Exploitation & Open Framework—Coordinator (Gengage) will commercially exploit the core IP. We will release non-core components (e.g., semantic action log format) as an open standard to build an ecosystem. <em>Deliverables:</em> Open-source repository (M24), documentation.</li>
+                 </ul>
+                 <p><strong>Participants:</strong> Tuğçe Çelik (3 PM), Mustafa Kıraç (2 PM). <strong>Total: 5 PM.</strong></p>
+             </blockquote>
+             
+             <h4>Table 3.3c: List of Deliverables</h4>
+             
+             <table>
+                 <thead>
+                     <tr>
+                         <th>#</th>
+                         <th>Deliverable Name</th>
+                         <th>Short description</th>
+                         <th>WP #</th>
+                         <th>Lead P.S.N.</th>
+                         <th>Type</th>
+                         <th>Diss. Lvl.</th>
+                         <th>Del. Date (M)</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <td>1.1</td>
+                         <td>Data Management Plan (DMP)</td>
+                         <td>Comprehensive plan covering data collection, storage, processing, sharing, and preservation with GDPR Privacy-by-Design architecture</td>
+                         <td>1</td>
+                         <td>Gengage</td>
+                         <td>DMP</td>
+                         <td>SEN</td>
+                         <td>6</td>
+                     </tr>
+                     <tr>
+                         <td>2.1</td>
+                         <td>ABL-D Pipeline & Observation Engine (TRL 4)</td>
+                         <td>Validated ABL-D pipeline and multimodal capture module, demonstrating discovery of explicit and implicit rules from 50-200 demos</td>
+                         <td>2</td>
+                         <td>Gengage</td>
+                         <td>DEM</td>
+                         <td>SEN</td>
+                         <td>12</td>
+                     </tr>
+                     <tr>
+                         <td>2.2</td>
+                         <td>Memory & Execution Engine (TRL 5)</td>
+                         <td>Production-ready 3-tier memory and Adaptive Execution Engine, demonstrating MemGPT+Reflexion continuous learning loop</td>
+                         <td>2</td>
+                         <td>Gengage</td>
+                         <td>DEM</td>
+                         <td>SEN</td>
+                         <td>18</td>
+                     </tr>
+                     <tr>
+                         <td>3.1</td>
+                         <td>TRL 6 Pilot Validation Report</td>
+                         <td>Final report from lighthouse customer pilots, validating TRL 6 and all KPIs (60-70% autonomy, 95%+ accuracy, 144% ROI)</td>
+                         <td>3</td>
+                         <td>Gengage</td>
+                         <td>R</td>
+                         <td>SEN</td>
+                         <td>24</td>
+                     </tr>
+                     <tr>
+                         <td>4.1</td>
+                         <td>Draft Business Plan including Business Model Canvas</td>
+                         <td>Comprehensive business plan with market analysis, financial projections based on 144% ROI model, and 5-year GTM strategy</td>
+                         <td>4</td>
+                         <td>Gengage</td>
+                         <td>R</td>
+                         <td>SEN</td>
+                         <td>12</td>
+                     </tr>
+                     <tr>
+                         <td>4.2</td>
+                         <td>Final Business Plan with validated market positioning</td>
+                         <td>Updated business plan incorporating TRL 6 pilot data, validated Y1 ARR model, and "European Advantage" GTM strategy</td>
+                         <td>4</td>
+                         <td>Gengage</td>
+                         <td>R</td>
+                         <td>SEN</td>
+                         <td>24</td>
+                     </tr>
+                     <tr>
+                         <td>5.1</td>
+                         <td>Plan for dissemination and communication activities</td>
+                         <td>Comprehensive plan identifying target audiences (scientific, commercial), channels, key messages (e.g., ABL-D), and dissemination timeline</td>
+                         <td>5</td>
+                         <td>Gengage</td>
+                         <td>R</td>
+                         <td>PU</td>
+                         <td>6</td>
+                     </tr>
+                 </tbody>
+             </table>
+             
+             <h4>Table 3.3d: List of Milestones</h4>
+             
+             <p><em>Note: Detailed milestone descriptions and KPIs are provided in Section 3.2. This table provides summary reference.</em></p>
+             
+             <table>
+                 <thead>
+                     <tr>
+                         <th>M</th>
+                         <th>Description</th>
+                         <th>Rltd WP</th>
+                         <th>Due date (M)</th>
+                         <th>Verification (KPI)</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <td>M1</td>
+                         <td>ABL-D Pipeline Validated (TRL 4-5)</td>
+                         <td>WP2</td>
+                         <td>12</td>
+                         <td>ABL-D pipeline autonomously deduces all explicit/implicit rules from 50-200 demos</td>
+                     </tr>
+                     <tr>
+                         <td>M2</td>
+                         <td>Memory-Augmented Learning Deployed</td>
+                         <td>WP2</td>
+                         <td>18</td>
+                         <td>System logs show persistent learning from HITL corrections via MemGPT Tier-3 update</td>
+                     </tr>
+                     <tr>
+                         <td>M3</td>
+                         <td>Lighthouse Pilots Secured & Y1 Model Validated</td>
+                         <td>WP4</td>
+                         <td>18</td>
+                         <td>1-5 signed lighthouse customer agreements; 4-8 week deployment time validated</td>
+                     </tr>
+                     <tr>
+                         <td>M4</td>
+                         <td>TRL 6: System Demonstrated in Operational Environment</td>
+                         <td>WP3</td>
+                         <td>24</td>
+                         <td>Final pilot report confirms all KPIs (60-70% autonomy, 95%+ accuracy, 4.9mo ROI)</td>
+                     </tr>
+                 </tbody>
+             </table>
+             
+             <h4>Table 3.3e: Critical Risks for Implementation</h4> <span class="tag"> #@RSK-MGT-RM@#</span>
+             
+             <p><em>Note: Detailed risk descriptions and mitigation measures are provided in Section 3.2. This table provides summary reference.</em></p>
+             
+             <table>
+                 <thead>
+                     <tr>
+                         <th>Risk</th>
+                         <th>WP(s) invl.</th>
+                         <th>Mitigation</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <td><strong>RISK 1:</strong> ABL-D Fails to Discover Tacit Knowledge<br>Likelihood: Medium | Severity: High</td>
+                         <td>WP2</td>
+                         <td>Staged pipeline (explicit rules are fallback), redundant multimodal signals, fallback to "Assisted" routing</td>
+                     </tr>
+                     <tr>
+                         <td><strong>RISK 2:</strong> Memory-Augmented Learning Fails to Generalize<br>Likelihood: Medium | Severity: High</td>
+                         <td>WP2, WP3</td>
+                         <td>MemGPT+Reflexion loop is designed for generalization, human (HITL) review of generalizations, progressive A/B testing</td>
+                     </tr>
+                     <tr>
+                         <td><strong>RISK 3:</strong> Pilot Failure (The 95% AI Failure Rate)<br>Likelihood: Low | Severity: High</td>
+                         <td>WP3, WP4</td>
+                         <td>AOM methodology avoids #1 cause of failure (API friction), 4-8 week deployment de-risks failure early</td>
+                     </tr>
+                     <tr>
+                         <td><strong>RISK 4:</strong> GDPR Compliance Failure<br>Likelihood: Low | Severity: High</td>
+                         <td>WP1, WP3</td>
+                         <td><strong>Privacy-by-Design</strong> architecture is the mitigation, <strong>on-device SLMs</strong> process PII locally, <strong>zero cloud surveillance</strong>, third-party audit</td>
+                     </tr>
+                 </tbody>
+             </table>
+             <span class="tag">#§RSK-MGT-RM§#
+             </span>
+             <h4>Table 3.3f: Summary of Staff Effort</h4>
+             
+             <table>
+                 <thead>
+                     <tr>
+                         <th>Participant Number/Short Name</th>
+                         <th>WP1</th>
+                         <th>WP2</th>
+                         <th>WP3</th>
+                         <th>WP4</th>
+                         <th>WP5</th>
+                         <th>Total Person-Months</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <td>1 / Gengage</td>
+                         <td>15</td>
+                         <td>70</td>
+                         <td>20</td>
+                         <td>15</td>
+                         <td>5</td>
+                         <td>125</td>
+                     </tr>
+                     <tr>
+                         <td><strong>Total Person Months</strong></td>
+                         <td><strong>15</strong></td>
+                         <td><strong>70</strong></td>
+                         <td><strong>20</strong></td>
+                         <td><strong>15</strong></td>
+                         <td><strong>5</strong></td>
+                         <td><strong>125</strong></td>
+                     </tr>
+                 </tbody>
+             </table>
+             
+             <h4>Additional Cost Categories</h4>
+             
+             <p><strong>Subcontracting costs:</strong> The project does not include subcontracting costs. All core R&D tasks are performed by the coordinator's team (Gengage).</p>
+             
+             <p><strong>Purchase costs:</strong> Purchase costs (travel and subsistence, equipment, other goods, works and services) are below 15% of personnel costs. Detailed justification is provided in the budget table in Part A.</p>
+             
+             <p><strong>Other cost categories:</strong> The project does not include costs under other cost categories.</p>
+             
+             <p><strong>In-kind contributions:</strong> The project does not include in-kind contributions from third parties. All resources are provided by the coordinator.</p>
+             
+             <h4>Lump Sum Detailed Budget Table</h4>
+             
+             <p>Total requested funding: €500,000 over 24 months, allocated across personnel costs, infrastructure, AI compute expenses, pilot deployment, and compliance support.</p>
+             
+             <div class="budget-integrated">
+                 <div class="budget-item">
+                     <div class="budget-item-header">
+                         <div class="budget-item-label">
+                             <i data-lucide="users"></i>
+                             <strong>Personnel Costs</strong>
+                         </div>
+                         <div class="budget-item-amount">€320,000 <span class="budget-percentage">(64%)</span></div>
+                     </div>
+                     <div class="budget-bar">
+                         <div class="budget-bar-fill" style="width: 64%;"></div>
+                     </div>
+                     <div class="budget-item-description">
+                         Core team of 7 positions (125 person-months total over 24 months). Average rate of €2,560 per person-month. Personnel costs represent 64% of total budget, reflecting deep-tech project balance between human resources and R&D infrastructure.
+                     </div>
+                 </div>
+                 
+                 <div class="budget-item">
+                     <div class="budget-item-header">
+                         <div class="budget-item-label">
+                             <i data-lucide="server"></i>
+                             <strong>Infrastructure &amp; Cloud Services</strong>
+                         </div>
+                         <div class="budget-item-amount">€60,000 <span class="budget-percentage">(12%)</span></div>
+                     </div>
+                     <div class="budget-bar">
+                         <div class="budget-bar-fill" style="width: 12%;"></div>
+                     </div>
+                     <div class="budget-item-description">
+                         EU-hosted infrastructure ensuring data sovereignty and GDPR/AI Act compliance. Includes cloud hosting for the central Memory System, storage, and network infrastructure.
+                     </div>
+                 </div>
+                 
+                 <div class="budget-item">
+                     <div class="budget-item-header">
+                         <div class="budget-item-label">
+                             <i data-lucide="cpu"></i>
+                             <strong>AI Compute &amp; Model Development</strong>
+                         </div>
+                         <div class="budget-item-amount">€50,000 <span class="budget-percentage">(10%)</span></div>
+                     </div>
+                     <div class="budget-bar">
+                         <div class="budget-bar-fill" style="width: 10%;"></div>
+                     </div>
+                     <div class="budget-item-description">
+                         AI compute expenses including development and testing of the ABL-D pipeline, on-device SLM testing, and the MemGPT+Reflexion loops. Includes GPU instances and VLM API costs.
+                     </div>
+                 </div>
+                 
+                 <div class="budget-item">
+                     <div class="budget-item-header">
+                         <div class="budget-item-label">
+                             <i data-lucide="user-check"></i>
+                             <strong>Lighthouse Pilot Deployment</strong>
+                         </div>
+                         <div class="budget-item-amount">€40,000 <span class="budget-percentage">(8%)</span></div>
+                     </div>
+                     <div class="budget-bar">
+                         <div class="budget-bar-fill" style="width: 8%;"></div>
+                     </div>
+                     <div class="budget-item-description">
+                         Costs associated with deploying the TRL 6 pilot with 1-5 lighthouse customers. Includes secure on-premise/VPC setup, integration support, and KPI validation (replicating the "Maria's Pilot").
+                     </div>
+                 </div>
+                 
+                 <div class="budget-item">
+                     <div class="budget-item-header">
+                         <div class="budget-item-label">
+                             <i data-lucide="shield-check"></i>
+                             <strong>Compliance, Legal &amp; IP Protection</strong>
+                         </div>
+                         <div class="budget-item-amount">€15,000 <span class="budget-percentage">(3%)</span></div>
+                     </div>
+                     <div class="budget-bar">
+                         <div class="budget-bar-fill" style="width: 3%;"></div>
+                     </div>
+                     <div class="budget-item-description">
+                         Third-party <strong>GDPR Art. 25 (Privacy-by-Design) audit</strong>. AI Act compliance certification, IP protection (trade secrets) for the ABL-D pipeline, and DNSH certification.
+                     </div>
+                 </div>
+                 
+                 <div class="budget-item">
+                     <div class="budget-item-header"> <div class="budget-item-label">
+                             <i data-lucide="wrench"></i>
+                             <strong>R&amp;D Equipment &amp; Testing</strong>
+                         </div>
+                         <div class="budget-item-amount">€15,000 <span class="budget-percentage">(3%)</span></div>
+                     </div>
+                     <div class="budget-bar">
+                         <div class="budget-bar-fill" style="width: 3%;"></div>
+                     </div>
+                     <div class="budget-item-description">
+                         Development workstations, software licenses, and testing devices (for on-device SLM validation). Supports AOM component development (WP2) and validation (WP3).
+                     </div>
+                 </div>
+                 
+                 <div class="budget-total">
+                     <div class="budget-total-label">
+                         <i data-lucide="calculator"></i>
+                         <strong>Total Project Budget</strong>
+                     </div>
+                     <div class="budget-total-amount">€500,000</div>
+                 </div>
+             </div>
+             
+             <p><strong>Clinical Trials: Annex with Information on Clinical Trials:</strong> <strong>Not Applicable.</strong> This project does not involve clinical trials.</p>
+             
+             <p><strong>Ethics: Ethics Self-Assessment:</strong> The project's core "European Advantage" is its <strong>Privacy-by-Design</strong> architecture, ensuring full compliance with <strong>GDPR</strong> and the <strong>EU AI Act</strong>. All sensitive personal data (screen pixels, raw audio) is processed <strong>on-device via SLMs</strong>. <strong>Zero cloud surveillance</strong> occurs; only anonymized, structured event logs are transmitted. <strong>Transparency:</strong> The ABL-D pipeline provides auditable logic, and the HITL loop ensures human oversight. <strong>Bias mitigation:</strong> Audits of discovered implicit patterns (e.g., audio prosody correlations) will be conducted to prevent algorithmic bias. <strong>DNSH compliance:</strong> On-device processing is more energy-efficient than cloud streaming, reducing the carbon footprint.</p>
+             
+             <span class="tag">#§QUA-LIT-QL§# #§WRK-PLA-WP§#</span>
+             <script>
+                 lucide.createIcons();
+             </script>
+         
+    
 
     </div></body>
 </html>
